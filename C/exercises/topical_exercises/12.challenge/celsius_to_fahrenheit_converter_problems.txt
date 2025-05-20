@@ -1,0 +1,49 @@
+LEVEL 1
+make a program that takes a Fahrenheit temperature value from the user as an argument, and returns the temperature converted to Celius.
+ex: ./this_program 32
+>> 0 C
+
+LEVEL 2
+make it so that the program takes two arguments, a number and a letter (either C or F). if C is provided, convert the value to F, or vice versa
+ex: ./this_program 32 F
+>> 0 C
+
+LEVEL 3
+Do level 1 again, but instead of taking the temperature as an argument, don't take any user args, and instead prompt the user for input, and store it with scanf.
+ex: ./this program
+>> temperature to convert: 32
+>> 0 C
+
+LEVEL 4
+do level 3, but now prompt the user to provide a number and letter (like in level 2), and convert appropriately
+ex: ./this_program
+>> temperature to convert: 32 F
+>> 0 C
+
+LEVEL 5
+do level 4, but this time, don't exit after providing the response. Instead, ask the user if they'd like to provide another value. Keep taking values and providing responses
+until the user indicates they are done.
+ex: ./this_program
+>> temperature to convert: 32 F
+>> 0 C
+>> would you like to convert another value?: y
+>> temperature to convert : 0 C
+>> 32 F
+>> would you like to convert another value?: n
+>> exiting...
+
+LEVEL 6
+lets get serious. do level 5, but now include an optional output log file flag: -o. If the user provides this flag, the temperatures the user provides and their conversions
+should be logged to the file specified by the user.
+
+LEVEL 7
+level 6 but now the program will have a main menu. If the user chooses to convert temperatures, they can select that option and get the functionality they've been getting
+since level 5. The menu should also include a help command, an exit command, and a history command. The history command will show the user every temperature conversion they've
+done so far. history will be tracked by storing temperature conversion entries in a linked list.
+
+LEVEL 8
+level 7 but now the program will open a listener port on startup. The exact port will be passed in as an argument from the user. If no port is given, it should listen on a hardcoded, 
+default port of your choosing. The user should then be able to connect to the program via netcat. Once connected, it should function exactly like it did in level 7. 
+The logging utility should still work, but you don't need to transmit the log file over the netcat connection. (You can if you really want to, but that point you should probably just 
+work on the capstone :P)
+

@@ -1,0 +1,135 @@
+version: '3.8'
+
+services:
+  target1:
+    image: ubuntu:latest
+    container_name: target1
+    hostname: target1
+    command: > 
+      /bin/sh -c "
+        apt-get update && 
+        apt-get install -y net-tools coreutils vim wget curl openssh-server apache2 && 
+        echo PermitRootLogin yes >> /etc/ssh/sshd_config &&
+        echo EnableEscapeCommandline yes >> /etc/ssh/ssh_config &&
+        echo GatewayPorts yes >> /etc/ssh/sshd_config &&
+        sed -i 's/Listen 80/Listen 1337/' /etc/apache2/ports.conf && 
+        sed -i 's/:80/:1337/' /etc/apache2/sites-available/000-default.conf && 
+        echo 'root:password' | chpasswd && 
+        service ssh start && 
+        service apache2 start && 
+        tail -f /dev/null
+        "
+    networks:
+      net1:
+        ipv4_address: 10.10.20.101
+    ports:
+      - 127.0.0.1:5000-5010:5000-5010
+    volumes:
+      - ./target1:/var/www/html
+      - ./target1/bashrc:/root/.bashrc:ro
+      - ./ssh_keys/id_rsa.pub:/root/.ssh/authorized_keys:ro
+      - ./ssh_keys/id_rsa:/root/.ssh/id_rsa:ro
+
+      
+  target2:
+    image: ubuntu:latest
+    container_name: target2
+    hostname: target2
+    command: > 
+      /bin/sh -c "
+        apt-get update && 
+        apt-get install -y net-tools coreutils vim wget curl openssh-server apache2 && 
+        echo PermitRootLogin yes >> /etc/ssh/sshd_config &&
+        echo EnableEscapeCommandline yes >> /etc/ssh/ssh_config &&
+        echo GatewayPorts yes >> /etc/ssh/sshd_config &&
+        sed -i 's/Listen 80/Listen 8082/' /etc/apache2/ports.conf && 
+        sed -i 's/:80/:8082/' /etc/apache2/sites-available/000-default.conf && 
+        echo 'root:password' | chpasswd && 
+        service ssh start && 
+        service apache2 start && 
+        tail -f /dev/null
+        "
+    networks:
+      net1:
+        ipv4_address: 10.10.20.102
+      net2:
+        ipv4_address: 10.10.30.71
+    volumes:
+      - ./target2/bashrc:/root/.bashrc:ro
+      - ./target2:/var/www/html:ro
+      - ./ssh_keys/id_rsa.pub:/root/.ssh/authorized_keys:ro
+
+  target3:
+    image: ubuntu:latest
+    container_name: target3
+    hostname: target3
+    command: > 
+      /bin/sh -c "
+        apt-get update && 
+        apt-get install -y net-tools coreutils vim wget curl openssh-server apache2 && 
+        echo PermitRootLogin yes >> /etc/ssh/sshd_config &&
+        echo EnableEscapeCommandline yes >> /etc/ssh/ssh_config &&
+        echo GatewayPorts yes >> /etc/ssh/sshd_config &&
+        sed -i 's/Listen 80/Listen 8083/' /etc/apache2/ports.conf && 
+        sed -i 's/:80/:8083/' /etc/apache2/sites-available/000-default.conf && 
+        echo 'root:password' | chpasswd && 
+        service ssh start && 
+        service apache2 start && 
+        tail -f /dev/null
+        "
+    networks:
+      net2:
+        ipv4_address: 10.10.30.72
+      net3:
+        ipv4_address: 192.168.40.141
+    volumes:
+      - ./target3:/var/www/html
+      - ./target3/bashrc:/root/.bashrc:ro
+      - ./ssh_keys/id_rsa.pub:/root/.ssh/authorized_keys:ro
+
+  target4:
+    image: ubuntu:latest
+    container_name: target4
+    hostname: target4
+    command: > 
+      /bin/sh -c "
+        apt-get update && 
+        apt-get install -y net-tools coreutils vim wget curl openssh-server apache2 && 
+        echo PermitRootLogin yes >> /etc/ssh/sshd_config &&
+        echo EnableEscapeCommandline yes >> /etc/ssh/ssh_config &&
+        echo GatewayPorts yes >> /etc/ssh/sshd_config &&
+        sed -i 's/Listen 80/Listen 8084/' /etc/apache2/ports.conf && 
+        sed -i 's/:80/:8084/' /etc/apache2/sites-available/000-default.conf && 
+        echo 'root:password' | chpasswd && 
+        service ssh start && 
+        service apache2 start && 
+        tail -f /dev/null
+        "
+    networks:
+      net3:
+        ipv4_address: 192.168.40.142
+    ports:
+      - 1337:1337
+    volumes:
+      - ./target4:/var/www/html
+      - ./target4/bashrc:/root/.bashrc:ro
+      - ./ssh_keys/id_rsa.pub:/root/.ssh/authorized_keys:ro
+
+networks:
+  net1:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.10.20.0/24
+
+  net2:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.10.30.0/24
+
+  net3:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 192.168.40.0/24

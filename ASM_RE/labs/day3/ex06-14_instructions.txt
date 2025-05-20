@@ -1,0 +1,14 @@
+Binaries 6-14 are all structured in the same fashion.
+
+Your goal is to figure out the password and unlock the program.
+
+Each exercise is progressively more difficult and abstract. Your
+        instructor can provide the sourcecode for each application 
+        after a period of time to help assist you in your reverse
+        engineering progress.
+
+Hint: Not all binaries have ONLY 1 solution. Sometimes, you just
+        need to build the right string to solve the math.
+
+Hint: Not all passwords are funny sounding strings. Don't get too
+        trained to look for solid strings or funny phrases.

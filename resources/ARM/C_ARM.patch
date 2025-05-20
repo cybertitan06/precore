@@ -1,0 +1,36 @@
+diff --git a/C/roadrunner/CMakeLists.txt b/C/roadrunner/CMakeLists.txt
+index 842430e..e252b61 100644
+--- a/C/roadrunner/CMakeLists.txt
++++ b/C/roadrunner/CMakeLists.txt
+@@ -1,6 +1,8 @@
+ # min version of CMAKE for this to work properly
+ cmake_minimum_required(VERSION 3.12)
+ 
++set (CMAKE_C_COMPILER "x86_64-linux-gnu-gcc")
++
+ # set the project name and version
+ project(RoadRunner VERSION 1.0)
+ 
+diff --git a/C/roadrunner/scripts/test b/C/roadrunner/scripts/test
+index fb2fd3c..00f5cfb 100755
+--- a/C/roadrunner/scripts/test
++++ b/C/roadrunner/scripts/test
+@@ -21,7 +21,7 @@ then
+ fi
+ 
+ # execute our test suite executable
+-./test/bin/Test
++qemu-x86_64 -L /usr/x86_64-linux-gnu ./test/bin/Test
+ 
+ if [ $? -ne 0 ]
+ then
+@@ -51,7 +51,7 @@ fi
+ if [ $? -eq 0 ]
+ then
+     echo "RUNNING INTEGRATION TESTS"
+-    valgrind --leak-check=full ./bin/RoadRunner &
+-    ./integration/bin/Integration
++    qemu-x86_64 -L /usr/x86_64-linux-gnu/ ./bin/RoadRunner &
++    qemu-x86_64 -L /usr/x86_64-linux-gnu/ ./integration/bin/Integration
+     pkill memcheck*
+ fi

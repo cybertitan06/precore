@@ -1,0 +1,197 @@
+* PIC Programming on RPi
+1. Install Raspbian Lite OS on SD Card
+   1. Using RPI Imager
+   2. Make sure to add ssh to to the boot partition
+   3. Update user password using 
+#+BEGIN_SRC bash
+sudo raspi-config
+#+END_SRC
+2. Install SDCC
+3. Install Pickle
+
+** PICKLE
+1. Install pickle
+#+BEGIN_SRC 
+wget "https://wiki.kewl.org/downloads/pickle-5.01.tgz"
+tar zxf pickle-5.01.tgz
+cd pickle
+make linux
+sudo make linux-install
+#+END_SRC
+
+2. Install BitBang Driver
+   1. Install the dependencies
+#+BEGIN_SRC 
+sudo apt install mercurial
+#+END_SRC
+   2. Install the module
+#+BEGIN_SRC 
+apt install raspberrypi-kernel-headers
+hg clone http://hg.kewl.org/pub/gpio-bb
+cd gpio-bb
+make
+make install
+#+END_SRC
+
+*** Usage
+    Get the ID
+    #+begin_src bash
+      p14 id
+    #+end_src
+    
+
+*** Notes
+    [[https://ww1.microchip.com/downloads/en/DeviceDoc/41287D.pdf][Memory Programming Spec]]
+
+    From MP lab programmer
+
+[0000] 2FFE 3FFF 3FFF 3FFF 3FFF 3FFF 3FFF 3FFF ........
+[07C0] 3FFF 3FFF 3FFF 3006 00F3 3000 00F4 30FD ........
+[07C8] 00F0 0870 1683 1303 0586 30FD 00F0 0870 .p.....p
+[07D0] 1283 1303 0586 0873 0084 1783 1C74 1383 ...s..t.
+[07D8] 1480 3002 00F2 3004 00F1 30BA 00F0 0BF0 ........
+[07E0] 2FDF 0BF1 2FDF 0BF2 2FDF 0000 30FD 00F0 ........
+[07E8] 0873 0084 1783 1C74 1383 0870 0580 3002 s..t.p..
+[07F0] 00F2 3004 00F1 30BA 00F0 0BF0 2FF5 0BF1 ........
+[07F8] 2FF5 0BF2 2FF5 0000 2FD3 2800 0183 2FC3 ........
+
+:020000040000FA
+:10000000FE2FFF3FFF3FFF3FFF3FFF3FFF3FFF3F11
+:100F8000FF3FFF3FFF3F0630F3000030F400FD302D
+:100F9000F0007008831603138605FD30F00070081A
+:100FA000831203138605730884008317741C83134C
+:100FB00080140230F2000430F100BA30F000F00B7F
+:100FC000DF2FF10BDF2FF20BDF2F0000FD30F000E1
+:100FD000730884008317741C831370088005023023
+:100FE000F2000430F100BA30F000F00BF52FF10BF5
+:100FF000F52FF20BF52F0000D32F00288301C32F0C
+:020000040000FA
+:020000040000FA
+:02400000FF3F80
+:02400200FF3F7E
+:02400400FF3F7C
+:02400600FF3F7A
+:02400E00FD3F74
+:02401000FF3E71
+:00000001FF
+
+pic14_verify_data: error: read [3000] expected [3006] at [07C5]
+pic14_verify_data: error: read [00F4] expected [00F3] at [07C6]
+pic14_verify_data: error: read [30FD] expected [3000] at [07C7]
+pic14_verify_data: error: read [00F0] expected [00F4] at [07C8]
+pic14_verify_data: error: read [0870] expected [30FD] at [07C9]
+pic14_verify_data: error: read [1683] expected [00F0] at [07CA]
+pic14_verify_data: error: read [1303] expected [0870] at [07CB]
+pic14_verify_data: error: read [0586] expected [1683] at [07CC]
+pic14_verify_data: error: read [30FD] expected [1303] at [07CD]
+pic14_verify_data: error: read [00F0] expected [0586] at [07CE]
+pic14_verify_data: error: read [0870] expected [30FD] at [07CF]
+pic14_verify_data: error: read [1283] expected [00F0] at [07D0]
+pic14_verify_data: error: read [1303] expected [0870] at [07D1]
+pic14_verify_data: error: read [0586] expected [1283] at [07D2]
+pic14_verify_data: error: read [0873] expected [1303] at [07D3]
+pic14_verify_data: error: read [0084] expected [0586] at [07D4]
+pic14_verify_data: error: read [1783] expected [0873] at [07D5]
+pic14_verify_data: error: read [1C74] expected [0084] at [07D6]
+pic14_verify_data: error: read [1383] expected [1783] at [07D7]
+pic14_verify_data: error: read [1480] expected [1C74] at [07D8]
+pic14_verify_data: error: read [3002] expected [1383] at [07D9]
+pic14_verify_data: error: read [00F2] expected [1480] at [07DA]
+pic14_verify_data: error: read [3004] expected [3003] at [07DB]
+pic14_verify_data: error: read [00F1] expected [00F2] at [07DC]
+pic14_verify_data: error: read [30BA] expected [3008] at [07DD]
+pic14_verify_data: error: read [00F0] expected [00F1] at [07DE]
+pic14_verify_data: error: read [0BF0] expected [3077] at [07DF]
+pic14_verify_data: error: read [2FDF] expected [00F0] at [07E0]
+pic14_verify_data: error: read [0BF1] expected [0BF0] at [07E1]
+pic14_verify_data: error: read [2FDF] expected [2FE1] at [07E2]
+pic14_verify_data: error: read [0BF2] expected [0BF1] at [07E3]
+pic14_verify_data: error: read [2FDF] expected [2FE1] at [07E4]
+pic14_verify_data: error: read [0000] expected [0BF2] at [07E5]
+pic14_verify_data: error: read [30FD] expected [2FE1] at [07E6]
+pic14_verify_data: error: read [00F0] expected [30FD] at [07E7]
+pic14_verify_data: error: read [0873] expected [00F0] at [07E8]
+pic14_verify_data: error: read [0084] expected [0873] at [07E9]
+pic14_verify_data: error: read [1783] expected [0084] at [07EA]
+pic14_verify_data: error: read [1C74] expected [1783] at [07EB]
+pic14_verify_data: error: read [1383] expected [1C74] at [07EC]
+pic14_verify_data: error: read [0870] expected [1383] at [07ED]
+pic14_verify_data: error: read [0580] expected [0870] at [07EE]
+pic14_verify_data: error: read [3002] expected [0580] at [07EF]
+pic14_verify_data: error: read [00F2] expected [3003] at [07F0]
+pic14_verify_data: error: read [3004] expected [00F2] at [07F1]
+pic14_verify_data: error: read [00F1] expected [3008] at [07F2]
+pic14_verify_data: error: read [30BA] expected [00F1] at [07F3]
+pic14_verify_data: error: read [00F0] expected [3077] at [07F4]
+pic14_verify_data: error: read [0BF0] expected [00F0] at [07F5]
+pic14_verify_data: error: read [2FF5] expected [0BF0] at [07F6]
+pic14_verify_data: error: read [0BF1] expected [2FF6] at [07F7]
+pic14_verify_data: error: read [2FF5] expected [0BF1] at [07F8]
+pic14_verify_data: error: read [0BF2] expected [2FF6] at [07F9]
+pic14_verify_data: error: read [2FF5] expected [0BF2] at [07FA]
+pic14_verify_data: error: read [0000] expected [2FF6] at [07FB]
+pic14_verify_data: error: read [2FD3] expected [2FD5] at [07FC]
+pic14_verify_data: error: read [2FC3] expected [2FC5] at [07FF]
+
+fix pickle by changing line 195 of pic14.c so that the latch size is 4 instead of 8
+
+:02000000FE2FD1
+:100F86000630F3000030F400FD30F00070088316E0
+:100F960003138605FD30F0007008831203138605DF
+:100FA600730884008317741C831380140230F200C4
+:100FB6000430F100BA30F000F00BDF2FF10BDF2F19
+:100FC600F20BDF2F0000FD30F0007308840083175A
+:100FD600741C8313700880050230F2000430F1009F
+:100FE600BA30F000F00BF52FF10BF52FF20BF52FC1
+:0A0FF6000000D32F00288301C32F51
+:08400000FF3FFF3FFF3FFF3FC0
+:04400E00FD3FFF3E35
+:00000001FF
+
+:02000000FE2FD1
+:100F86000630F3000030F400FD30F00070088316E0
+:100F960003138605FD30F0007008831203138605DF
+:100FA600730884008317741C831380140230F200C4
+:100FB6000430F100BA30F000F00BDF2FF10BDF2F19
+:100FC600F20BDF2F0000FD30F0007308840083175A
+:100FD600741C8313700880050230F2000430F1009F
+:100FE600BA30F000F00BF52FF10BF52FF20BF52FC1
+:0A0FF6000000D32F00288301C32F51
+:08400000FF3FFF3FFF3FFF3FC0
+:04400E00ED2FFF3E55
+:00000001FF
+
+
+** MPLAB X IDE
+
+
+
+** SDCC
+1. Install dependencies
+#+BEGIN_SRC bash
+sudo apt-get install -y bison flex g++ libboost-dev texinfo autoconf
+#+END_SRC
+
+2. Install the newest gputils
+#+BEGIN_SRC 
+cd ~
+wget "https://downloads.sourceforge.net/project/gputils/gputils/1.5.0/gputils-1.5.2.tar.gz"
+tar xzvf gputils-1.5.2.tar.gz
+cd gputils-1.5.2
+./configure && make && sudo make install
+gpasm -v
+#+END_SRC
+
+3. Install SDCC
+#+BEGIN_SRC 
+cd ~
+wget "https://downloads.sourceforge.net/project/sdcc/sdcc/4.1.0/sdcc-src-4.1.0.tar.bz2"
+tar xzjf sdcc-src-4.1.0.tar.bz2
+cd sdcc
+./configure && make && sudo make install
+sdcc -v
+#+END_SRC
+
+
+** ftp
+edit /etc/dhcpcd.conf to add ip fallback

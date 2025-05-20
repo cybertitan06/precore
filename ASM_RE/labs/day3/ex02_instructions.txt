@@ -1,0 +1,6 @@
+A binary is provided to you (ex2) and it prints out a encoded message.
+
+Reverse engineer the binary and answer the questions below!
+
+1. What's the original message that's being encoded?
+2. What is the 'encoding' that's happening?

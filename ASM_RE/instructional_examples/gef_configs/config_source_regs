@@ -1,0 +1,4 @@
+start
+gef config context.layout "source -stack regs -code -legend -args -memory -threads -trace -extra"
+gef config context.ignore_registers "$cs $ds $gs $fs $es $ss $eip $eflags"
+context

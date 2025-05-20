@@ -1,0 +1,6 @@
+A binary is provided to you (ex3) and it prints out a encoded message.
+
+Reverse engineer the binary and answer the questions below!
+
+1. What message is expected to print out?
+2. There's no encoding in ex3, so why doesn't the message print out?

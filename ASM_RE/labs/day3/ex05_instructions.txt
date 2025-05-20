@@ -1,0 +1,8 @@
+A binary is provided to you (ex5) and it prints out a encoded message.
+
+Reverse engineer the binary and answer the questions below!
+
+1. What happens to the password provided to the program?
+2. What is being compared inside the program to unlock it?
+3. Decode the password inside the program.
+4. The program has a decoding algorithm. Take that algorithm and reproduce it in python or C. Decode the string "\x51\x25\x31\x06\x19\x22\x1b\x70\x16\x23\x2e\x70\x23\x22\x70\x1f\x23\x24\x0a\x19\x22\x1b\x70\x19\x0c\x71\x90"

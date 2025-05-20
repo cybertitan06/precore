@@ -1,0 +1,6 @@
+A binary is provided to you (ex4) and it prints out a encoded message.
+
+Reverse engineer the binary and answer the questions below!
+
+1. What message is expected to print out?
+2. Encoding was once again applied to ex4. What encoding mechanism is used? What function does it exist inside of?

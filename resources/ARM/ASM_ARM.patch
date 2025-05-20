@@ -1,0 +1,67 @@
+diff --git a/ASM_RE/instructional_examples/compile.sh b/ASM_RE/instructional_examples/compile.sh
+index b5f66f7..026625e 100755
+--- a/ASM_RE/instructional_examples/compile.sh
++++ b/ASM_RE/instructional_examples/compile.sh
+@@ -21,7 +21,11 @@ ARCH=$(echo "$FILE" | cut -d'.' -f2)
+ yasm -felf$ARCH -g dwarf2 $FILE
+ 
+ # Compile an executable from the object file with gcc such as `gcc -m32 -fno-stack-protector -fno-pie -O0 -o mov "mov.32.o
+-gcc -m$ARCH -fno-stack-protector -fno-pie -O0 -o $PROGRAM_NAME "$PROGRAM_NAME.$ARCH.o"
++if [ "$ARCH" -eq "32" ]; then
++	i686-linux-gnu-gcc -g -fno-stack-protector -fno-pie -O0 -o $PROGRAM_NAME.$ARCH "$PROGRAM_NAME.$ARCH.o"
++else
++	x86_64-linux-gnu-gcc -g -fno-stack-protector -fno-pie -O0 -o $PROGRAM_NAME.$ARCH "$PROGRAM_NAME.$ARCH.o"
++fi
+ 
+ # delete the unneeded object file
+ rm "$PROGRAM_NAME.$ARCH.o"
+diff --git a/ASM_RE/instructional_examples/gdb_on_ARM.sh b/ASM_RE/instructional_examples/gdb_on_ARM.sh
+new file mode 100755
+index 0000000..7499ddc
+--- /dev/null
++++ b/ASM_RE/instructional_examples/gdb_on_ARM.sh
+@@ -0,0 +1,27 @@
++#!/bin/bash
++
++# Start binary in QEMU user-mode for specified architecture while on ARM
++
++if [[ $# -ne 1 ]]; then
++  echo "Usage: $0 <ELF>"
++  exit 1
++fi
++
++FILE=$1
++
++# Parse the program name and the architecture from the input file
++PROGRAM_NAME=$(basename -- "$FILE" | cut -d'.' -f1)
++ARCH=$(basename -- "$FILE" | cut -d'.' -f2)
++
++# Architecture to tell GDB 
++if [ "$ARCH" -eq "32" ]; then
++	qemu-i386 -g 1234 -L /usr/i686-linux-gnu ./$FILE &
++	ARCH_CMD='set arch i386'
++else
++	qemu-x86_64 -g 1234 -L /usr/x86_64-linux-gnu ./$FILE &
++	ARCH_CMD='set arch i386:x86_64'
++fi
++
++gdb-multiarch -ex "init-gef" -ex "file ./$FILE" -ex "$ARCH_CMD" -ex "gef-remote --qemu-user --qemu-binary ./$FILE localhost 1234" -ex "b main" -ex "c"
++
++
+diff --git a/ASM_RE/instructional_examples/gen_shellcode.sh b/ASM_RE/instructional_examples/gen_shellcode.sh
+index 90a3cfb..c263e72 100755
+--- a/ASM_RE/instructional_examples/gen_shellcode.sh
++++ b/ASM_RE/instructional_examples/gen_shellcode.sh
+@@ -21,7 +21,11 @@ ARCH=$(echo "$FILE" | cut -d'.' -f2)
+ nasm -felf$ARCH -F dwarf $FILE
+ 
+ # Produce shellcode from the object file such as `objdump -S -O binary -j .text XX_reverse_shell.64.asm XX_reverse_shell.shell`
+-objcopy -S -O binary -j .text "$PROGRAM_NAME.$ARCH.o" "$PROGRAM_NAME.shell"
++if [ "$ARCH" -eq "32" ]; then
++	i686-linux-gnu-objcopy -S -O binary -j .text "$PROGRAM_NAME.$ARCH.o" "$PROGRAM_NAME.shell"
++else
++	x86_64-linux-gnu-objcopy -S -O binary -j .text "$PROGRAM_NAME.$ARCH.o" "$PROGRAM_NAME.shell"
++fi
+ 
+ # delete the unneeded object file
+ rm "$PROGRAM_NAME.$ARCH.o"

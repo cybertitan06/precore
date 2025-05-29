@@ -15,7 +15,6 @@ int check_flags(){
     if(!(Flags & 0b0000000100001000)) return 0;
     if(!(Flags & 0b0000010001000000)) return 0;
     if(!(Flags & 0b1000000000100100)) return 0;
-    if(!(Flags & 0b0000000000000000)) return 0;
     return 1;
 }
 

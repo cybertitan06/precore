@@ -14,9 +14,9 @@ int main(int argc, char **argv) {
     char gibberish[100] = "BuffalobuffaloBuffalobuffaloHello World!buffalobuffaloBuffalobuffalo";
     char printMessage[100] = {'\0'};
 
-    char *pHelloLocation = find_hello_world(printMessage);
+    char *pHelloLocation = find_hello_world(gibberish);
 
-    strncpy(printMessage, pHelloLocation, 13);
+    strncpy(printMessage, pHelloLocation, 12);
     printf("Result: %s.\n", printMessage);
 
     return 0;

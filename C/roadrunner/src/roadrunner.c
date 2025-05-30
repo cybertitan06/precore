@@ -34,10 +34,13 @@ static Command *receive_command(int sock_fd);
 int main() 
 {
     // call our hello world function
+    say_hello();
 
     // Agent logic
         // connect
+        connect_to_server();
         // Send checkin
+        
 	// begin main execution loop
         	// receive_command (see Networking section below)
         	// perform_command
@@ -62,6 +65,22 @@ static bool perform_command(Command *cmd, Response **rsp_out)
     // receiving a valid command should result in calling the appropriate command function
     // if the shutdown command is received, an appropriate response should be returned to 
     // the server, then the client should exit
+
+    /* Check if recieved command parameter are valid
+    char* cmd;
+    uint32_t cmd_len;
+    char* args;
+    uint32_t  args_len;
+
+    is the total length of the message an unsigned int32?
+    is cmd_len an unsigned int32?
+    is the length of the args string an unsigned int32?  
+    
+    cmd->cmd_len
+    Input validation for pointers, do I have a Null pointer?
+        NULL != cmd, null != rsp_out
+
+    */
 
     RR_DEBUG_PRINT("received: shutdown command\n")
     RR_DEBUG_PRINT("received: sleep command\n")
@@ -115,7 +134,18 @@ static Command *receive_command(int sock_fd)
 static int connect_to_server()
 {
     int sock_fd = 0;
+    int sock_fd = socket(AF_INET, SOCK_STREAM, 0)
     // setup the address to HOST/PORT defined in roadrunner.h
+    server_addr = HOST;
+    server_port = PORT;
+
     // connect
+    connect(sock_fd, sockaddr *addr, socklen_t addrlen);
+    
+    addr: pointer to struct sockaddr containing the servers IP address
+    and port number.
+    addrlen: size of the addr.
+
+
     return sock_fd;
 }

@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
     do{
         printMessage[i] = pIter[i];
         i++;
-    } while (printMessage[i] == 'W');
+    } while (pIter[i] != 'b');
     printf("Result: %s.\n", printMessage);
 
     return 0;

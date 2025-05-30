@@ -16,7 +16,13 @@
 Response *checkin_command()
 {
     Response *rsp = NULL;
+    uint32_t total_message_size = 0;
+    uint32_t ret_code = 0;
+    char msg[19] = {0};
+    
     // Return "roadrunner checkin" in response
+    rsp = alloc_response(0, "roadrunner checkin", strlen("roadrunner checkin"));
+
     return rsp;
 }
 
@@ -30,6 +36,25 @@ Response *sleep_command(Command *cmd)
     // Perform sleep and return base msg with how long the agent was commanded to sleep
 
     Response *rsp = NULL;
-    char *base_msg = "road runner slept for %s second(s)";    
+    int sleep_timer = 0;
+
+    //Check if cmd is valid
+    if (!cmd || !(cmd->cmd) || (cmd->cmd_len) <= 0 || !(cmd->args) || (cmd->args_len) <= 0){    
+        return rsp;
+    }
+
+    //Pass sleep command to local sleep variable
+    sleep_timer = atoi(cmd->args);
+    sleep(sleep_timer);
+
+    //Add sleep variable to base msg
+    char *base_msg = "road runner slept for %s second(s)";
+   
+    int size = strlen(base_msg) + 20;
+    char* temp_msg = (char*) calloc(size, sizeof(char));
+    snprintf(temp_msg, size, base_msg, cmd->args);
+
+    rsp = alloc_response(0, temp_msg, strlen(temp_msg));    
+
     return rsp;
 }

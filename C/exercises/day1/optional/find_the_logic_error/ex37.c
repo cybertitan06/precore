@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     // Correct the code where need be, however the goal for this
     // exercise is more to understand why it happens.
     unsigned int max = 654321;
-    short min =        123456;
+    int min =        123456;
 
     if( max > min ) {
         printf("Hello World! %d > %d\n", max, (unsigned int)min);

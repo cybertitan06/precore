@@ -18,7 +18,6 @@ int main(int argc, char **argv) {
     // Create the header.
     sPartial *printMessage = NULL;
     printMessage = calloc(1, sizeof(sPartial));
-
     // Create the iter
     sPartial *pIter = printMessage;
     int iCounter = 0;
@@ -31,6 +30,7 @@ int main(int argc, char **argv) {
         }
         pIter = pIter->pNext;
         iCounter++;
+        
     } while(1);
 
     // Print out the chain

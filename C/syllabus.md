@@ -111,7 +111,6 @@ Class will be scheduled from 0800-1630 everyday. There will be a 30 min lunch br
                 Tests: should_error_fail_netstat
                        should_provide_valid_netstat
             
-
 ### Monday
 
 - Lecture (0800-1200)

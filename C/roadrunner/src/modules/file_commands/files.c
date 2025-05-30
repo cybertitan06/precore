@@ -9,6 +9,10 @@
 #include <utils.h>
 #include <string.h>
 #include <arpa/inet.h>
+#include <fcntl.h>
+
+#define READ_SIZE 100
+#define WRITE_SIZE 100
 
 static uint32_t deserialize_upload_file_path(char *upload_args, char **file_path_out);
 static uint32_t deserialize_upload_file_contents(char *upload_args, uint32_t file_path_len, char **contents_out);
@@ -21,11 +25,54 @@ static uint32_t deserialize_upload_file_contents(char *upload_args, uint32_t fil
  */ 
 uint32_t read_file(char *filename, char **contents_out)
 {
-    uint32_t read_counter;
+    ssize_t read_counter = 0;
+    uint32_t total_read = 0;
+    char *temp = NULL;
+    int fd = 0;
+
+    if (filename == NULL)
+        goto END;
+
     // open the file handle in read bytes mode
+    fd = open(filename, O_RDONLY);
+    if(fd == -1)
+        goto END;
+
     // allocate our initial read buffer
-    // get file contents
-    return read_counter;
+    *contents_out = malloc(READ_SIZE);
+
+    // get file contents 
+    while (read_counter != -1){
+        read_counter = read(fd, *contents_out + total_read, READ_SIZE);
+
+        if (read_counter == 0)
+            break;
+        
+        if (read_counter == -1)
+            goto CLEANUP;
+            
+        total_read += read_counter;
+
+        temp = realloc(*contents_out, total_read + READ_SIZE);
+        if (temp == NULL)
+            goto CLEANUP;
+        
+        *contents_out = temp;
+
+    }
+
+    goto END;
+
+CLEANUP:
+    //cleanup on failure
+    if (*contents_out != NULL){
+        free(*contents_out);
+        *contents_out = NULL;
+    }
+
+END:
+    close(fd);
+    return total_read;
 }
 
 /**
@@ -37,12 +84,59 @@ uint32_t read_file(char *filename, char **contents_out)
  */
 uint32_t write_file(char *filename, char *contents, uint32_t contents_size)
 {
-    uint32_t write_counter = 0;
-
-    // open the file handle in write bytes mode
+    ssize_t write_counter = 0;
+    uint32_t total_write = 0;
+    int fd = 0;
+    char *temp = NULL;
+    
+    if (contents == NULL)
+        goto END;
+  // open the file handle in write bytes mode
+    fd = open(filename, O_WRONLY | O_CREAT);
+    if(fd == -1)
+        goto END;
+    
+    contents = malloc(contents_size);
+   
     // write contents
+    while (write_counter != -1){
+        
+        if (contents_size == total_write)
+            break;
 
-    return write_counter;
+        write_counter = write(fd, contents + total_write, contents_size);
+        // ssize_t write(int )fd, const void buf[.count], size_t count);
+
+        if (write_counter == 0){
+            printf("Content size is %d", contents_size);
+            break;
+        }
+        
+        if (write_counter == -1)
+            goto CLEANUP;
+
+        
+        total_write += write_counter;
+
+        temp = realloc(contents, total_write + contents_size);
+        if (temp == NULL)
+            goto CLEANUP;
+        
+        contents = temp;
+    }
+
+    goto END;
+
+CLEANUP:
+    //cleanup on failure
+    if (contents != NULL){
+        free(contents);
+        contents = NULL;
+    }
+
+END:
+    close(fd);  
+    return total_write;
 }
 
 /**
@@ -54,9 +148,35 @@ Response *download_file_command(Command *cmd)
 {
 
     Response *rsp = NULL;
+    int32_t ret_code = 0;
+    char *contents_out = NULL;
+    uint32_t bytes_read = 0;
+
+    if (!cmd || !(cmd->cmd) || (cmd->cmd_len) <= 0 || !(cmd->args) || (cmd->args_len) <= 0){    
+        ret_code = 1;
+        contents_out = calloc(1, strlen("error downloading file")+1);
+        strncpy(contents_out, "error downloading file", strlen("error downloading file")+1);
+
+        goto done;
+    }
     
-    // open the file handle in read bytes mode
-    // Send contents
+    //RESEARCH
+    bytes_read = read_file(cmd->args, &contents_out);
+
+    if (bytes_read == 0){
+        ret_code = 1;
+        contents_out = calloc(1, strlen("error downloading file")+1);
+        strncpy(contents_out, "error downloading file", strlen("error downloading file")+1);
+        
+        goto done;
+    }
+
+done:
+    rsp = alloc_response(ret_code, contents_out, strlen(contents_out) + 1);
+    if (contents_out){
+        free(contents_out);
+        contents_out = NULL;
+    }    
     return rsp;
 
 }

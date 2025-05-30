@@ -6,10 +6,9 @@
 /* include headers */
 #include <stdio.h>
 
-/* main function *
+//main function 
 int main(int argc, char **argv) {
     /* print out some text */
 	printf("Hello world!\n");
-    /* return 0 errors */
     return 0;
 }

@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
     char *printMessage = "Hello world!";
     
     // Does this work?
-    unsigned short checkValue = 65593;
+    unsigned long checkValue = 65593;
 
     // Try to get the correct result without changing any code below
     // this point.

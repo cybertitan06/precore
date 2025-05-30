@@ -11,14 +11,14 @@
 #include <stdio.h>
 #include <math.h>
 
-
 int main(int argc, char **argv) {
     float pi = 3.141;
     int diameter = 5;
-    int radius = diameter / 2;
+    float radius = diameter / 2;
 
     // area = 1/2 * pi * r * r
-    short area = 1/2 * pi * pow(radius , 2);
+    float exponent = pow(radius, 2);
+    float area = (1/2 * pi) * exponent;
 
 
     printf("Area of a %d unit diameter circle is: %f\n", diameter, (float)area);

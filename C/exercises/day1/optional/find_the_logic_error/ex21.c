@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
     char* printMessage = "Hello world!";
     
     // Does this work?
-    short checkValue = 60201;
+    long checkValue = 60201;
 
     // Try to get the correct result without changing any code below
     // this point.

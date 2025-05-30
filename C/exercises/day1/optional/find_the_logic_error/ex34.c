@@ -10,7 +10,7 @@ int main(int argc, char **argv) {
     char *failureMessage = "Buuuuurt! Incorrect!";
     
     int a = 0;
-    char *printMessage = (a)? successMessage : failureMessage;
+    char *printMessage = (a==0)? successMessage : failureMessage;
     printf("%s\n", printMessage);
     return 0;
 }

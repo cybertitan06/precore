@@ -9,8 +9,8 @@
 int main(int argc, char **argv) {
     const int iterations = 0x00010000;
     printf("Iteration number...");
-    for(short i = 0; i < iterations; ++i ) {
-        printf("\t%d\n", i);
+    for(int i = 0; i < iterations; ++i ) {
+        //printf("\t%d\n", i);
     }
     printf("\nHello World!\n");
 

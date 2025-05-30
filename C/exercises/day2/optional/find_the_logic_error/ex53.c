@@ -11,7 +11,7 @@ char *find_hello_world(char *buffer){
 }
 
 void copy_results(char *outBuffer, char *inBuffer){
-    strncpy(outBuffer, inBuffer, 13);
+    strncpy(outBuffer, inBuffer, 12);
 }
 
 int main(int argc, char **argv) {

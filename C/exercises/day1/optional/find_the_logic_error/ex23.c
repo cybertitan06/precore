@@ -9,7 +9,7 @@
 int main(int argc, char **argv) {
     int a = 1;
     int b = 2; 
-    if(a > b)
+    if(a < b)
 	    printf("Hello World!\n");
     else 
     printf("Buuuuurt! Incorrect!\n");

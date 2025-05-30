@@ -10,7 +10,7 @@ int main(int argc, char **argv) {
     int b = 2; 
     int c = 3;
     int d = 4;
-    if(a > b && b < c && d <= 0)
+    if(a < b && b < c && d >= 0)
 	    printf("Hello World!\n");
     else 
     printf("Buuuuurt! Incorrect!\n");

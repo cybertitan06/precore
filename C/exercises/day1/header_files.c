@@ -5,8 +5,10 @@
  * @file ex6.c
  */
 
-#include ???????
+
+#include "../headers/daysoftheweek-en.h"
 #include <stdio.h>
+
 int main() {
 	printf("%s\n", monday);
 	printf("%s\n", tuesday);

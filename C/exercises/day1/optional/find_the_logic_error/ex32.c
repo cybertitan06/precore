@@ -12,9 +12,9 @@ int main(int argc, char **argv) {
     int d = 4;
     int e = 5;
     int f = 6;
-    if( a > b   && b < c    &&
-        d <= 0  && e != 5   &&
-        !(f == 6))
+    if( a < b   && b < c    &&
+        d >= 0  && e == 5   &&
+        f == 6)
 	    printf("Hello World!\n");
     else 
         printf("Buuuuurt! Incorrect!\n");

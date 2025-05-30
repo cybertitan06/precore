@@ -11,8 +11,7 @@ int main(int argc, char **argv) {
     int c = 3;
     int d = 4;
     int e = 5;
-    if( a > b && b < c &&
-        d <= 0 && e != 5)
+    if( a < b && b < c && d >= 0 && e == 5)
 	    printf("Hello World!\n");
     else 
     printf("Buuuuurt! Incorrect!\n");

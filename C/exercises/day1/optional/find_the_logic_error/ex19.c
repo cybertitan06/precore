@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
     char *printMessage = "Hello world!";
     
     // Does this work?
-    int checkValue = 10.5;
+    float checkValue = 10.5;
 
     // Try to get the correct result without changing any code below
     // this point.

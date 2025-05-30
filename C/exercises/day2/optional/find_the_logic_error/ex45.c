@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
     int i = 0;
     while(1){
         printMessage[i] = pIter[i];
-        if(printMessage[i] = '!'){
+        if(printMessage[i] == '!'){
             break;
         }
         i++;

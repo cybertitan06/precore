@@ -10,7 +10,7 @@
 char gibberish[100] = "BuffalobuffaloBuffalobuffaloHello World!buffalobuffaloBuffalobuffalo";
 
 void copy_results(char* outBuffer, char* inBuffer){
-    strncpy(outBuffer, inBuffer, 13);
+    strncpy(outBuffer, inBuffer, 12);
 }
 
 char *lottery_search(char searchChar){
@@ -27,15 +27,18 @@ char *lottery_search(char searchChar){
 int main(int argc, char **argv) {
     char printMessage[100] = {'\0'};
 
-    char *pHelloLocation = 0;
+    char *pHelloLocation = NULL;
     
-    pHelloLocation = lottery_search('W');
-    if(pHelloLocation != 0){
-        copy_results(printMessage, pHelloLocation);
-        printf("Result: %s.\n", printMessage);
-    }else{
-        printf("No dice!\n");
+    for(int i=0; i < sizeof(printMessage); i++){
+        pHelloLocation = lottery_search('H');
+        if(pHelloLocation != 0){
+            copy_results(printMessage, pHelloLocation);
+            printf("Result: %s.\n", printMessage);
+            break;
+        }
+        /*else{
+            printf("No dice!\n");
+        }*/
     }
-    
     return 0;
 }

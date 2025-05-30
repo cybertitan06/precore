@@ -9,7 +9,7 @@
 
 typedef struct _sPartial{
     char part;
-};
+}sPartial;
 
 
 // No need to modify anything below this point to solve this exercise~!!

@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 union _uMessage{
     char cBuffer[80];
     struct {
@@ -46,8 +47,18 @@ int main(int argc, char **argv) {
     // into the 'printMessage' buffer.
     // You shouldn't have to modify any code above this point. Everything
     // you need is inside the printBuffers variable.
+    
     char printMessage[80] = {'\0'};
-    printf("Results: %s\n", printMessage);
+
+    for (int i=0; i<4; i++){
+        int block_size = 20;
+        block_size = block_size * i;
+        //printf("Block size is: %d\n", block_size);
+        strncpy(&printMessage[i*3], &printBuffers.cBuffer[block_size], 3);
+        strncpy(printMessage+(i*3), printBuffers.cBuffer+block_size, 3);
+        // arr[3] --> *(arr+3)
+    }
+        printf("Results: %s\n", printMessage);
     
     return 0;
 }

@@ -1,12 +1,12 @@
 
-# Suggested completion order
+# Suggested completion order 
 
 1. RoadRunner.c
     - perform_command
-1. helloworld.c
-    - say_hello
+1. helloworld.c 
+    [X] say_hello
 1. core.c
-    - checkin_command
+    [X] checkin_command
         - Tests: should_provide_checkin_response
 
     - sleep_command
@@ -16,11 +16,11 @@
         - Tests: should_provide_hostname_response, should_error_failed_hostname
 
 1. Files.c
-    - download_file_command
+    [X] download_file_command
         - Tests: should_provide_download_response, should_error_on_bad_download_file_name
-    - read_file
+    [X] read_file
         - Tests: should_read_good_file, should_error_read_on_bad_file
-    - write_file
+    [X] write_file
         - Tests: should_write_file, should_error_on_write_null
             
 1. sys.c

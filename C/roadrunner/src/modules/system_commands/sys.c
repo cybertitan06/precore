@@ -65,14 +65,20 @@ See the defined macros in sys.h for more information.
  */
 Response *hostname_command(Command *cmd)
 {
-    uint32_t ret_code;
-    char hostname[BUFF_MAX + 1];
+    int32_t ret_code;
+    char hostname[BUFF_MAX + 1] = {0};
     Response *rsp = NULL;
 
     // Get hostname
     HOSTNAME_MACRO(hostname, BUFF_MAX + 1, ret_code)
     // remove the PLACEHOLDER values and put the hostname string and its size
-    rsp = alloc_response(0, PLACEHOLDER, PLACEHOLDER_SIZE + 1);
+
+        //Check for error messages
+        if (ret_code == -1){
+            rsp = alloc_response(ret_code, HOSTNAME_ERROR_MSG, strlen(HOSTNAME_ERROR_MSG) + 1);
+        } else
+            rsp = alloc_response(0, hostname, strlen(hostname) + 1);
+
     return rsp;
 }
 

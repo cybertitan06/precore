@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 int main(int argc, char **argv) {
-    if(argc < 3){
+    if(argc < 2){
         /*
         *   Usage: ./ex21-goal <#>
         *       ./ex21-goal 5
@@ -21,6 +21,14 @@ int main(int argc, char **argv) {
         printf("Usage: %s <#>\n\t%s 5\n", argv[0], argv[0]);
         return -1;
     }
+
+    int user_input = atoi(argv[1]);
+    int sum;
+
+    for(int i = user_input; i > 0; i--){
+        sum += i;
+    }
     
+    printf("Final sum for %d is %d.\n", user_input, sum);
     return 0;
 }

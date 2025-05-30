@@ -4,7 +4,7 @@
  */
 
 #include <stdio.h>
-#include "headers/stringfuncs.h"
+#include "../../../headers/stringfuncs.h"
 
 
 int main(int argc, char **argv) {

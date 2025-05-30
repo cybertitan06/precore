@@ -12,9 +12,10 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv) {
-    if(argc < 3){
+    if(argc < 2){
         /*
         *   Usage: ./ex19-goal <#>
         *       ./ex19-goal 5
@@ -31,7 +32,15 @@ int main(int argc, char **argv) {
 
 	//YOUR CODE GOES HERE
 	//**********************
-
+    if (firstNumber > 0){
+        printf("The number %d is positive.\n", firstNumber);
+    }
+    else if (firstNumber == 0){
+        printf("The number %d is neither positive or negative.\n", firstNumber);
+    }
+    else
+        printf("The number %d is negative.\n", firstNumber);
+        
 	//**********************
 
     return 0;

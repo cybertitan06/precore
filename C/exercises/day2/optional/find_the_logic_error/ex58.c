@@ -9,12 +9,12 @@
 char printBuffer[100] = "buffalobuffalobuffaloHello World!buffaloBuffalobuffalo";
 
 char *read_character_from_buffer(int *pIter){
-    pIter++;
+    (pIter)++;
     return &printBuffer[(*pIter)-1];
 }
 
 int main(int argc, char **argv) {
-    int iter = 0;
+    int iter = 21;
     printf("Result: ");
     for(int i=0; i<strlen("Hello World!"); i++){
         printf("%c", *read_character_from_buffer(&iter));

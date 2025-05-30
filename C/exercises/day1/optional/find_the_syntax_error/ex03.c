@@ -3,5 +3,8 @@
  * @file ex3.c
  */
 
-void main() 
-    printf("%s\n", "Hello, world!");
+#include <stdio.h>
+
+void main(){ 
+    printf("%s\n", "Hello world!");
+}

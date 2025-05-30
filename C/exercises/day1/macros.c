@@ -5,8 +5,8 @@
  */
 
 #include <stdio.h>
-#include "headers/minmacro.h"
-#include "headers/othermacro.h"
+#include "../headers/minmacro.h"
+//#include "../headers/othermacro.h"
 
 int main(int argc, char **argv) {
     if(min(1, 4)==1){

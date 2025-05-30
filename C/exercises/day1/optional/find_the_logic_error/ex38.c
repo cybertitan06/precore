@@ -12,8 +12,8 @@ int main(int argc, char **argv) {
 
     char printMessage[100] = {'\0'};
 
-    strncat(helloPart, printMessage, strlen(worldPart));
-    strncat(worldPart, printMessage, strlen(helloPart));
+    strncat(printMessage, helloPart, strlen(helloPart));
+    strncat(printMessage, worldPart, strlen(worldPart));
 
     printf("Result: %s.\n", printMessage);
     return 0;

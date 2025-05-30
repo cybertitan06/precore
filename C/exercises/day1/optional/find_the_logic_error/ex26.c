@@ -9,8 +9,8 @@ int main(int argc, char **argv) {
     char* printMessage = "Hello world!";
     
     // Does this work?
-    unsigned short checkValue = 60000;
-    unsigned short temp = 60000;
+    unsigned long checkValue = 60000;
+    unsigned long temp = 60000;
 
     checkValue += temp;
 

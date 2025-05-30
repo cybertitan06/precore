@@ -9,7 +9,7 @@
 int main(int argc, char **argv) {
     char printMessage[100] = {'\0'};
 
-    strncpy(printMessage, "Hello world!", 0);
+    strncpy(printMessage, "Hello world!", 12);
 
     printf("Result: %s.\n", printMessage);
     return 0;

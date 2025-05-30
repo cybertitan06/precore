@@ -7,13 +7,13 @@
 #include <string.h>
 
 int main(int argc, char **argv) {
-    char firstWord[100] = "Know";
-    char secondWord[100] = "No";
+    char destination[100] = "Know";
+    char source[100] = "No";
 
     char printMessage[100] = "Hello world!";
 
     
-    if(!strncmp(firstWord, secondWord, 100)){
+    if(strncmp(destination, source, 100) < 0){
         printf("Result: %s.\n", printMessage);
     } else{
         printf("No dice!\n");

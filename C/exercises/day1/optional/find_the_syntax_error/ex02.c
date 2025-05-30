@@ -3,8 +3,9 @@
  * @file ex2.c
  */
 
-#include 'stdio.h'
+#include <stdio.h>
 
-int Main():
-    printf("Hello, world!")
+int main(){
+    printf("Hello world!\n");
     return 0;
+}

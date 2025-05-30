@@ -9,7 +9,7 @@
 int main(int argc, char **argv) {
     char printBuffer[100] = "Hello World!";
 
-    char *printMessage = NULL;
+    char *printMessage = printBuffer;
 
     printf("Result: %s.\n", printMessage);
     return 0;

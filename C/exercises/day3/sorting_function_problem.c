@@ -30,7 +30,12 @@ int printBufferLength = sizeof(printBuffer)/sizeof(printBuffer[0]);
 //
 // The end result should be 'Hello World!' printed to screen.
 // --- Start function below this
-
+int my_amazing_function(int a, int b){
+    if (a > b)
+        return 2;
+    else
+        return 1;
+}
 // --- End your function above this
 
 

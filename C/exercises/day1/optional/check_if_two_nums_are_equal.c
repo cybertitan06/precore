@@ -30,8 +30,12 @@ int main(int argc, char **argv) {
 	//YOUR CODE GOES HERE
 	//**********
 	
-
-
+    if (firstNumber == secondNumber){
+        printf("The numbers %d and %d are equal.\n", firstNumber, secondNumber);
+    }
+    else
+        printf("The numbers %d and %d are not equal.\n", firstNumber, secondNumber);
+    
 	//**********
     return 0;
 }

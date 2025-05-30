@@ -27,7 +27,7 @@ bool should_provide_checkin_response()
     free_response(rsp);
     TEST_PASSED(test_name)
 }
-
+ 
 /**
  * @brief Test if the core module sleep command executes the sleep and returns a good response.
  * @return bool representing success or failure

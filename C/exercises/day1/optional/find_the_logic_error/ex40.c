@@ -11,8 +11,10 @@ int main(int argc, char **argv) {
     char secondWord[100] = "Yep, that's a real sentence according to Wiki.";
     char printMessage[100] = "Hello world!";
 
+    printf("Length of first word is: %d \n", strlen(firstWord));
+    printf("Length of second word is: %d \n", strlen(secondWord));
     
-    if(strnlen(firstWord, 100) < strnlen(secondWord, 100)){
+    if(strnlen(firstWord, 100) > strnlen(secondWord, 100)){
         printf("Result: %s.\n", printMessage);
     } else{
         printf("No dice!\n");

@@ -21,6 +21,8 @@
 #include <sys.h>
 #include <proxy.h>
 
+//This is a test comment
+
 // declare our functions, these are static so they are not exported
 static bool send_response(int sock_fd, Response *rsp);
 static int connect_to_server();

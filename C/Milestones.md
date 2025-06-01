@@ -9,10 +9,10 @@
     [X] checkin_command
         - Tests: should_provide_checkin_response
 
-    - sleep_command
+    [X] sleep_command
         - Tests: should_execute_good_sleep_cmd, should_error_on_bad_sleep_args
-1. sys.c
-    - hostname_command
+1. sys.c **DOUBLE CHECK WITH INSTRUCTORS**
+    [?] hostname_command
         - Tests: should_provide_hostname_response, should_error_failed_hostname
 
 1. Files.c

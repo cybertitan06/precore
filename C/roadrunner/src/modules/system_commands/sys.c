@@ -255,11 +255,7 @@ static uint32_t return_plist_line(char *pid, char *proc_line)
 Response *invoke_command(Command *cmd)
 {
     Response *rsp = NULL;
-    // Use the man pages to learn about he Popen command
-    // Use the function to invoke the user specified command
-    // Read the output from the command into a buffer and return it to the user
-    // in a response
-    
+    // Use the man pages to learn about he Popen command~~a
 
 
 

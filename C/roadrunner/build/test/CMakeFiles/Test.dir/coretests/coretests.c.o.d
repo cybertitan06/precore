@@ -1,7 +1,7 @@
 test/CMakeFiles/Test.dir/coretests/coretests.c.o: \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/coretests/coretests.c \
+ /home/student/precore/precore/C/roadrunner/test/coretests/coretests.c \
  /usr/include/stdc-predef.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/tests.h \
+ /home/student/precore/precore/C/roadrunner/test/tests.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -28,9 +28,9 @@ test/CMakeFiles/Test.dir/coretests/coretests.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/coretests/coretests.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/core.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.h \
+ /home/student/precore/precore/C/roadrunner/test/coretests/coretests.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/core.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.h \
  /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \

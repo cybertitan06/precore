@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
 
 # Include any dependencies generated for this target.
 include integration/CMakeFiles/Integration.dir/depend.make
@@ -70,18 +70,18 @@ include integration/CMakeFiles/Integration.dir/progress.make
 include integration/CMakeFiles/Integration.dir/flags.make
 
 integration/CMakeFiles/Integration.dir/integration.c.o: integration/CMakeFiles/Integration.dir/flags.make
-integration/CMakeFiles/Integration.dir/integration.c.o: /home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/integration.c
+integration/CMakeFiles/Integration.dir/integration.c.o: /home/student/precore/precore/C/roadrunner/integration/integration.c
 integration/CMakeFiles/Integration.dir/integration.c.o: integration/CMakeFiles/Integration.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object integration/CMakeFiles/Integration.dir/integration.c.o"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT integration/CMakeFiles/Integration.dir/integration.c.o -MF CMakeFiles/Integration.dir/integration.c.o.d -o CMakeFiles/Integration.dir/integration.c.o -c /home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/integration.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object integration/CMakeFiles/Integration.dir/integration.c.o"
+	cd /home/student/precore/precore/C/roadrunner/build/integration && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT integration/CMakeFiles/Integration.dir/integration.c.o -MF CMakeFiles/Integration.dir/integration.c.o.d -o CMakeFiles/Integration.dir/integration.c.o -c /home/student/precore/precore/C/roadrunner/integration/integration.c
 
 integration/CMakeFiles/Integration.dir/integration.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Integration.dir/integration.c.i"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/integration.c > CMakeFiles/Integration.dir/integration.c.i
+	cd /home/student/precore/precore/C/roadrunner/build/integration && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/precore/precore/C/roadrunner/integration/integration.c > CMakeFiles/Integration.dir/integration.c.i
 
 integration/CMakeFiles/Integration.dir/integration.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Integration.dir/integration.c.s"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/integration.c -o CMakeFiles/Integration.dir/integration.c.s
+	cd /home/student/precore/precore/C/roadrunner/build/integration && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/precore/precore/C/roadrunner/integration/integration.c -o CMakeFiles/Integration.dir/integration.c.s
 
 # Object files for target Integration
 Integration_OBJECTS = \
@@ -90,29 +90,29 @@ Integration_OBJECTS = \
 # External object files for target Integration
 Integration_EXTERNAL_OBJECTS =
 
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: integration/CMakeFiles/Integration.dir/integration.c.o
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: integration/CMakeFiles/Integration.dir/build.make
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: src/modules/helloworld_command/libhelloworld.a
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: src/modules/command_io/libcommands.a
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: src/modules/checkin_and_sleep_commands/libcore.a
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: src/modules/file_commands/libfiles.a
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: src/modules/system_commands/libsys.a
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: src/modules/proxy_command/libproxy.a
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: src/modules/file_commands/libfiles.a
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: src/modules/command_io/libcommands.a
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration: integration/CMakeFiles/Integration.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable /home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Integration.dir/link.txt --verbose=$(VERBOSE)
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: integration/CMakeFiles/Integration.dir/integration.c.o
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: integration/CMakeFiles/Integration.dir/build.make
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: src/modules/helloworld_command/libhelloworld.a
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: src/modules/command_io/libcommands.a
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: src/modules/checkin_and_sleep_commands/libcore.a
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: src/modules/file_commands/libfiles.a
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: src/modules/system_commands/libsys.a
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: src/modules/proxy_command/libproxy.a
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: src/modules/file_commands/libfiles.a
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: src/modules/command_io/libcommands.a
+/home/student/precore/precore/C/roadrunner/integration/bin/Integration: integration/CMakeFiles/Integration.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable /home/student/precore/precore/C/roadrunner/integration/bin/Integration"
+	cd /home/student/precore/precore/C/roadrunner/build/integration && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Integration.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-integration/CMakeFiles/Integration.dir/build: /home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/bin/Integration
+integration/CMakeFiles/Integration.dir/build: /home/student/precore/precore/C/roadrunner/integration/bin/Integration
 .PHONY : integration/CMakeFiles/Integration.dir/build
 
 integration/CMakeFiles/Integration.dir/clean:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration && $(CMAKE_COMMAND) -P CMakeFiles/Integration.dir/cmake_clean.cmake
+	cd /home/student/precore/precore/C/roadrunner/build/integration && $(CMAKE_COMMAND) -P CMakeFiles/Integration.dir/cmake_clean.cmake
 .PHONY : integration/CMakeFiles/Integration.dir/clean
 
 integration/CMakeFiles/Integration.dir/depend:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/CNODP_share/precore-students-2025/C/roadrunner /home/student/CNODP_share/precore-students-2025/C/roadrunner/integration /home/student/CNODP_share/precore-students-2025/C/roadrunner/build /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration/CMakeFiles/Integration.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/precore/precore/C/roadrunner /home/student/precore/precore/C/roadrunner/integration /home/student/precore/precore/C/roadrunner/build /home/student/precore/precore/C/roadrunner/build/integration /home/student/precore/precore/C/roadrunner/build/integration/CMakeFiles/Integration.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : integration/CMakeFiles/Integration.dir/depend
 

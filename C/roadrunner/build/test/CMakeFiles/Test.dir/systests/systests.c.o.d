@@ -1,7 +1,7 @@
 test/CMakeFiles/Test.dir/systests/systests.c.o: \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/systests/systests.c \
+ /home/student/precore/precore/C/roadrunner/test/systests/systests.c \
  /usr/include/stdc-predef.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/tests.h \
+ /home/student/precore/precore/C/roadrunner/test/tests.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -28,9 +28,9 @@ test/CMakeFiles/Test.dir/systests/systests.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/systests/systests.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/system_commands/sys.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.h \
+ /home/student/precore/precore/C/roadrunner/test/systests/systests.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/system_commands/sys.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.h \
  /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -96,7 +96,7 @@ test/CMakeFiles/Test.dir/systests/systests.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/idtype_t.h \
  /usr/include/stdlib.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/file_commands/files.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/file_commands/files.h \
  /usr/include/arpa/inet.h /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -115,7 +115,7 @@ test/CMakeFiles/Test.dir/systests/systests.c.o: \
  /usr/include/asm-generic/sockios.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/x86_64-linux-gnu/bits/in.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/utils.h \
+ /home/student/precore/precore/C/roadrunner/src/utils.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h

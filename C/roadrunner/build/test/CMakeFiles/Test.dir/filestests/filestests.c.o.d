@@ -1,7 +1,7 @@
 test/CMakeFiles/Test.dir/filestests/filestests.c.o: \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/filestests/filestests.c \
+ /home/student/precore/precore/C/roadrunner/test/filestests/filestests.c \
  /usr/include/stdc-predef.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/tests.h \
+ /home/student/precore/precore/C/roadrunner/test/tests.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -28,9 +28,9 @@ test/CMakeFiles/Test.dir/filestests/filestests.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/filestests/filestests.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/file_commands/files.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.h \
+ /home/student/precore/precore/C/roadrunner/test/filestests/filestests.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/file_commands/files.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.h \
  /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -78,4 +78,4 @@ test/CMakeFiles/Test.dir/filestests/filestests.c.o: \
  /usr/include/asm-generic/sockios.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/x86_64-linux-gnu/bits/in.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/utils.h
+ /home/student/precore/precore/C/roadrunner/src/utils.h

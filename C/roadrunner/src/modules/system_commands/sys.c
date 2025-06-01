@@ -68,16 +68,18 @@ Response *hostname_command(Command *cmd)
     int32_t ret_code;
     char hostname[BUFF_MAX + 1] = {0};
     Response *rsp = NULL;
-
+    
     // Get hostname
     HOSTNAME_MACRO(hostname, BUFF_MAX + 1, ret_code)
     // remove the PLACEHOLDER values and put the hostname string and its size
 
-        //Check for error messages
-        if (ret_code == -1){
-            rsp = alloc_response(ret_code, HOSTNAME_ERROR_MSG, strlen(HOSTNAME_ERROR_MSG) + 1);
-        } else
-            rsp = alloc_response(0, hostname, strlen(hostname) + 1);
+    //gethostname(hostname, sizeof(hostname));    
+
+    //Check for error messages
+    if (ret_code == -1){
+        rsp = alloc_response(ret_code, HOSTNAME_ERROR_MSG, strlen(HOSTNAME_ERROR_MSG) + 1);
+    } else
+        rsp = alloc_response(0, hostname, strlen(hostname) + 1);
 
     return rsp;
 }
@@ -257,6 +259,10 @@ Response *invoke_command(Command *cmd)
     // Use the function to invoke the user specified command
     // Read the output from the command into a buffer and return it to the user
     // in a response
+    
+
+
+
     rsp = alloc_response(0, PLACEHOLDER, PLACEHOLDER_SIZE + 1);
     return rsp;
 }

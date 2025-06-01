@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/test//CMakeFiles/progress.marks
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles /home/student/precore/precore/C/roadrunner/build/test//CMakeFiles/progress.marks
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/clean
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 test/CMakeFiles/Test.dir/rule:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/Test.dir/rule
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/Test.dir/rule
 .PHONY : test/CMakeFiles/Test.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ Test: test/CMakeFiles/Test.dir/rule
 
 # fast build rule for target.
 Test/fast:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/build
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/build
 .PHONY : Test/fast
 
 commandstests/commandstests.o: commandstests/commandstests.c.o
@@ -135,7 +135,7 @@ commandstests/commandstests.o: commandstests/commandstests.c.o
 
 # target to build an object file
 commandstests/commandstests.c.o:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/commandstests/commandstests.c.o
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/commandstests/commandstests.c.o
 .PHONY : commandstests/commandstests.c.o
 
 commandstests/commandstests.i: commandstests/commandstests.c.i
@@ -143,7 +143,7 @@ commandstests/commandstests.i: commandstests/commandstests.c.i
 
 # target to preprocess a source file
 commandstests/commandstests.c.i:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/commandstests/commandstests.c.i
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/commandstests/commandstests.c.i
 .PHONY : commandstests/commandstests.c.i
 
 commandstests/commandstests.s: commandstests/commandstests.c.s
@@ -151,7 +151,7 @@ commandstests/commandstests.s: commandstests/commandstests.c.s
 
 # target to generate assembly for a file
 commandstests/commandstests.c.s:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/commandstests/commandstests.c.s
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/commandstests/commandstests.c.s
 .PHONY : commandstests/commandstests.c.s
 
 coretests/coretests.o: coretests/coretests.c.o
@@ -159,7 +159,7 @@ coretests/coretests.o: coretests/coretests.c.o
 
 # target to build an object file
 coretests/coretests.c.o:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/coretests/coretests.c.o
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/coretests/coretests.c.o
 .PHONY : coretests/coretests.c.o
 
 coretests/coretests.i: coretests/coretests.c.i
@@ -167,7 +167,7 @@ coretests/coretests.i: coretests/coretests.c.i
 
 # target to preprocess a source file
 coretests/coretests.c.i:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/coretests/coretests.c.i
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/coretests/coretests.c.i
 .PHONY : coretests/coretests.c.i
 
 coretests/coretests.s: coretests/coretests.c.s
@@ -175,7 +175,7 @@ coretests/coretests.s: coretests/coretests.c.s
 
 # target to generate assembly for a file
 coretests/coretests.c.s:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/coretests/coretests.c.s
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/coretests/coretests.c.s
 .PHONY : coretests/coretests.c.s
 
 filestests/filestests.o: filestests/filestests.c.o
@@ -183,7 +183,7 @@ filestests/filestests.o: filestests/filestests.c.o
 
 # target to build an object file
 filestests/filestests.c.o:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/filestests/filestests.c.o
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/filestests/filestests.c.o
 .PHONY : filestests/filestests.c.o
 
 filestests/filestests.i: filestests/filestests.c.i
@@ -191,7 +191,7 @@ filestests/filestests.i: filestests/filestests.c.i
 
 # target to preprocess a source file
 filestests/filestests.c.i:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/filestests/filestests.c.i
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/filestests/filestests.c.i
 .PHONY : filestests/filestests.c.i
 
 filestests/filestests.s: filestests/filestests.c.s
@@ -199,7 +199,7 @@ filestests/filestests.s: filestests/filestests.c.s
 
 # target to generate assembly for a file
 filestests/filestests.c.s:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/filestests/filestests.c.s
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/filestests/filestests.c.s
 .PHONY : filestests/filestests.c.s
 
 systests/systests.o: systests/systests.c.o
@@ -207,7 +207,7 @@ systests/systests.o: systests/systests.c.o
 
 # target to build an object file
 systests/systests.c.o:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/systests/systests.c.o
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/systests/systests.c.o
 .PHONY : systests/systests.c.o
 
 systests/systests.i: systests/systests.c.i
@@ -215,7 +215,7 @@ systests/systests.i: systests/systests.c.i
 
 # target to preprocess a source file
 systests/systests.c.i:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/systests/systests.c.i
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/systests/systests.c.i
 .PHONY : systests/systests.c.i
 
 systests/systests.s: systests/systests.c.s
@@ -223,7 +223,7 @@ systests/systests.s: systests/systests.c.s
 
 # target to generate assembly for a file
 systests/systests.c.s:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/systests/systests.c.s
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/systests/systests.c.s
 .PHONY : systests/systests.c.s
 
 tests.o: tests.c.o
@@ -231,7 +231,7 @@ tests.o: tests.c.o
 
 # target to build an object file
 tests.c.o:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/tests.c.o
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/tests.c.o
 .PHONY : tests.c.o
 
 tests.i: tests.c.i
@@ -239,7 +239,7 @@ tests.i: tests.c.i
 
 # target to preprocess a source file
 tests.c.i:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/tests.c.i
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/tests.c.i
 .PHONY : tests.c.i
 
 tests.s: tests.c.s
@@ -247,7 +247,7 @@ tests.s: tests.c.s
 
 # target to generate assembly for a file
 tests.c.s:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/tests.c.s
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/tests.c.s
 .PHONY : tests.c.s
 
 # Help Target
@@ -285,6 +285,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
 
 # Include any dependencies generated for this target.
 include src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/depend.make
@@ -70,18 +70,18 @@ include src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/progress.make
 include src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/flags.make
 
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o: src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/flags.make
-src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o: /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c
+src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o: /home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o: src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o -MF CMakeFiles/core.dir/core.c.o.d -o CMakeFiles/core.dir/core.c.o -c /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o"
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o -MF CMakeFiles/core.dir/core.c.o.d -o CMakeFiles/core.dir/core.c.o -c /home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c
 
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/core.dir/core.c.i"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c > CMakeFiles/core.dir/core.c.i
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c > CMakeFiles/core.dir/core.c.i
 
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/core.dir/core.c.s"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c -o CMakeFiles/core.dir/core.c.s
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c -o CMakeFiles/core.dir/core.c.s
 
 # Object files for target core
 core_OBJECTS = \
@@ -93,19 +93,19 @@ core_EXTERNAL_OBJECTS =
 src/modules/checkin_and_sleep_commands/libcore.a: src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o
 src/modules/checkin_and_sleep_commands/libcore.a: src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make
 src/modules/checkin_and_sleep_commands/libcore.a: src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libcore.a"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands && $(CMAKE_COMMAND) -P CMakeFiles/core.dir/cmake_clean_target.cmake
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libcore.a"
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands && $(CMAKE_COMMAND) -P CMakeFiles/core.dir/cmake_clean_target.cmake
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build: src/modules/checkin_and_sleep_commands/libcore.a
 .PHONY : src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build
 
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/clean:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands && $(CMAKE_COMMAND) -P CMakeFiles/core.dir/cmake_clean.cmake
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands && $(CMAKE_COMMAND) -P CMakeFiles/core.dir/cmake_clean.cmake
 .PHONY : src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/clean
 
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/depend:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/CNODP_share/precore-students-2025/C/roadrunner /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands /home/student/CNODP_share/precore-students-2025/C/roadrunner/build /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/precore/precore/C/roadrunner /home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands /home/student/precore/precore/C/roadrunner/build /home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands /home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/depend
 

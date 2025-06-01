@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command/helloworld.c" "src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o" "gcc" "src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o.d"
+  "/home/student/precore/precore/C/roadrunner/src/modules/helloworld_command/helloworld.c" "src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o" "gcc" "src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o.d"
   )
 
 # Targets to which this target links.

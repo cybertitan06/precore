@@ -1,5 +1,5 @@
 test/CMakeFiles/Test.dir/commandstests/commandstests.c.o: \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/commandstests/commandstests.c \
+ /home/student/precore/precore/C/roadrunner/test/commandstests/commandstests.c \
  /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -62,9 +62,9 @@ test/CMakeFiles/Test.dir/commandstests/commandstests.c.o: \
  /usr/include/asm-generic/sockios.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/x86_64-linux-gnu/bits/in.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/commandstests/commandstests.h \
+ /home/student/precore/precore/C/roadrunner/test/commandstests/commandstests.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/test/tests.h \
+ /home/student/precore/precore/C/roadrunner/test/tests.h \
  /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -73,8 +73,8 @@ test/CMakeFiles/Test.dir/commandstests/commandstests.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.h \
  /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/utils.h
+ /home/student/precore/precore/C/roadrunner/src/utils.h

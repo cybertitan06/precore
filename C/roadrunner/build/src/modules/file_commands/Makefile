@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/file_commands//CMakeFiles/progress.marks
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles /home/student/precore/precore/C/roadrunner/build/src/modules/file_commands//CMakeFiles/progress.marks
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/clean
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/preinstall
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/preinstall
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/modules/file_commands/CMakeFiles/files.dir/rule:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/CMakeFiles/files.dir/rule
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/CMakeFiles/files.dir/rule
 .PHONY : src/modules/file_commands/CMakeFiles/files.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ files: src/modules/file_commands/CMakeFiles/files.dir/rule
 
 # fast build rule for target.
 files/fast:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/build
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/build
 .PHONY : files/fast
 
 files.o: files.c.o
@@ -135,7 +135,7 @@ files.o: files.c.o
 
 # target to build an object file
 files.c.o:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/files.c.o
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/files.c.o
 .PHONY : files.c.o
 
 files.i: files.c.i
@@ -143,7 +143,7 @@ files.i: files.c.i
 
 # target to preprocess a source file
 files.c.i:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/files.c.i
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/files.c.i
 .PHONY : files.c.i
 
 files.s: files.c.s
@@ -151,7 +151,7 @@ files.s: files.c.s
 
 # target to generate assembly for a file
 files.c.s:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/files.c.s
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/files.c.s
 .PHONY : files.c.s
 
 # Help Target
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

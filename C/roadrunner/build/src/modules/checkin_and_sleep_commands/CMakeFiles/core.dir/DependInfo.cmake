@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c" "src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o" "gcc" "src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o.d"
+  "/home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c" "src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o" "gcc" "src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io/CMakeFiles/commands.dir/DependInfo.cmake"
+  "/home/student/precore/precore/C/roadrunner/build/src/modules/command_io/CMakeFiles/commands.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

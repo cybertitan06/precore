@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/CNODP_share/precore-students-2025/C/roadrunner/test
+# Install script for directory: /home/student/precore/precore/C/roadrunner/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

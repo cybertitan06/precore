@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
 
 # Include any dependencies generated for this target.
 include src/modules/command_io/CMakeFiles/commands.dir/depend.make
@@ -70,18 +70,18 @@ include src/modules/command_io/CMakeFiles/commands.dir/progress.make
 include src/modules/command_io/CMakeFiles/commands.dir/flags.make
 
 src/modules/command_io/CMakeFiles/commands.dir/commands.c.o: src/modules/command_io/CMakeFiles/commands.dir/flags.make
-src/modules/command_io/CMakeFiles/commands.dir/commands.c.o: /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.c
+src/modules/command_io/CMakeFiles/commands.dir/commands.c.o: /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.c
 src/modules/command_io/CMakeFiles/commands.dir/commands.c.o: src/modules/command_io/CMakeFiles/commands.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/modules/command_io/CMakeFiles/commands.dir/commands.c.o"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/modules/command_io/CMakeFiles/commands.dir/commands.c.o -MF CMakeFiles/commands.dir/commands.c.o.d -o CMakeFiles/commands.dir/commands.c.o -c /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/modules/command_io/CMakeFiles/commands.dir/commands.c.o"
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/command_io && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/modules/command_io/CMakeFiles/commands.dir/commands.c.o -MF CMakeFiles/commands.dir/commands.c.o.d -o CMakeFiles/commands.dir/commands.c.o -c /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.c
 
 src/modules/command_io/CMakeFiles/commands.dir/commands.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/commands.dir/commands.c.i"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.c > CMakeFiles/commands.dir/commands.c.i
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/command_io && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.c > CMakeFiles/commands.dir/commands.c.i
 
 src/modules/command_io/CMakeFiles/commands.dir/commands.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/commands.dir/commands.c.s"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.c -o CMakeFiles/commands.dir/commands.c.s
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/command_io && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.c -o CMakeFiles/commands.dir/commands.c.s
 
 # Object files for target commands
 commands_OBJECTS = \
@@ -93,19 +93,19 @@ commands_EXTERNAL_OBJECTS =
 src/modules/command_io/libcommands.a: src/modules/command_io/CMakeFiles/commands.dir/commands.c.o
 src/modules/command_io/libcommands.a: src/modules/command_io/CMakeFiles/commands.dir/build.make
 src/modules/command_io/libcommands.a: src/modules/command_io/CMakeFiles/commands.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libcommands.a"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io && $(CMAKE_COMMAND) -P CMakeFiles/commands.dir/cmake_clean_target.cmake
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/commands.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libcommands.a"
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/command_io && $(CMAKE_COMMAND) -P CMakeFiles/commands.dir/cmake_clean_target.cmake
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/command_io && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/commands.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/modules/command_io/CMakeFiles/commands.dir/build: src/modules/command_io/libcommands.a
 .PHONY : src/modules/command_io/CMakeFiles/commands.dir/build
 
 src/modules/command_io/CMakeFiles/commands.dir/clean:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io && $(CMAKE_COMMAND) -P CMakeFiles/commands.dir/cmake_clean.cmake
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/command_io && $(CMAKE_COMMAND) -P CMakeFiles/commands.dir/cmake_clean.cmake
 .PHONY : src/modules/command_io/CMakeFiles/commands.dir/clean
 
 src/modules/command_io/CMakeFiles/commands.dir/depend:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/CNODP_share/precore-students-2025/C/roadrunner /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io /home/student/CNODP_share/precore-students-2025/C/roadrunner/build /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io/CMakeFiles/commands.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/precore/precore/C/roadrunner /home/student/precore/precore/C/roadrunner/src/modules/command_io /home/student/precore/precore/C/roadrunner/build /home/student/precore/precore/C/roadrunner/build/src/modules/command_io /home/student/precore/precore/C/roadrunner/build/src/modules/command_io/CMakeFiles/commands.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/modules/command_io/CMakeFiles/commands.dir/depend
 

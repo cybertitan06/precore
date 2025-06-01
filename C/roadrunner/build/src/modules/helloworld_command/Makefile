@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command//CMakeFiles/progress.marks
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles /home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command//CMakeFiles/progress.marks
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/clean
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/preinstall
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/preinstall
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/rule:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/CMakeFiles/helloworld.dir/rule
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/CMakeFiles/helloworld.dir/rule
 .PHONY : src/modules/helloworld_command/CMakeFiles/helloworld.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ helloworld: src/modules/helloworld_command/CMakeFiles/helloworld.dir/rule
 
 # fast build rule for target.
 helloworld/fast:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/build
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/build
 .PHONY : helloworld/fast
 
 helloworld.o: helloworld.c.o
@@ -135,7 +135,7 @@ helloworld.o: helloworld.c.o
 
 # target to build an object file
 helloworld.c.o:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o
 .PHONY : helloworld.c.o
 
 helloworld.i: helloworld.c.i
@@ -143,7 +143,7 @@ helloworld.i: helloworld.c.i
 
 # target to preprocess a source file
 helloworld.c.i:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.i
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.i
 .PHONY : helloworld.c.i
 
 helloworld.s: helloworld.c.s
@@ -151,7 +151,7 @@ helloworld.s: helloworld.c.s
 
 # target to generate assembly for a file
 helloworld.c.s:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.s
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.s
 .PHONY : helloworld.c.s
 
 # Help Target
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

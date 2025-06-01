@@ -1,7 +1,7 @@
 integration/CMakeFiles/Integration.dir/integration.c.o: \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/integration.c \
+ /home/student/precore/precore/C/roadrunner/integration/integration.c \
  /usr/include/stdc-predef.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/integration.h \
+ /home/student/precore/precore/C/roadrunner/integration/integration.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -25,7 +25,7 @@ integration/CMakeFiles/Integration.dir/integration.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.h \
  /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
@@ -81,4 +81,4 @@ integration/CMakeFiles/Integration.dir/integration.c.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/utils.h
+ /home/student/precore/precore/C/roadrunner/src/utils.h

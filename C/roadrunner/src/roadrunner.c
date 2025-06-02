@@ -21,8 +21,6 @@
 #include <sys.h>
 #include <proxy.h>
 
-//This is a test comment
-
 // declare our functions, these are static so they are not exported
 static bool send_response(int sock_fd, Response *rsp);
 static int connect_to_server();
@@ -136,10 +134,25 @@ static Command *receive_command(int sock_fd)
 static int connect_to_server()
 {
     int sock_fd = 0;
-    int sock_fd = socket(AF_INET, SOCK_STREAM, 0)
+    uint32_t server_addr = 0;
+    uint32_t server_port = 0;
+    int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
     // setup the address to HOST/PORT defined in roadrunner.h
     server_addr = HOST;
-    server_port = PORT;
+    server_port = htons(PORT);
+
+    /*
+    struct tcp_conn_t{
+    char local_addr[IP_ADDR_LEN + 1];
+    uint32_t local_port;
+    char remote_addr[IP_ADDR_LEN + 1];
+    uint32_t remote_port;
+    uint32_t state;
+    char owner[OWNER_MAX + 1];
+    ino_t inode;                                // ino_t is a unsigned long from types.h
+    tcp_conn_t *next;
+};
+    */
 
     // connect
     connect(sock_fd, sockaddr *addr, socklen_t addrlen);

@@ -7,6 +7,7 @@
 
 #define PLACEHOLDER "replace"
 #define PLACEHOLDER_SIZE 7
+#define READ_SIZE 100
 
 // processlist helper functions
 static uint32_t is_pid_folder(char *dir);
@@ -68,12 +69,10 @@ Response *hostname_command(Command *cmd)
     int32_t ret_code;
     char hostname[BUFF_MAX + 1] = {0};
     Response *rsp = NULL;
-
+    
     // Get hostname
-    // HOSTNAME_MACRO(hostname, BUFF_MAX + 1, ret_code)
+    HOSTNAME_MACRO(hostname, BUFF_MAX + 1, ret_code)
     // remove the PLACEHOLDER values and put the hostname string and its size
-
-    gethostname(hostname, sizeof(hostname));
     
         //Check for error messages
         if (ret_code == -1){
@@ -255,11 +254,60 @@ static uint32_t return_plist_line(char *pid, char *proc_line)
 Response *invoke_command(Command *cmd)
 {
     Response *rsp = NULL;
-    // Use the man pages to learn about he Popen command
-    // Use the function to invoke the user specified command
-    // Read the output from the command into a buffer and return it to the user
-    // in a response
-    rsp = alloc_response(0, PLACEHOLDER, PLACEHOLDER_SIZE + 1);
+    char *contents_out = NULL;
+    char *tempBuffer = NULL;
+    FILE *pipe = NULL;
+    int pipe_fd = 0;
+    int read_counter = 0;
+    int total_read = 0;
+
+    //Open a pipe to execute command and reads output
+    pipe = popen(cmd->args, "r");
+
+    //Check for errors
+    if (pipe == NULL) {
+      perror("popen failed");
+      return 1;
+    }
+
+    pipe_fd = fileno(pipe);
+    contents_out = calloc(1, READ_SIZE);
+
+    while (read_counter != -1){
+        //Read 100 bytes of the file, check for erros
+        read_counter = read(pipe_fd, contents_out, READ_SIZE);
+
+        if (read_counter == -1){
+            break;
+        }
+        //Increment total read counter and check for EOF
+        total_read += read_counter;
+
+        if (read_counter == 0){
+            break;
+        }
+        // If not EOF, expand the buffer by another READ_SIZE block to prepare for another 100 bytes to be read in
+        tempBuffer = realloc(contents_out, total_read + READ_SIZE);
+        if (tempBuffer == NULL)
+            goto CLEANUP;
+        
+        //Add what has been read in to the response message
+        contents_out = tempBuffer;
+    }   
+
+    rsp = alloc_response(0, contents_out, strlen(contents_out));
+
+    goto END;
+
+CLEANUP:
+    rsp = alloc_response(1, contents_out, strlen(contents_out));
+
+    if (contents_out){
+        free(contents_out);
+        contents_out = NULL;
+    }
+
+END:
     return rsp;
 }
 
@@ -334,11 +382,48 @@ Response *get_netstat_command(Command *cmd)
 static uint32_t parse_conn_line(char *line, tcp_conn_t *connections)
 {
 
+    // RESEARCH THIS FUNCTION. Took notes during Richard's explanation, I dont fully understand what this function does
     uint32_t uid = 0;
     struct passwd *pwd = NULL;
+    char *temp = NULL;
+    uint32_t local_port = 0;
+    uint32_t local_ip = 0;
+    uint32_t remote_ip = 0;
+    uint32_t remote_port = 0;
+
+    //Build a format string to fill in variables from connection input
+    char *format_string = "%*d: %x:%x %x:%x %d %*s %*s %*d %d %*d %ld %*s";
+
+    //Look to sscanf to provide a format string to assign variables their values
+    /*
+     char local_addr[IP_ADDR_LEN + 1];
+    uint32_t local_port;
+    char remote_addr[IP_ADDR_LEN + 1];
+    uint32_t remote_port;
+    uint32_t state;
+    char owner[OWNER_MAX + 1];
+    ino_t inode;                                // ino_t is a unsigned long from types.h
+    tcp_conn_t *next;
+    */
+   //Take the format string and fill in the variables with the related inputs fields from the line connection
+    sscanf(line, format_string, &local_ip, &connections->local_port, &remote_ip, 
+        &connections->remote_port, &connections->state, &uid, &connections->inode);
+
 
     // Get username from uid - calls getpwuid
     GET_UID_MACRO(uid, pwd);
+    
+    temp = hex_to_ipaddr(local_ip);
+    strncpy(connections->local_addr, temp, IP_ADDR_LEN);
+    free (temp);
+
+
+    temp = hex_to_ipaddr(remote_ip);
+    strncpy(connections->remote_addr, temp, IP_ADDR_LEN);
+    free (temp);
+
+    strncpy(connections->owner, pwd->pw_name, 19);
+
     // fill out relevan information in the connections struct
     return 1;
 }

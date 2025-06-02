@@ -25,7 +25,7 @@ Response *checkin_command()
 
     return rsp;
 }
-
+ 
 /**
  * @brief Command to have RoadRunner sleep for a specified number of seconds.
  * @param cmd the command structure
@@ -37,10 +37,24 @@ Response *sleep_command(Command *cmd)
 
     Response *rsp = NULL;
     int sleep_timer = 0;
+    char *contents_out = NULL;
+    char *args = NULL;
+    uint32_t ret_code = 0;
 
-    //Check if cmd is valid
-    if (!cmd || !(cmd->cmd) || (cmd->cmd_len) <= 0 || !(cmd->args) || (cmd->args_len) <= 0){    
-        return rsp;
+    //Check for NULL
+    if (!cmd || !(cmd->cmd) || (cmd->cmd_len) <= 0 || !(cmd->args) || (cmd->args_len) <= 0){
+        ret_code = 1;
+        contents_out = calloc(1, strlen("arguments provided are NULL")+1);
+        strncpy(contents_out, "arguments provided are NULL", strlen("arguments provided are NULL")+1);
+        goto CLEANUP;
+    }
+
+    //Check for bad arguments
+    if(atoi(cmd->args) <= 0){
+        ret_code = 1;
+        contents_out = calloc(1, strlen("arguments are not of the correct type")+1);
+        strncpy(contents_out, "arguments are not of the correct type", strlen("arguments are not of the correct type")+1);
+        goto CLEANUP;
     }
 
     //Pass sleep command to local sleep variable
@@ -54,7 +68,17 @@ Response *sleep_command(Command *cmd)
     char* temp_msg = (char*) calloc(size, sizeof(char));
     snprintf(temp_msg, size, base_msg, cmd->args);
 
-    rsp = alloc_response(0, temp_msg, strlen(temp_msg));    
+    rsp = alloc_response(0, temp_msg, strlen(temp_msg));
+    goto END;
+    
+CLEANUP:
+    rsp = alloc_response(ret_code, contents_out, strlen(contents_out));
 
+    if (contents_out){
+        free(contents_out);
+        contents_out = NULL;
+    }
+
+END:
     return rsp;
 }

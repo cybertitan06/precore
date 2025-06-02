@@ -9,10 +9,10 @@
     [X] checkin_command
         - Tests: should_provide_checkin_response
 
-    - sleep_command
+    [X] sleep_command
         - Tests: should_execute_good_sleep_cmd, should_error_on_bad_sleep_args
-1. sys.c
-    - hostname_command
+1. sys.c **DOUBLE CHECK WITH INSTRUCTORS**
+    [?] hostname_command
         - Tests: should_provide_hostname_response, should_error_failed_hostname
 
 1. Files.c
@@ -24,7 +24,7 @@
         - Tests: should_write_file, should_error_on_write_null
             
 1. sys.c
-    - invoke_command
+    [X] invoke_command
         - Tests: should_provide_valid_cmd_return, should_touch_file_with_invoke
 1. roadrunner.c
     - connect_to_server

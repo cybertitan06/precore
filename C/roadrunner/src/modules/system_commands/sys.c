@@ -70,9 +70,11 @@ Response *hostname_command(Command *cmd)
     Response *rsp = NULL;
 
     // Get hostname
-    HOSTNAME_MACRO(hostname, BUFF_MAX + 1, ret_code)
+    // HOSTNAME_MACRO(hostname, BUFF_MAX + 1, ret_code)
     // remove the PLACEHOLDER values and put the hostname string and its size
 
+    gethostname(hostname, sizeof(hostname));
+    
         //Check for error messages
         if (ret_code == -1){
             rsp = alloc_response(ret_code, HOSTNAME_ERROR_MSG, strlen(HOSTNAME_ERROR_MSG) + 1);

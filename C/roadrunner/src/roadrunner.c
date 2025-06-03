@@ -134,32 +134,25 @@ static Command *receive_command(int sock_fd)
 static int connect_to_server()
 {
     int sock_fd = 0;
-    uint32_t server_addr = 0;
-    uint32_t server_port = 0;
+    struct sockaddr_in server;
+
+    //Create a socket
     int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
-    // setup the address to HOST/PORT defined in roadrunner.h
-    server_addr = HOST;
-    server_port = htons(PORT);
 
-    /*
-    struct tcp_conn_t{
-    char local_addr[IP_ADDR_LEN + 1];
-    uint32_t local_port;
-    char remote_addr[IP_ADDR_LEN + 1];
-    uint32_t remote_port;
-    uint32_t state;
-    char owner[OWNER_MAX + 1];
-    ino_t inode;                                // ino_t is a unsigned long from types.h
-    tcp_conn_t *next;
-};
-    */
-
-    // connect
-    connect(sock_fd, sockaddr *addr, socklen_t addrlen);
+    //Set the server address
+    // setup the address to HOST/PORT defined in roadrunner.h 
+    server.sin_family = AF_INET;
+    server.sin_port = htons(PORT);
+    server.sin_addr.s_addr = HOST;
+    inet_aton(&server.sin_addr.s_addr, &server.sin_addr.s_addr);
     
-    addr: pointer to struct sockaddr containing the servers IP address
-    and port number.
-    addrlen: size of the addr.
+    //Create the connection to the server
+    connect(sock_fd, &server, sizeof(server));
+    
+    addr: pointer to struct sockaddr containing the servers IP addressand port number.
+    addrlen: size of the addr
+
+
 
 
     return sock_fd;

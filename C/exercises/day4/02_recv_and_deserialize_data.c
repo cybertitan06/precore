@@ -36,6 +36,21 @@ typedef struct {
 
 } StudentInfo;
 
+int deserialize_short(int iOffset, char *pSourceBuffer, short *pOut){
+    memcpy(pOut, pSourceBuffer + iOffset, sizeof(short));
+    *pOut = ntohs(*pOut);
+    return sizeof(short);
+}
+
+int deserialize_char(int iOffset, char *pSourceBuffer, char *pOut){
+    memcpy(pOut, pSourceBuffer + iOffset, sizeof(char));
+    return sizeof(char);
+}
+
+int deserialize_byteArray(int iOffset, char *pSourceBuffer, char *pOut, int iLength){
+    memcpy(pOut, pSourceBuffer + iOffset, iLength);
+    return (sizeof(char) * iLength);
+
 int main(int argc, char **argv){
 
 	//create our struct and our recv buffer

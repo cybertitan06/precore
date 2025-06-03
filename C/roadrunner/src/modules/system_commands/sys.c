@@ -291,7 +291,6 @@ Response *invoke_command(Command *cmd)
         if (tempBuffer == NULL)
             goto CLEANUP;
         
-        //Add what has been read in to the response message
         contents_out = tempBuffer;
     }   
 

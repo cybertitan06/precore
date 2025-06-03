@@ -140,7 +140,6 @@ static int connect_to_server()
     int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
 
     //Set the server address
-    // setup the address to HOST/PORT defined in roadrunner.h 
     server.sin_family = AF_INET;
     server.sin_port = htons(PORT);
     server.sin_addr.s_addr = HOST;
@@ -149,11 +148,5 @@ static int connect_to_server()
     //Create the connection to the server
     connect(sock_fd, &server, sizeof(server));
     
-    addr: pointer to struct sockaddr containing the servers IP addressand port number.
-    addrlen: size of the addr
-
-
-
-
     return sock_fd;
 }

@@ -2,7 +2,7 @@ from asyncio import StreamReader
 from pathlib import Path
 import pytest
 
-from ..solutions.main import (
+from ..src.main import (
     Agent,
     export_response,
     create_command,

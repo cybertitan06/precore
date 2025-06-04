@@ -7,7 +7,9 @@ import struct
 from typing import Optional
 
 import aioconsole
+import pprint
 
+import socket
 
 def print_std_help():
     help_items = {
@@ -279,9 +281,34 @@ async def server(agents_connected: list[Agent]):
         agents_connected (list[Agent]): The list containing all connected agents
     """
 
+    '''
+    Day2 slides on starting up a simple server
+    '''
+    # Create the server socket
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    print("Socket successfully created")
+
+    #Bind the socket to localhost and port 2028
+    host = '127.0.0.1'
+    port = 2028
+    server_socket.bind((host,port))
+
+    #Listen for incoming connections
+    server_socket.listen(5)
+    print(f"Socket is listening on {host}:{port}")
+
+    while True:
+        print("Waiting to accept a connection")
+        server_connection, agent_addr = server_socket.accept()
+        print(f"Got an agent connection from {agent_addr}")
+
+        #TODO how to handle more than one agent
+
+    
+    '''
     server = await asyncio.start_server(client_conn_cb(agents_connected), "0.0.0.0", 1337)
     await server.serve_forever()
-
+    '''
 
 async def shell(agents_connected: list[Agent]):
     """Start async shell. In this function, utilize the aioconsole 3rd party library to

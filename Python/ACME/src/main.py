@@ -10,9 +10,18 @@ import aioconsole
 import pprint
 
 import socket
-import threading
+import scapy.all as scapy
 
+'''
+virtualenv -p python3 venv
+	
 
+source venv/bin/activate
+source venv/bin/deactivate
+
+ pip3 install -r requirements.txt
+
+'''
 
 def print_std_help():
     help_items = {
@@ -248,22 +257,17 @@ async def manage_agent(
         "send command to agent"
         "recieve response from agent"
 
+    manage_Agent calls create_command, get_agent_name
+
     Args:
         agent (Agent): the agent object tied to this connection
         reader (asyncio.StreamReader): stream to get data from the agent
         writer (asyncio.StreamWriter): stream to send data to the agent
     """
-    while True:
-        try:
-            message = agent.recv(1024)
-            #create_command(command, args)
-        except:
-            #In case of failure or disconnect, identify the agent and remove it from the list of connected agents
-            index = agent.index(agent)
-            agent.remove(agent)
-            agent.close()
-            print(f"{agent.name} has been removed")
-            break
+    #Read from command queue, write to agent (2 - 4 lines of code)
+
+    #Read response from agent, append to response queue (2-3 lines)
+
     pass
 
 
@@ -275,13 +279,31 @@ def client_conn_cb(agents_connected: list[Agent]):
         because it cant be passed directly as a param bacause it has to match the
         callback protocol. Use the agents_connected list to add newly connected agents.
 
+        Load response property into new agent, handing that off to agent_manage
+
+        client_connect_cb calls manage_agent(manage_agent should do the heavy lifting of agent config)
+
         Args:
             reader (asyncio.StreamReader): stream to get data from the agent
             writer (asyncio.StreamWriter): stream to send data to the agent
         """
+        #Create new agent
+        agent = Agent()
+        print(f"Creating new agent called {agent}")
+
+        #Add new agent to list
+        agents_connected.append(agent)
+
+        #Parse data from reader & append it to the response field of the new agent
+        responses = await parse_response(reader)
+        agent.responses.append(responses)
+        
+
+        #Call manage_agent to do something
+        manage_agent(agent, reader, writer)
 
         print("Client Connected")
-
+        #=========================== END OF ASYNC ======================================
     return client_conn
 
 
@@ -294,39 +316,8 @@ async def server(agents_connected: list[Agent]):
         agents_connected (list[Agent]): The list containing all connected agents
     """
 
-    '''
-    Day2 slides on starting up a simple server
-    '''
-    # Create the server socket
-    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    #Bind the socket to localhost and port 2028
-    server_host = '127.0.0.1'
-    server_port = 2028
-    server.bind((server_host,server_port))
-
-    #TODO Find a way to bind to a new port for every incoming connection
-
-    #Listen for incoming connections
-    server.listen(5)
-    print(f"Socket is listening on {server_host}:{server_port}")
-
-    while True:
-        print("Waiting to accept a connection")
-        agent, agent_addr = server.accept()
-        print(f"Got an agent connection from {str(agent_addr)}")
-
-        #TODO how to handle more than one agent
-        #Use multi threading for multiple agents
-        thread = threading.Thread(target=agent_handler, args=(agent,))
-        thread.start()
-    
-
-    
-    '''
     server = await asyncio.start_server(client_conn_cb(agents_connected), "0.0.0.0", 1337)
     await server.serve_forever()
-    '''
 
 async def shell(agents_connected: list[Agent]):
     """Start async shell. In this function, utilize the aioconsole 3rd party library to
@@ -361,6 +352,8 @@ async def shell(agents_connected: list[Agent]):
             case ["help"]:
                 print_std_help()
             case ["agents"]:
+                for agents in agents_connected:
+                    print(agents)
                 pass
             case ["use", agent_name]:
                 pass

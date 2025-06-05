@@ -9,7 +9,7 @@ def get_mac(ip):
     """Here is where an ARP request is constructed and broadcast out to recieve the target ip's MAC address"""
   
 def spoof(target_ip, spoof_ip): 
-     """" 
+    """" 
     Here the ARP packet is set to response and destination is set to the target 
     either it is for victim or router and the hardware destination is the MAC
     address of the IP provided and the source is the spoofing ip to manipulate 

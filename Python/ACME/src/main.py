@@ -253,7 +253,17 @@ async def manage_agent(
         reader (asyncio.StreamReader): stream to get data from the agent
         writer (asyncio.StreamWriter): stream to send data to the agent
     """
-
+    while True:
+        try:
+            message = agent.recv(1024)
+            #create_command(command, args)
+        except:
+            #In case of failure or disconnect, identify the agent and remove it from the list of connected agents
+            index = agent.index(agent)
+            agent.remove(agent)
+            agent.close()
+            print(f"{agent.name} has been removed")
+            break
     pass
 
 
@@ -289,18 +299,17 @@ async def server(agents_connected: list[Agent]):
     '''
     # Create the server socket
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    print("Socket successfully created")
 
     #Bind the socket to localhost and port 2028
-    host = '127.0.0.1'
-    port = 2028
-    server.bind((host,port))
+    server_host = '127.0.0.1'
+    server_port = 2028
+    server.bind((server_host,server_port))
 
     #TODO Find a way to bind to a new port for every incoming connection
 
     #Listen for incoming connections
     server.listen(5)
-    print(f"Socket is listening on {host}:{port}")
+    print(f"Socket is listening on {server_host}:{server_port}")
 
     while True:
         print("Waiting to accept a connection")
@@ -308,6 +317,10 @@ async def server(agents_connected: list[Agent]):
         print(f"Got an agent connection from {str(agent_addr)}")
 
         #TODO how to handle more than one agent
+        #Use multi threading for multiple agents
+        thread = threading.Thread(target=agent_handler, args=(agent,))
+        thread.start()
+    
 
     
     '''

@@ -21,9 +21,9 @@
 // include headers that we need for our declarations
 #include <commands.h>
 
-// define things we need for the agent to run
+// define things we need for the agent to run 
 #define HOST "localhost"
-#define PORT "1337"
+#define PORT 1337
 #define SLEEP_INTERVAL 3
 
 #define SHUTDOWN_MSG "shutting down"

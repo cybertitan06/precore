@@ -21,8 +21,8 @@ bool should_provide_hostname_response()
     int good_ret_code = 0;
     char *command = "hostname";
     char *args = "";
-    char *hostname = "test_host";6
-    size_t command_len, args_len;
+    char *hostname = "test_host";
+    size_t command_len, args_len; 
     command_len = strlen(command);
     args_len = strlen(args);
     cmd = alloc_command(command, command_len, args, args_len);

@@ -2,7 +2,7 @@
  * roadrunner.c contains the main function of the program.
  * @file roadrunner.c
  */
-// include what we need for the functionality
+// include what we need for the functionality 
 #include <unistd.h>
 #include <netdb.h>
 #include <sys/types.h>
@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <errno.h>
 // include our own libraries here
 #include <roadrunner.h>
 #include <core.h>
@@ -20,6 +21,7 @@
 #include <files.h>
 #include <sys.h>
 #include <proxy.h>
+
 
 // declare our functions, these are static so they are not exported
 static bool send_response(int sock_fd, Response *rsp);
@@ -33,14 +35,17 @@ static Command *receive_command(int sock_fd);
  */
 int main() 
 {
+    int agent_fd = 0;
+    Response *response = NULL;
     // call our hello world function
     say_hello();
 
     // Agent logic
         // connect
-        connect_to_server();
+    agent_fd = connect_to_server();
         // Send checkin
-        
+    response = checkin_command();
+    send_response(agent_fd, response);
 	// begin main execution loop
         	// receive_command (see Networking section below)
         	// perform_command
@@ -108,6 +113,9 @@ static bool send_response(int sock_fd, Response *rsp)
 {
     // Serialize Response struct into byte stream (see commands.c in the command_io directory)
     // Send response byte stream to server
+    
+    //
+    send(sock_fd, serialized_response);
     return false;
 }
 
@@ -136,17 +144,25 @@ static int connect_to_server()
     int sock_fd = 0;
     struct sockaddr_in server;
 
-    //Create a socket
-    int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
+    //Create a socket & error check
+    if((sock_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1){
+        printf("Socket creation failed....\n");
+        exit(0);
+    }
+    else
+        printf("Socket successfully created...\n");
 
     //Set the server address
     server.sin_family = AF_INET;
     server.sin_port = htons(PORT);
-    server.sin_addr.s_addr = HOST;
-    inet_aton(&server.sin_addr.s_addr, &server.sin_addr.s_addr);
-    
+    printf("Server address set...\n");
+
     //Create the connection to the server
-    connect(sock_fd, &server, sizeof(server));
-    
+    if (connect(sock_fd, &server, sizeof(server)) < 0){
+        printf("Server connection error: %s\n", strerror(errno));
+        exit(0);
+    }
+    else
+        printf("Connection made...\n");
     return sock_fd;
 }

@@ -11,13 +11,14 @@ import pprint
 
 import socket
 import scapy.all as scapy
+import pickle
 
 '''
 virtualenv -p python3 venv
 	
 
 source venv/bin/activate
-source venv/bin/deactivate
+deactivate
 
  pip3 install -r requirements.txt
 
@@ -163,8 +164,43 @@ async def parse_response(reader: asyncio.StreamReader) -> tuple[int, bytes]:
     Returns:
         tuple[int, bytes]: return a tuple with the return code and the message.
     """
+    #Format the data from the reader pipeline according to the data sizes of the response struct
+    print("Starting to parse response")
 
-    pass
+    while not reader.at_eof():
+
+        #Dont know size of response, assume max of 1024
+        unformatted_message = await reader.read(1024)
+        print("Response had been read in")
+
+        print(dir(unformatted_message))
+        print(unformatted_message)
+
+        #Deserialize the message (ntoh)
+        host_message = socket.ntohs(unformatted_message)
+        print("Response had been converted to host format")
+
+        #uint32_t is 4 bytes, allocate that amount for total_message
+        total_message_size = host_message[0:4]
+
+        #uint32_t is 4 bytes, allocate that amount for ret_code, offset from previous allocations
+        ret_code = host_message[4:8]
+
+        #uint32_t is 4 bytes, allocate that amount for msg_length, offset from previous allocations
+        msg_length = host_message[8:12]
+
+        #Based on msg_length, allocate space for the actual message, offset from previous allocations
+        message = host_message[12:]   
+
+    #Load the ret_code and message[] into the respective tuple fields
+    tuple = (ret_code, message)
+    #Test message
+    print("Expecting ret_code of 0 and message \"roadrunner checkin\"\n")
+    test_ret_code = tuple[0]
+    test_message = tuple[1].decode('utf-18')
+    print(f"Response has ret_code of {test_ret_code} and a message of {test_message}")
+
+    return tuple
 
 
 def create_command(command: bytes, args: bytes) -> bytes:
@@ -281,12 +317,13 @@ def client_conn_cb(agents_connected: list[Agent]):
 
         Load response property into new agent, handing that off to agent_manage
 
-        client_connect_cb calls manage_agent(manage_agent should do the heavy lifting of agent config)
-
         Args:
             reader (asyncio.StreamReader): stream to get data from the agent
             writer (asyncio.StreamWriter): stream to send data to the agent
         """
+        #Prove server is running
+        #print("Server is listening for connections")
+
         #Create new agent
         agent = Agent()
         print(f"Creating new agent called {agent}")
@@ -294,12 +331,12 @@ def client_conn_cb(agents_connected: list[Agent]):
         #Add new agent to list
         agents_connected.append(agent)
 
-        #Parse data from reader & append it to the response field of the new agent
+        #Parse data from reader & append it to the response field of the new agent. Expecting the checkin response
         responses = await parse_response(reader)
         agent.responses.append(responses)
         
 
-        #Call manage_agent to do something
+        #Call manage_agent to do operations
         manage_agent(agent, reader, writer)
 
         print("Client Connected")
@@ -316,7 +353,9 @@ async def server(agents_connected: list[Agent]):
         agents_connected (list[Agent]): The list containing all connected agents
     """
 
-    server = await asyncio.start_server(client_conn_cb(agents_connected), "0.0.0.0", 1337)
+    server = await asyncio.start_server(client_conn_cb(agents_connected), "localhost", 1337)
+    #Prove server is running
+    print("Server is listening for connections")
     await server.serve_forever()
 
 async def shell(agents_connected: list[Agent]):

@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <utils.h>
+#include <stdio.h>
 
 /**
  * @brief Deserialize a message stream of bytes into a Command structure.
@@ -71,12 +72,40 @@ void free_command(Command *cmd)
  */
 uint32_t serialize_response(Response *rsp, char **stream_out)
 {
-    // initialize variables
+    //Initialize local variables
     uint32_t total_size = 0;
+    uint32_t ret_code = 0;
+    char *msg = NULL;
+    uint32_t msg_len = 0;
 
-    // calculate the total size of the message
+    ret_code = rsp->ret_code;
+    msg_len = rsp->msg_len;
+    msg = rsp->msg;
+    total_size = 3 * sizeof(uint32_t) + msg_len;
+    *stream_out = calloc(total_size, sizeof(char));
+  
+    //CONDUCT ERROR CHECKS !!
+    //Ensure *rsp is not NULL
+    //Ensure stream_out is not full
+    
+
     // Convert to network byte order
+    uint32_t ser_total_size = htonl(total_size);
+    uint32_t ser_ret_code = htonl(ret_code);
+    uint32_t ser_msg_len = htonl(msg_len);
+
+
+
     // copy each part of the message into the stream
+    uint32_t offset = 0;
+    memcpy(*stream_out + offset, &ser_total_size, sizeof(uint32_t));
+    offset += sizeof(uint32_t);
+    memcpy(*stream_out + offset, &ser_ret_code, sizeof(uint32_t));
+    offset += sizeof(uint32_t);
+    memcpy(*stream_out + offset, &ser_msg_len, sizeof(uint32_t));
+    offset += sizeof(uint32_t);
+    memcpy(*stream_out + offset, msg, msg_len);
+
     return total_size;
 }
 

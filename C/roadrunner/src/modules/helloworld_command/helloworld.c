@@ -13,4 +13,5 @@ void say_hello()
 {
     //use the debug statements for this module to print "RoadRunner says hello!" to the console
     HELLOWORLD_DEBUG_PRINT("RoadRunner says hello!\n");
+    printf("RoadRunner says hello!\n");
 }

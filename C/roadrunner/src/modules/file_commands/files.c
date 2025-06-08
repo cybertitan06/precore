@@ -58,7 +58,6 @@ uint32_t read_file(char *filename, char **contents_out)
             goto CLEANUP;
         
         *contents_out = temp;
-
     }
 
     goto END;

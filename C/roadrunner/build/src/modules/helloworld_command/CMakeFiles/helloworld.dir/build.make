@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
 
 # Include any dependencies generated for this target.
 include src/modules/helloworld_command/CMakeFiles/helloworld.dir/depend.make
@@ -70,18 +70,18 @@ include src/modules/helloworld_command/CMakeFiles/helloworld.dir/progress.make
 include src/modules/helloworld_command/CMakeFiles/helloworld.dir/flags.make
 
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o: src/modules/helloworld_command/CMakeFiles/helloworld.dir/flags.make
-src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o: /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command/helloworld.c
+src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o: /home/student/precore/precore/C/roadrunner/src/modules/helloworld_command/helloworld.c
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o: src/modules/helloworld_command/CMakeFiles/helloworld.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o -MF CMakeFiles/helloworld.dir/helloworld.c.o.d -o CMakeFiles/helloworld.dir/helloworld.c.o -c /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command/helloworld.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o"
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o -MF CMakeFiles/helloworld.dir/helloworld.c.o.d -o CMakeFiles/helloworld.dir/helloworld.c.o -c /home/student/precore/precore/C/roadrunner/src/modules/helloworld_command/helloworld.c
 
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/helloworld.dir/helloworld.c.i"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command/helloworld.c > CMakeFiles/helloworld.dir/helloworld.c.i
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/precore/precore/C/roadrunner/src/modules/helloworld_command/helloworld.c > CMakeFiles/helloworld.dir/helloworld.c.i
 
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/helloworld.dir/helloworld.c.s"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command/helloworld.c -o CMakeFiles/helloworld.dir/helloworld.c.s
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/precore/precore/C/roadrunner/src/modules/helloworld_command/helloworld.c -o CMakeFiles/helloworld.dir/helloworld.c.s
 
 # Object files for target helloworld
 helloworld_OBJECTS = \
@@ -93,19 +93,19 @@ helloworld_EXTERNAL_OBJECTS =
 src/modules/helloworld_command/libhelloworld.a: src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o
 src/modules/helloworld_command/libhelloworld.a: src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make
 src/modules/helloworld_command/libhelloworld.a: src/modules/helloworld_command/CMakeFiles/helloworld.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libhelloworld.a"
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command && $(CMAKE_COMMAND) -P CMakeFiles/helloworld.dir/cmake_clean_target.cmake
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/helloworld.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libhelloworld.a"
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command && $(CMAKE_COMMAND) -P CMakeFiles/helloworld.dir/cmake_clean_target.cmake
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/helloworld.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/build: src/modules/helloworld_command/libhelloworld.a
 .PHONY : src/modules/helloworld_command/CMakeFiles/helloworld.dir/build
 
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/clean:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command && $(CMAKE_COMMAND) -P CMakeFiles/helloworld.dir/cmake_clean.cmake
+	cd /home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command && $(CMAKE_COMMAND) -P CMakeFiles/helloworld.dir/cmake_clean.cmake
 .PHONY : src/modules/helloworld_command/CMakeFiles/helloworld.dir/clean
 
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/depend:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/CNODP_share/precore-students-2025/C/roadrunner /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command /home/student/CNODP_share/precore-students-2025/C/roadrunner/build /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command/CMakeFiles/helloworld.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/precore/precore/C/roadrunner /home/student/precore/precore/C/roadrunner/src/modules/helloworld_command /home/student/precore/precore/C/roadrunner/build /home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command /home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command/CMakeFiles/helloworld.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/modules/helloworld_command/CMakeFiles/helloworld.dir/depend
 

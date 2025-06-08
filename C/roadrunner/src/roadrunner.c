@@ -113,10 +113,19 @@ static bool send_response(int sock_fd, Response *rsp)
 {
     // Serialize Response struct into byte stream (see commands.c in the command_io directory)
     // Send response byte stream to server
-    
-    //
-    send(sock_fd, serialized_response);
-    return false;
+    char **serialized_response = NULL;
+    serialized_response = rsp;
+
+    if ((serialize_response(rsp, serialized_response)) < 0){
+        printf("Transmission error\n");
+        return false;
+    }
+
+    if(send(sock_fd, serialized_response, sizeof(serialize_response), 0) < 0){
+        printf("Error: %s\n", strerror(errno));
+    }
+
+    return true;
 }
 
 /**
@@ -128,9 +137,14 @@ static Command *receive_command(int sock_fd)
 {
     Command *cmd = NULL;
     // Read from socket
+    read(sock_fd, read_to_buffer, size_to_read);
     // convert from network to host byte order
+    host_message = ntohl(read_to_buffer);
     // Validate message
+    ????
     // deserialize the command received from the server and populate a Command struct
+    deserialize_command(host_message);
+
     return cmd;
 }
 

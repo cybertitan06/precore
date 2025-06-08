@@ -27,11 +27,11 @@
     [X] invoke_command
         - Tests: should_provide_valid_cmd_return, should_touch_file_with_invoke
 1. roadrunner.c
-    - connect_to_server
+    [X] connect_to_server
     - send_response
     - receive_command
 1. commands.c
-    - serialize_response
+    [X] serialize_response
     - deserialize_command
 1. files.c
     - deserialize_file_command

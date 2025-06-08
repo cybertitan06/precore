@@ -173,8 +173,8 @@ async def parse_response(reader: asyncio.StreamReader) -> tuple[int, bytes]:
         unformatted_message = await reader.read(1024)
         print("Response had been read in")
 
-        print(dir(unformatted_message))
-        print(unformatted_message)
+        # print(dir(unformatted_message))
+        # print(unformatted_message)
 
         #Deserialize the message (ntoh)
         host_message = socket.ntohs(unformatted_message)

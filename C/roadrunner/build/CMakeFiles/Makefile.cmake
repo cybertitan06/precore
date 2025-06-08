@@ -7,18 +7,16 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/CMakeLists.txt"
+  "/home/student/precore/precore/C/roadrunner/CMakeLists.txt"
   "CMakeFiles/3.25.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.25.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.25.1/CMakeSystem.cmake"
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/CMakeLists.txt"
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/CMakeLists.txt"
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/CMakeLists.txt"
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/file_commands/CMakeLists.txt"
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command/CMakeLists.txt"
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/proxy_command/CMakeLists.txt"
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/system_commands/CMakeLists.txt"
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/test/CMakeLists.txt"
+  "/home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/CMakeLists.txt"
+  "/home/student/precore/precore/C/roadrunner/src/modules/command_io/CMakeLists.txt"
+  "/home/student/precore/precore/C/roadrunner/src/modules/file_commands/CMakeLists.txt"
+  "/home/student/precore/precore/C/roadrunner/src/modules/helloworld_command/CMakeLists.txt"
+  "/home/student/precore/precore/C/roadrunner/src/modules/proxy_command/CMakeLists.txt"
+  "/home/student/precore/precore/C/roadrunner/src/modules/system_commands/CMakeLists.txt"
   "/usr/share/cmake-3.25/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.25/Modules/CMakeCCompilerABI.c"
   "/usr/share/cmake-3.25/Modules/CMakeCInformation.cmake"
@@ -133,18 +131,15 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/modules/file_commands/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/modules/system_commands/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/modules/proxy_command/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "test/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "integration/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/RoadRunner.dir/DependInfo.cmake"
   "src/modules/helloworld_command/CMakeFiles/helloworld.dir/DependInfo.cmake"
   "src/modules/command_io/CMakeFiles/commands.dir/DependInfo.cmake"
   "src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/DependInfo.cmake"
   "src/modules/file_commands/CMakeFiles/files.dir/DependInfo.cmake"
   "src/modules/system_commands/CMakeFiles/sys.dir/DependInfo.cmake"
   "src/modules/proxy_command/CMakeFiles/proxy.dir/DependInfo.cmake"
-  "test/CMakeFiles/Test.dir/DependInfo.cmake"
-  "integration/CMakeFiles/Integration.dir/DependInfo.cmake"
   )

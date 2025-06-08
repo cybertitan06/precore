@@ -18,11 +18,69 @@
  */
 Command *deserialize_command(uint32_t  msg_size, char *msg_stream)
 {
+    Command *new_cmd = NULL;
+    uint32_t total_message_size = 0;
+    uint32_t cmd_length = 0;
+    char *cmd = NULL;
+    uint32_t args_length = 0;
+    char *args = NULL;
+    uint32_t offset = 0;
+
+    //*msg_stream = calloc(msg_size, sizeof(char));
+
     // Validate command received
+    if(msg_size <= 0){
+        printf("No command recieved\n");
+        return new_cmd;
+    }
+
     // Get bytes
+    memcpy(&total_message_size, msg_stream, sizeof(uint32_t));
+    offset += sizeof(uint32_t);
+    memcpy(&cmd_length, msg_stream + offset, sizeof(uint32_t));
+    offset += sizeof(uint32_t);
+
+    //memcpy(cmd, msg_stream + offset, cmd_length);
+    offset += sizeof(uint32_t);
+
+    memcpy(&args_length, msg_stream + offset, sizeof(uint32_t));
+    offset += sizeof(uint32_t);
+    //memcpy(args, msg_stream + offset, args_length);
+
     // convert from network to host byte order
+    //cmd = ntohl(cmd); Not needed for char*
+    cmd_length = ntohl(cmd_length);
+    //args = ntohl(args); Not needed for char*
+    args_length = ntohl(args_length);
+
     // store command in struct
-    return NULL;
+    //new_cmd->cmd = cmd;
+    //new_cmd->cmd_len = cmd_length;
+    //new_cmd->args = args;
+    //new_cmd->args_len = args_length;
+
+    //Create new command
+    //new_cmd = alloc_command(cmd, cmd_length, args, args_length);
+
+    //Ensure new command is not NULL
+    if (!new_cmd){
+        printf ("No new command was created\n");
+        return new_cmd;
+    } else if (!(new_cmd->cmd)){
+        printf ("No command string was recieved\n");
+        return new_cmd;
+    }else if ((new_cmd->cmd_len) <= 0){
+        printf ("No command length was recieved\n");
+        return new_cmd;
+    }else if (!(new_cmd->args)){
+        printf ("No command arguments were recieved\n");
+        return new_cmd;
+    } else if((new_cmd->args_len) <= 0){
+        printf ("No arguments length were recieved\n");
+        return new_cmd;
+    }else
+
+    return new_cmd;
 }
 
 /**
@@ -84,17 +142,37 @@ uint32_t serialize_response(Response *rsp, char **stream_out)
     total_size = 3 * sizeof(uint32_t) + msg_len;
     *stream_out = calloc(total_size, sizeof(char));
   
-    //CONDUCT ERROR CHECKS !!
     //Ensure *rsp is not NULL
-    //Ensure stream_out is not full
-    
+    // if (!rsp || !(rsp->msg) || (rsp->msg_len) <= 0 || (rsp->ret_code) <= 0){    
+        
+    //     printf("Some response property is null or missing\n");
+    //     return -1;
+    // }
+
+    if (!rsp){
+        printf ("No new response was created\n");
+        return -1;
+    } else if (!(rsp->msg)){
+        printf ("No response message recieved\n");
+        return -1;
+    }else if ((rsp->msg_len) <= 0){
+        printf ("No message length was recieved\n");
+        return -1;
+    }else if ((rsp->ret_code) > 0){
+        printf ("No ret_code were recieved\n");
+        return -1;
+    }
+    //**Ensure stream_out is not full**
+    /* THIS ERROR CHECK NEEDS ADDITIONAL RESEARCH*/
+    // if (total_size >= current size of stream_out buffer){
+    //     printf("Stream out buffer is full\n");
+    //     return -2;
+    // }
 
     // Convert to network byte order
     uint32_t ser_total_size = htonl(total_size);
     uint32_t ser_ret_code = htonl(ret_code);
     uint32_t ser_msg_len = htonl(msg_len);
-
-
 
     // copy each part of the message into the stream
     uint32_t offset = 0;

@@ -1,8 +1,8 @@
 src/modules/system_commands/CMakeFiles/sys.dir/sys.c.o: \
- /home/student/precore/precore/C/roadrunner/src/modules/system_commands/sys.c \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/system_commands/sys.c \
  /usr/include/stdc-predef.h \
- /home/student/precore/precore/C/roadrunner/src/modules/system_commands/sys.h \
- /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/system_commands/sys.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.h \
  /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -85,7 +85,7 @@ src/modules/system_commands/CMakeFiles/sys.dir/sys.c.o: \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /home/student/precore/precore/C/roadrunner/src/modules/file_commands/files.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/file_commands/files.h \
  /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \

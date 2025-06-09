@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/student/precore/precore/C/roadrunner/bin/RoadRunner"
-  "/home/student/precore/precore/C/roadrunner/bin/RoadRunner.pdb"
+  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/bin/RoadRunner"
+  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/bin/RoadRunner.pdb"
   "CMakeFiles/RoadRunner.dir/src/roadrunner.c.o"
   "CMakeFiles/RoadRunner.dir/src/roadrunner.c.o.d"
 )

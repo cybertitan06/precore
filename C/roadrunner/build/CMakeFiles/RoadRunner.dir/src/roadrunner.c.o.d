@@ -1,5 +1,5 @@
 CMakeFiles/RoadRunner.dir/src/roadrunner.c.o: \
- /home/student/precore/precore/C/roadrunner/src/roadrunner.c \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/roadrunner.c \
  /usr/include/stdc-predef.h /usr/include/unistd.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -74,16 +74,16 @@ CMakeFiles/RoadRunner.dir/src/roadrunner.c.o: \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/student/precore/precore/C/roadrunner/src/roadrunner.h \
- /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/roadrunner.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.h \
  /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
- /home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/core.h \
- /home/student/precore/precore/C/roadrunner/src/modules/helloworld_command/helloworld.h \
- /home/student/precore/precore/C/roadrunner/src/utils.h \
- /home/student/precore/precore/C/roadrunner/src/modules/file_commands/files.h \
- /home/student/precore/precore/C/roadrunner/src/modules/system_commands/sys.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/core.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command/helloworld.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/utils.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/file_commands/files.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/system_commands/sys.h \
  /usr/include/dirent.h /usr/include/x86_64-linux-gnu/bits/dirent.h \
  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
@@ -121,4 +121,4 @@ CMakeFiles/RoadRunner.dir/src/roadrunner.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /home/student/precore/precore/C/roadrunner/src/modules/proxy_command/proxy.h
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/proxy_command/proxy.h

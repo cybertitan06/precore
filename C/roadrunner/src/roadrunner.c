@@ -47,7 +47,9 @@ int main()
     response = checkin_command();
     send_response(agent_fd, response);
 	// begin main execution loop
+    // use fd for while condition
         	// receive_command (see Networking section below)
+
         	// perform_command
         	// send_response
 		// repeat until shutdown command is received
@@ -87,6 +89,10 @@ static bool perform_command(Command *cmd, Response **rsp_out)
 
     */
 
+    //Check if command exists from known goof commands (ex do I have a hostname command? Yes? then execute)
+
+    
+
     RR_DEBUG_PRINT("received: shutdown command\n")
     RR_DEBUG_PRINT("received: sleep command\n")
     RR_DEBUG_PRINT("received: download command\n")
@@ -113,19 +119,36 @@ static bool send_response(int sock_fd, Response *rsp)
 {
     // Serialize Response struct into byte stream (see commands.c in the command_io directory)
     // Send response byte stream to server
-    char **serialized_response = NULL;
-    serialized_response = rsp;
+    char *serialized_response = NULL;
+    uint32_t total_tx = 0;
+    uint32_t bytes_tx = 0;
+    //uint32_t stream_size = 0;
 
-    if ((serialize_response(rsp, serialized_response)) < 0){
-        printf("Transmission error\n");
-        return false;
+    uint32_t stream_size = serialize_response(rsp, &serialized_response);
+
+    // if ((var < 0)){
+    //     printf("Transmission error\n");
+    //     return false;
+    // }
+
+    while(total_tx < stream_size){
+        bytes_tx = send(sock_fd, serialized_response + total_tx, stream_size - total_tx, 0);
+        if(bytes_tx == -1){
+            checkfree(serialized_response);
+            return true;
+        }
+
+        total_tx += bytes_tx;
     }
 
-    if(send(sock_fd, serialized_response, sizeof(serialize_response), 0) < 0){
-        printf("Error: %s\n", strerror(errno));
-    }
+    // if(send(sock_fd, &serialized_response, var, 0) < 0){
+    //     printf("Error: %s\n", strerror(errno));
+    //     return false;
+    // }
 
-    return true;
+    printf("Response has been sent\n");
+    checkfree(serialized_response);
+    return false;
 }
 
 /**
@@ -136,14 +159,17 @@ static bool send_response(int sock_fd, Response *rsp)
 static Command *receive_command(int sock_fd)
 {
     Command *cmd = NULL;
+    uint32_t msg_size = 0;
+    char *read_stream = NULL;
+
+
     // Read from socket
-    read(sock_fd, read_to_buffer, size_to_read);
-    // convert from network to host byte order
-    host_message = ntohl(read_to_buffer);
-    // Validate message
-    ????
-    // deserialize the command received from the server and populate a Command struct
-    deserialize_command(host_message);
+    // msg_size = read(sock_fd, read_stream, size_to_read);
+    // // convert from network to host byte order
+    // host_message = ntohl(read_to_buffer);
+    // // Validate message (make sure its not null, additional error handling)
+    // // deserialize the command received from the server and populate a Command struct
+    // cmd = deserialize_command(msg_size, host_message);
 
     return cmd;
 }

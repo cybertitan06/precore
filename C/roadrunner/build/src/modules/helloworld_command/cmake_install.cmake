@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/precore/precore/C/roadrunner/src/modules/helloworld_command
+# Install script for directory: /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

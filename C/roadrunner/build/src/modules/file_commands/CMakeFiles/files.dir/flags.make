@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/student/precore/precore/C/roadrunner/src -I/home/student/precore/precore/C/roadrunner/src/modules/file_commands -I/home/student/precore/precore/C/roadrunner/src/modules/command_io
+C_INCLUDES = -I/home/student/CNODP_share/precore-students-2025/C/roadrunner/src -I/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/file_commands -I/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io
 
 C_FLAGS = -Wall -std=gnu90
 

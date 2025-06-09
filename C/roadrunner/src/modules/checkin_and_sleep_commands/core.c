@@ -16,12 +16,13 @@
 Response *checkin_command()
 {
     Response *rsp = NULL;
-    uint32_t total_message_size = 0;
-    uint32_t ret_code = 0;
-    char msg[19] = {0};
+    char *msg = NULL;
+    uint32_t msg_len = 0;
+    msg = "roadrunner checkin";
+    msg_len = strlen(msg);
     
     // Return "roadrunner checkin" in response
-    rsp = alloc_response(0, "roadrunner checkin", strlen("roadrunner checkin"));
+    rsp = alloc_response(0, msg, 19);
 
     return rsp;
 }

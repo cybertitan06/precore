@@ -1,8 +1,8 @@
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o: \
- /home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/core.c \
  /usr/include/stdc-predef.h \
- /home/student/precore/precore/C/roadrunner/src/modules/checkin_and_sleep_commands/core.h \
- /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/checkin_and_sleep_commands/core.h \
+ /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.h \
  /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

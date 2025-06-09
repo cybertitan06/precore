@@ -11,7 +11,7 @@ import pprint
 
 import socket
 import scapy.all as scapy
-import pickle
+import struct
 
 '''
 virtualenv -p python3 venv
@@ -169,37 +169,44 @@ async def parse_response(reader: asyncio.StreamReader) -> tuple[int, bytes]:
 
     while not reader.at_eof():
 
-        #Dont know size of response, assume max of 1024
-        unformatted_message = await reader.read(1024)
-        print("Response had been read in")
+        #Read in the total message size
+        total_message_size = await reader.read(4)
+        print(f"Total message size has been read in")
 
-        # print(dir(unformatted_message))
-        # print(unformatted_message)
+        d_total_message_size = struct.unpack('>I', total_message_size)
+        print(f"Total msg size: {d_total_message_size}")
 
-        #Deserialize the message (ntoh)
-        host_message = socket.ntohs(unformatted_message)
-        print("Response had been converted to host format")
+        #Read in the ret_code
+        ret_code = await reader.read(4)
+        print("Ret code has been read in")
 
-        #uint32_t is 4 bytes, allocate that amount for total_message
-        total_message_size = host_message[0:4]
+        #Deserialize ret code
+        d_ret_code = struct.unpack('>I', ret_code)
+        print(f"Ret code: {d_ret_code}")
 
-        #uint32_t is 4 bytes, allocate that amount for ret_code, offset from previous allocations
-        ret_code = host_message[4:8]
+        #Read in the msg_length
+        msg_length = await reader.read(4)
+        print("Msg length has been read in")
 
-        #uint32_t is 4 bytes, allocate that amount for msg_length, offset from previous allocations
-        msg_length = host_message[8:12]
+        #Deserialize msg_length
+        d_msg_length = struct.unpack('>I', msg_length)
+        print(f"Msg length: {d_msg_length}")
 
-        #Based on msg_length, allocate space for the actual message, offset from previous allocations
-        message = host_message[12:]   
+        #Read in the msg
+        msg = await reader.read(d_msg_length[0])
+        print("Msg has been read in")
 
-    #Load the ret_code and message[] into the respective tuple fields
-    tuple = (ret_code, message)
-    #Test message
-    print("Expecting ret_code of 0 and message \"roadrunner checkin\"\n")
-    test_ret_code = tuple[0]
-    test_message = tuple[1].decode('utf-18')
-    print(f"Response has ret_code of {test_ret_code} and a message of {test_message}")
+        #Deserialize msg
+        d_msg = struct.unpack(f'>{d_msg_length[0]}s', msg)
+        print(f"Msg: {d_msg[0]}")
 
+        #Load the ret_code and message into the respective tuple fields
+        tuple = (d_ret_code[0], d_msg[0])
+
+        #Force end of file response to exit while loop
+        reader.feed_eof()
+
+    print("Response has been parsed, returning tuple")
     return tuple
 
 
@@ -208,7 +215,7 @@ def create_command(command: bytes, args: bytes) -> bytes:
     this function as a utility to serialize commands.  A command needs to be sent in the
     following format
 
-    struct response {
+    struct command {
         uint32_t total_message_size;
         uint32_t command_length;
         char command[command_length];   //NULL TERMINATED
@@ -224,8 +231,23 @@ def create_command(command: bytes, args: bytes) -> bytes:
     Returns:
         bytes: a serialized bytestream that can be sent to the agent
     """
+    command_bytearray = bytearray(b'')
 
-    pass
+    command_length = len(command)
+
+    #TODO You may get multiple arguments separated by a ' '. Need to join them together for serialization
+    args_length = len(args)
+    total_message_size = command_length + (len(command) + 1) + args_length + len(args)
+    
+    # import struct, how to pack a byte stream for serialization/deserial. Load into bytearray as element is serialized
+
+    struct.pack_into('I', command_bytearray, 0, total_message_size)
+    struct.pack_into('I', command_bytearray, 1, command_length)
+    struct.pack_into('{command_length}s', command_bytearray, 2, command.encode())
+    struct.pack_into('I', command_bytearray, 3, args_length)
+    struct.pack_into('{args_length}s', command_bytearray, 4, args.encode())
+
+    return command_bytearray
 
 
 def create_upload_arg(src: str, dst: str) -> bytes:
@@ -300,9 +322,28 @@ async def manage_agent(
         reader (asyncio.StreamReader): stream to get data from the agent
         writer (asyncio.StreamWriter): stream to send data to the agent
     """
-    #Read from command queue, write to agent (2 - 4 lines of code)
+
+    #Read from command queue, write to agent
+    data = await reader.read(100)
+    message = data.decode('utf-8')
+
+    #Split message into expected arguments (cmd & args), delimited by a " "
+    #Example "sleep 15" or "proxy 1337 192.555.23.33 4444"
+    split_message = message.split(' ')
+    cmd = split_message[0]
+    args = split_message[1:]
+
+    agent.commands = create_command(cmd, args)
+
+    #"Send" the command by putting it into the writer stream
+    print(f"Sending command: {agent.commands}")
+    writer.write(agent.commands)
+    await writer.drain()
 
     #Read response from agent, append to response queue (2-3 lines)
+    agent_data = await reader.read(1024)
+    agent_response = agent_data.decode('utf-8')
+    agent.responses.append(agent_response)
 
     pass
 
@@ -321,8 +362,6 @@ def client_conn_cb(agents_connected: list[Agent]):
             reader (asyncio.StreamReader): stream to get data from the agent
             writer (asyncio.StreamWriter): stream to send data to the agent
         """
-        #Prove server is running
-        #print("Server is listening for connections")
 
         #Create new agent
         agent = Agent()
@@ -334,10 +373,10 @@ def client_conn_cb(agents_connected: list[Agent]):
         #Parse data from reader & append it to the response field of the new agent. Expecting the checkin response
         responses = await parse_response(reader)
         agent.responses.append(responses)
-        
+        print(agent.responses)
 
         #Call manage_agent to do operations
-        manage_agent(agent, reader, writer)
+        manage_agent(agents_connected[0], reader, writer)
 
         print("Client Connected")
         #=========================== END OF ASYNC ======================================
@@ -354,7 +393,6 @@ async def server(agents_connected: list[Agent]):
     """
 
     server = await asyncio.start_server(client_conn_cb(agents_connected), "localhost", 1337)
-    #Prove server is running
     print("Server is listening for connections")
     await server.serve_forever()
 
@@ -380,13 +418,14 @@ async def shell(agents_connected: list[Agent]):
     selected_agent: Optional[Agent] = None
     while True:
         if selected_agent is None:
-            input_promt = ">> "
+            input_prompt = ">> "
         else:
-            input_promt = f"({selected_agent.name})>> "
-        command_str: str = await aioconsole.ainput(input_promt)
+            input_prompt = f"({selected_agent.name})>> "
+        command_str: str = await aioconsole.ainput(input_prompt)
         command = command_str.split()
         no_std = False
         no_agt = False
+
         match command:
             case ["help"]:
                 print_std_help()
@@ -395,20 +434,24 @@ async def shell(agents_connected: list[Agent]):
                     print(agents)
                 pass
             case ["use", agent_name]:
-                pass
+                selected_agent = agent_name
             case ["unuse"]:
+                #selected_agent = None
                 pass
             case _:
                 no_std = True
         if selected_agent is not None:
             match command:
                 case ["responses"]:
+                    print(selected_agent.responses)
                     pass
                 case ["rename", new_name]:
                     pass
                 case ["shutdown"]:
+                    selected_agent.commands = create_command("shutdown")
                     pass
                 case ["sleep", sleeptime]:
+                    selected_agent.commands = create_command("sleep", sleeptime)
                     pass
                 case ["upload", src, dst]:
                     pass

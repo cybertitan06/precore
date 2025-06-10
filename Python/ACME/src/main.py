@@ -207,6 +207,7 @@ async def parse_response(reader: asyncio.StreamReader) -> tuple[int, bytes]:
         reader.feed_eof()
 
     print("Response has been parsed, returning tuple")
+    print(f"Ret code: {tuple[0]}, msg: {tuple[1]}")
     return tuple
 
 

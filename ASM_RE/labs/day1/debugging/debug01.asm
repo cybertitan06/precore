@@ -23,7 +23,7 @@ main:
     call    printf
     add     esp, 8
 
-    xor     ebx, ebx
+    ;xor     ebx, ebx
     mov     eax, 0x1
     int     0x80
 

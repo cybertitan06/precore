@@ -36,7 +36,8 @@ main:
     inc     ecx
     inc     edx
     mov     eax, str
-    mov     [printf], eax
+    ;mov     dword [printf], eax  ;Comment out for fix, should be pushing eax to stack
+    push    eax
     nop
     nop
     nop
@@ -66,9 +67,10 @@ main:
     nop
     nop
 
-    push    dword [print]
+    ;push    dword [print]  ;Moves esp off the intended print statement. Either comment out or move the add 4 line to before the call printf
+    ;add     esp, 4
     call    printf
-    add     esp, 4
+    
 
     xor     ebx, ebx
     mov     eax, 0x1

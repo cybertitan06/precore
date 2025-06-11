@@ -10,7 +10,7 @@ section .text
 global  main
 
 main:
-    mov     esp, 0
+    ;mov     esp, 0     ;Comment out for fix. This line sets the stack pointer to 0, preventing any other stack operation
     pop     eax
     mov     eax, esp
     mov     ebx, ecx

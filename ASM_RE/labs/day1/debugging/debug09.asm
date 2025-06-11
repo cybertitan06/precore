@@ -46,6 +46,6 @@ main:
 section .data
 str:    db "num is %d, should be %d", 0xA, 0
 num1:   dd 42
-num2:   dd 00000100b
-num3:   dd 0x21
+num2:   dd 01100100b
+num3:   dd 0x15
 num4:   dd 020

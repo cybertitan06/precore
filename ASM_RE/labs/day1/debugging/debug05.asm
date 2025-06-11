@@ -10,12 +10,13 @@ global  main
 extern  printf
 
 main:
-    mov     dword [num], 0xFFFF
-    mov     word [num], 0x00
+    mov     dword [num1], 0xFFFF
+    mov     word [num2], 0x00
     
     xor     ebx, ebx
     mov     eax, 0x1
     int     0x80
 
 section .bss
-num:   resb 4
+num1:   resb 4
+num2:   resb 4

@@ -12,18 +12,19 @@ extern  printf
 
 main:
     mov     ebx, 0x546729AB
-    push    byte 0x42
+    push    ebx            ;Decomment for fix
+    ;push    byte 0x42       ;Comment out for fix
     push    str
     call    printf
     add     esp, 8
 
-    mov     bl, 0x42
+    ;mov     bl, 0x42       ;Comment out for fix
     push    ebx
     push    str
     call    printf
     add     esp, 8
 
-    ;xor     ebx, ebx
+    xor     ebx, ebx
     mov     eax, 0x1
     int     0x80
 

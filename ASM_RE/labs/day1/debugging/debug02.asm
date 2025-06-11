@@ -17,7 +17,7 @@ main:
     call    printf
     add     esp, 8
 
-    mov     bh, 0x42
+    mov     bl, 0x42    ;Changed bh to bl. Want to modify the lower half of ebx
     push    ebx
     push    str
     call    printf

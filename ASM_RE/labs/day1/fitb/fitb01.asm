@@ -15,6 +15,12 @@ extern  printf
 main:
     
     mov     esi, arr
+    mov     dword [esi+0], 255 
+    mov     dword [esi+4], 01337
+    mov     dword [esi+8], 2022
+    mov     dword [esi+12], 0x2021
+    mov     dword [esi+16], 10101010b
+
     ; For this lab, we've got an array (contiguous block of values) in
     ; memory that we want to initialize to several different values. Your
     ; objective is to manually store those values into the array. arr is stored

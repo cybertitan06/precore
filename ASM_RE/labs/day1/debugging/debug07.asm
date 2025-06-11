@@ -22,7 +22,7 @@ main:
     xor     edx, edx
     mov     eax, 5
     mov     ebx, -5
-    div     ebx
+    idiv    ebx         ;Changed div to idiv to account for the negative quotient
     push    eax
     push    div_res
     call    printf

@@ -15,10 +15,10 @@ main:
     mov     dword [num2], 0x34563456
     ; IGNORE THIS SECTION
  
-    add     word [num1], 0x2022
-    add     byte [num2], 0x42
+    mov     word [num1], 0x2022
+    mov     byte [num2], 0x42
 
-    mov     eax, bad
+    mov     eax, bad           
     cmp     word [num1], 0x2022
     jne     done
     cmp     byte [num2], 0x42
@@ -39,5 +39,5 @@ good:   db "num1 and num2 look all good!", 0xA, 0
 bad:    db "Hmmm, num1 and/or num2 isn't what I expected them to be.", 0xA, 0
 
 section .bss
-num1:   resd 1
-num2:   resd 1
+num1:   resd 4
+num2:   resd 4

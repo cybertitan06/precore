@@ -14,12 +14,16 @@ main:
     mov     eax, 0x01234567
     mov     ebx, 0x89ABCDEF
     
+    mov     ecx, eax    ;Decomment for fix; maintaining original value of eax to eventually swap with original value of ebx
+    push    ecx         ;Push ecx to the stack so it wont get overwritten when printf is called
     mov     eax, ebx
     push    eax
     push    str1
     call    printf
+    mov     ecx, [esp+0x08]
     add     esp, 8
     
+    mov     ebx, ecx    ;Decomment for fix; moving original value of eax into ebx
     push    ebx
     push    str2
     call    printf

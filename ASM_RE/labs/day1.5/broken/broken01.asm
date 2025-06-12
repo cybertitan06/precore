@@ -29,8 +29,8 @@ main:
 
     xor     ebx, ebx
     mov     bx, 0x8000
-    movzx   ah, bh
-    movsx   cl, bx
+    movzx   eax, bh
+    movsx   ecx, bx
     push    ecx
     push    eax
     push    ebx

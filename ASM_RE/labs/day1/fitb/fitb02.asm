@@ -28,19 +28,32 @@ main:
 
     ; 1) Copy your code from fitb1.asm to initialize arr to the correct
     ; values.
+    mov     esi, arr
+    mov     dword [esi+0], 255 
+    mov     dword [esi+4], 01337
+    mov     dword [esi+8], 2022
+    mov     dword [esi+12], 0x2021
+    mov     dword [esi+16], 10101010b
 
     mov     edi, goal_arr
+
     ; 2) Initialize the loop counter (ecx) to the value stored in the memory
     ; variable ctr
+
+    mov     ecx, ctr
 
 check_loop:
     ; 3) Check if the loop counter has gone through all the entries in the list
     
-    ;je      good - Uncomment this once you've got 3 done
-
+    cmp     ecx, 5
+    
+    je      good    ;Uncomment this once you've got 3 done
+    
+    
     ; 4) Save the current value of ecx to ctr
    
-    
+    mov     [ctr], ecx
+
     ; All that good number-checking stuff 
     mov     ebx, [edi]
     push    ebx
@@ -55,6 +68,11 @@ check_loop:
     ; 5) Restore the value of ecx from memory (printf clobbered it, more on
     ; that later), and then increment ecx by 1 and esi and edi to the next
     ; index
+
+    mov     ecx, [esp + 0x04]
+    add     ecx, 1
+    lea     esi, [esi+(4*ecx)]    ;Logically looking to advance memory index by 4 bytes to point to the next index in the array
+    lea     edi, [edi+4*ecx]
 
     jmp     check_loop
  

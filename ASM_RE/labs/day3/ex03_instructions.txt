@@ -2,5 +2,28 @@ A binary is provided to you (ex3) and it prints out a encoded message.
 
 Reverse engineer the binary and answer the questions below!
 
-1. What message is expected to print out?
-2. There's no encoding in ex3, so why doesn't the message print out?
+1. What message is expected to print out? FragmentedMagicPotatos
+2. There's no encoding in ex3, so why doesn't the message print out? The initial print calls
+for the Msg buffer that is storing the string, but what was needed was the ptr (writeLocation) that was
+used to load all the messages.
+
+Initial Output:
+// newline of blank output//
+FragmentedMagicPotatos
+
+OutMsg has an array size of 23, but initially only 8 values loaded at seemingly
+random indexes.
+
+  *writeLocation = 0x67617246;  "garF"
+  ptr1 = writeLocation;
+  writeLocation[1] = 0x746e656d; "tnem"
+  *(undefined2 *)(ptr1 + 2) = 0x6465; "de"
+  ptr1 = writeLocation;
+  *(undefined4 *)((long)writeLocation + 10) = 0x6967614d; "igaM"
+  *(undefined *)((long)ptr1 + 0xe) = 99; "c"
+  ptr1 = writeLocation;
+  *(undefined4 *)((long)writeLocation + 0xf) = 0x61746f50; "atoP"
+  *(undefined2 *)((long)ptr1 + 0x13) = 0x6f74;  "ot"
+  *(undefined *)((long)ptr1 + 0x15) = 0x73; "s"
+  puts(outMsg);
+  puts((char *)writeLocation);

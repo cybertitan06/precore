@@ -12,3 +12,13 @@ Hint: Not all binaries have ONLY 1 solution. Sometimes, you just
 
 Hint: Not all passwords are funny sounding strings. Don't get too
         trained to look for solid strings or funny phrases.
+
+ex06: UltraMarine!
+ex07:
+ex08:
+ex09:
+ex10:
+ex11:
+ex12:
+ex13:
+ex14:

@@ -71,8 +71,10 @@ check_loop:
 
     mov     ecx, [esp + 0x04]
     add     ecx, 1
-    lea     esi, [esi+(4*ecx)]    ;Logically looking to advance memory index by 4 bytes to point to the next index in the array
-    lea     edi, [edi+4*ecx]
+
+
+    mov     esi, [esi+4]    ;Logically looking to advance memory index by 4 bytes to point to the next index in the array
+    mov     edi, [edi+4*ecx]
 
     jmp     check_loop
  
@@ -93,7 +95,7 @@ ctr:        dd 0
 at_expected:db "Value at offset %d is %d, expected %d", 0xA, 0
 goal_arr:   dd 255, 01337, 2022, 0x2021, 10101010b
 success:    db "Looks like everything checks out!", 0xA, 0
-failure:    db "Hmm, something doesn't check out", 0xA, 0
+failure:    db "Hmm, something doesn't check out", 0xA, 0  
 
 section .bss
 arr:        resd 5

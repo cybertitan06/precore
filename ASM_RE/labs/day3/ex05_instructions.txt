@@ -2,7 +2,71 @@ A binary is provided to you (ex5) and it prints out a encoded message.
 
 Reverse engineer the binary and answer the questions below!
 
-1. What happens to the password provided to the program?
-2. What is being compared inside the program to unlock it?
-3. Decode the password inside the program.
-4. The program has a decoding algorithm. Take that algorithm and reproduce it in python or C. Decode the string "\x51\x25\x31\x06\x19\x22\x1b\x70\x16\x23\x2e\x70\x23\x22\x70\x1f\x23\x24\x0a\x19\x22\x1b\x70\x19\x0c\x71\x90"
+1. What happens to the password provided to the program? It is encoded using ((paswd_guess[index] - 4) ^ 0x76) + 6
+2. What is being compared inside the program to unlock it? A password stored at [rsi+8], which is decoded with (([index] - 6) ^ 0x76) + 4
+3. Decode the password inside the program. LetMeIn!LetMeIn!!
+4. The program has a decoding algorithm. Take that algorithm and reproduce it in python or C.
+Decode the string "\x51\x25\x31\x06\x19\x22\x1b\x70\x16\x23\x2e\x70\x23\x22\x70\x1f\x23\x24\x0a\x19\x22\x1b\x70\x19\x0c\x71\x90"
+
+Initial output (with wrong password):
+
+! Incorrect password L vs p !
+
+Decompiled main:
+
+  int iVar1;
+  size_t len;
+  long in_RSI;
+  int index;
+  
+  EncodePassword(tmpPassword);
+  if (param_1 == 2) {
+    len = strlen(storePassword);
+    DecodePassword(storePassword,len & 0xffffffff);
+    for (index = 0; index < (int)len; index = index + 1) {
+      if (storePassword[index] != *(char *)((long)index + *(long *)(in_RSI + 8))) {
+        printf("! Incorrect password %c vs %c !\n",(ulong)(uint)(int)(char)storePassword[index],
+               (ulong)(uint)(int)*(char *)((long)index + *(long *)(in_RSI + 8)));
+        return -1;
+      }
+    }
+    puts("Congrats!\nYou got it!");
+    iVar1 = 0;
+  }
+  else {
+    puts("Usage: ./ex5 myPasswordGuess");
+    iVar1 = -1;
+  }
+  return iVar1;
+
+
+
+EncodePassword: encodes strings with (([index] - 4) ^ 0x76) + 6, storing the results in temp_paswd, which the function returns
+
+  size_t len;
+  int temp_paswd_len;
+  int index;
+  
+  temp_paswd_len = 0;
+  index = 0;
+  while( true ) {
+    len = strlen(pswd_guess);
+    if (len <= (ulong)(long)index) break;
+    pswd_guess[index] = (pswd_guess[index] - 4U ^ 0x76) + 6;        
+    temp_paswd_len = temp_paswd_len + 1;
+    index = index + 1;
+  }
+  strncpy(tmpPassword,pswd_guess,(long)temp_paswd_len);
+  return temp_paswd_len;
+  
+
+DecodePassword:         //Decodes the given string with (([index] - 6) ^ 0x76) + 4 and returns the result
+  int passwd_len;
+  int index;
+  
+  passwd_len = 0;
+  for (index = 0; index < param_2; index = index + 1) {
+    param_1[index] = (param_1[index] - 6U ^ 0x76) + 4;
+    passwd_len = passwd_len + 1;
+  }
+  strncpy(storePassword,param_1,(long)passwd_len);

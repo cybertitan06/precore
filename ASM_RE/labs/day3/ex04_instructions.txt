@@ -4,3 +4,18 @@ Reverse engineer the binary and answer the questions below!
 
 1. What message is expected to print out?
 2. Encoding was once again applied to ex4. What encoding mechanism is used? What function does it exist inside of?
+
+The expected message is a series of non-printable ASCII control characters, with two numbers and an '@'. A XOR mechanism was used inside of the EncodeText function to replace
+the given
+
+Initial Output:
+SlippingTurtles!
+@
+
+
+Decompiled main:
+  AddText("SlippingTurtles");       //Reads in the string to the outMsg variable, adding an "!" at the end
+  puts(outMsg);                     //Prints outMsg
+  EncodeText("aaaaaaaaaaaaaaaa");   // XORs each index of the input string with the relevant index of outMsg, putting the result into the associated index of outMsg
+  puts(outMsg);                     //
+  return 0;             

@@ -4,5 +4,6 @@
         "array": "c",
         "string_view": "c",
         "initializer_list": "c"
-    }
+    },
+    "cmake.sourceDirectory": "/home/student/CNODP_share/precore-students-2025/C/roadrunner"
 }

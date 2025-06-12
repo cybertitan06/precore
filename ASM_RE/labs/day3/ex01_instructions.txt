@@ -2,5 +2,5 @@ A binary is provided to you (ex1) and it prints out a encoded message.
 
 Reverse engineer the binary and answer the questions below!
 
-1. What's the original message that's being encoded?
-2. What is the 'encoding' that's happening?
+1. What's the original message that's being encoded? UltraFlag-1
+2. What is the 'encoding' that's happening? Each character is rotated one character forward (i.e. a = b, U = V, 1 = 2, etc)

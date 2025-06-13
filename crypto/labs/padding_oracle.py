@@ -1,8 +1,8 @@
 import asyncio
-from Crypto.Cipher import AES
-from Crypto.Random import get_random_bytes
+from Cryptodome.Cipher import AES
+from Cryptodome.Random import get_random_bytes
 import binascii
-from Crypto.Util.Padding import pad, unpad
+from Cryptodome.Util.Padding import pad, unpad
 
 key = b"EAST IS THE BEST"
 

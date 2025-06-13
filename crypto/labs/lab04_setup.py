@@ -1,5 +1,5 @@
-from Crypto.Random import random
-from Crypto.Hash import SHA3_512
+from Cryptodome.Random import random
+from Cryptodome.Hash import SHA3_512
 
 def main():
     num_passwords = 5000

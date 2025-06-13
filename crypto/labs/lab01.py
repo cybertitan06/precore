@@ -3,8 +3,8 @@ In this exercise, we are going to load an image from a file, encrypt it, and the
 Here is a reference for the correct code: https://www.pycryptodome.org/src/examples#encrypt-data-with-aes
 '''
 
-from Crypto.Cipher import AES
-from image import Picture
+from Cryptodome.Cipher import AES
+from resources.image import Picture
 
 key = b'' # please fill in this value
 aes = AES.new(key, AES.MODE_ECB) # use this object within the encrypt and decrypt functions
@@ -27,11 +27,11 @@ def decrypt(data):
 
 def main():
     pic = Picture()
-    image_bytes = pic.open_image("./tuxwhitebg.jpg")
+    image_bytes = pic.open_image("./resources/tuxwhitebg.jpg")
     encrypted_image_bytes = encrypt(image_bytes)
-    pic.save_image(encrypted_image_bytes, "./encrypted_image.jpg")
+    pic.save_image(encrypted_image_bytes, "./results/encrypted_image.jpg")
     decrypted_image_bytes = decrypt(encrypted_image_bytes)
-    pic.save_image(decrypted_image_bytes, "./decrypted_image.jpg")
+    pic.save_image(decrypted_image_bytes, "./results/decrypted_image.jpg")
 
 if __name__ == '__main__':
     main()

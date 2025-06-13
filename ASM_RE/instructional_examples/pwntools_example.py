@@ -15,7 +15,7 @@ p = process("./15_bufferpwntools")
 # p = gdb.debug("./15_bufferpwntools", '''
 # init-pwndbg
 # b main
-# continue
+# continuels
 # ''')
 msg = p.recvuntil(b'overflows:\n')
 print(msg)

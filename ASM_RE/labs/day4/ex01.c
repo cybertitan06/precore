@@ -9,6 +9,16 @@
  * $ sudo bash -c 'echo 0 > /proc/sys/kernel/randomize_va_space'
  * Compile with:
  * $ gcc -gdwarf -no-pie -fno-stack-protector -o ex01 ex01.c
+ * 
+
+
+ Run the program, get it to crash reliably with cyclic(): 43 characters
+
+ Bring the crash up in gdb, step through to just before the crash, and look at the return address
+
+ Math out the exact offset required to overwrite the return address, change values, and gdb again
+
+ Add shellcode in the expected input format (txt file, direct user input, whatever the program is expecting)
  * */
 
 #include <stdio.h>

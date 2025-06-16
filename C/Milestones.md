@@ -28,7 +28,7 @@
         - Tests: should_provide_valid_cmd_return, should_touch_file_with_invoke
 1. roadrunner.c
     [X] connect_to_server
-    - send_response
+    [X] send_response
     - receive_command
 1. commands.c
     [X] serialize_response

@@ -17,8 +17,11 @@
  *
  * Hint: You might need to turn on core dumps to get the address figured
  * out
+ * 
+ * ulimit -c unlimited
+ * 
  * */
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
 #include <unistd.h>
 

@@ -239,6 +239,15 @@ FILES_DEBUG:BOOL=OFF
 //Set the helloworld debug statements on
 HELLOWORLD_DEBUG:BOOL=OFF
 
+//Value Computed by CMake
+Integration_BINARY_DIR:STATIC=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration
+
+//Value Computed by CMake
+Integration_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Integration_SOURCE_DIR:STATIC=/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration
+
 //Set the proxy debug statements on
 PROXY_DEBUG:BOOL=OFF
 
@@ -246,7 +255,7 @@ PROXY_DEBUG:BOOL=OFF
 RR_DEBUG:BOOL=OFF
 
 //Set all debug statements on
-RR_DEBUG_ALL:BOOL=OFF
+RR_DEBUG_ALL:BOOL=ON
 
 //Value Computed by CMake
 RoadRunner_BINARY_DIR:STATIC=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build
@@ -261,7 +270,16 @@ RoadRunner_SOURCE_DIR:STATIC=/home/student/CNODP_share/precore-students-2025/C/r
 SYS_DEBUG:BOOL=OFF
 
 //Set test functions on
-TEST:BOOL=OFF
+TEST:BOOL=ON
+
+//Value Computed by CMake
+Test_BINARY_DIR:STATIC=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/test
+
+//Value Computed by CMake
+Test_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Test_SOURCE_DIR:STATIC=/home/student/CNODP_share/precore-students-2025/C/roadrunner/test
 
 //Value Computed by CMake
 commands_BINARY_DIR:STATIC=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io
@@ -422,7 +440,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

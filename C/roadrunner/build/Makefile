@@ -117,19 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named RoadRunner
-
-# Build rule for target.
-RoadRunner: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RoadRunner
-.PHONY : RoadRunner
-
-# fast build rule for target.
-RoadRunner/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/build
-.PHONY : RoadRunner/fast
-
-#=============================================================================
 # Target rules for targets named helloworld
 
 # Build rule for target.
@@ -207,29 +194,31 @@ proxy/fast:
 	$(MAKE) $(MAKESILENT) -f src/modules/proxy_command/CMakeFiles/proxy.dir/build.make src/modules/proxy_command/CMakeFiles/proxy.dir/build
 .PHONY : proxy/fast
 
-src/roadrunner.o: src/roadrunner.c.o
-.PHONY : src/roadrunner.o
+#=============================================================================
+# Target rules for targets named Test
 
-# target to build an object file
-src/roadrunner.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/src/roadrunner.c.o
-.PHONY : src/roadrunner.c.o
+# Build rule for target.
+Test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Test
+.PHONY : Test
 
-src/roadrunner.i: src/roadrunner.c.i
-.PHONY : src/roadrunner.i
+# fast build rule for target.
+Test/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/build
+.PHONY : Test/fast
 
-# target to preprocess a source file
-src/roadrunner.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/src/roadrunner.c.i
-.PHONY : src/roadrunner.c.i
+#=============================================================================
+# Target rules for targets named Integration
 
-src/roadrunner.s: src/roadrunner.c.s
-.PHONY : src/roadrunner.s
+# Build rule for target.
+Integration: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Integration
+.PHONY : Integration
 
-# target to generate assembly for a file
-src/roadrunner.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/src/roadrunner.c.s
-.PHONY : src/roadrunner.c.s
+# fast build rule for target.
+Integration/fast:
+	$(MAKE) $(MAKESILENT) -f integration/CMakeFiles/Integration.dir/build.make integration/CMakeFiles/Integration.dir/build
+.PHONY : Integration/fast
 
 # Help Target
 help:
@@ -239,16 +228,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... RoadRunner"
+	@echo "... Integration"
+	@echo "... Test"
 	@echo "... commands"
 	@echo "... core"
 	@echo "... files"
 	@echo "... helloworld"
 	@echo "... proxy"
 	@echo "... sys"
-	@echo "... src/roadrunner.o"
-	@echo "... src/roadrunner.i"
-	@echo "... src/roadrunner.s"
 .PHONY : help
 
 

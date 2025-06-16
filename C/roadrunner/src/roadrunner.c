@@ -122,14 +122,8 @@ static bool send_response(int sock_fd, Response *rsp)
     char *serialized_response = NULL;
     uint32_t total_tx = 0;
     uint32_t bytes_tx = 0;
-    //uint32_t stream_size = 0;
 
     uint32_t stream_size = serialize_response(rsp, &serialized_response);
-
-    // if ((var < 0)){
-    //     printf("Transmission error\n");
-    //     return false;
-    // }
 
     while(total_tx < stream_size){
         bytes_tx = send(sock_fd, serialized_response + total_tx, stream_size - total_tx, 0);
@@ -140,11 +134,6 @@ static bool send_response(int sock_fd, Response *rsp)
 
         total_tx += bytes_tx;
     }
-
-    // if(send(sock_fd, &serialized_response, var, 0) < 0){
-    //     printf("Error: %s\n", strerror(errno));
-    //     return false;
-    // }
 
     printf("Response has been sent\n");
     checkfree(serialized_response);
@@ -160,16 +149,26 @@ static Command *receive_command(int sock_fd)
 {
     Command *cmd = NULL;
     uint32_t msg_size = 0;
+    uint32_t network_message = 0;
+    uint32_t host_message = 0;
     char *read_stream = NULL;
 
 
-    // Read from socket
-    // msg_size = read(sock_fd, read_stream, size_to_read);
-    // // convert from network to host byte order
-    // host_message = ntohl(read_to_buffer);
-    // // Validate message (make sure its not null, additional error handling)
-    // // deserialize the command received from the server and populate a Command struct
-    // cmd = deserialize_command(msg_size, host_message);
+    // Read message size from socket
+    msg_size = read(sock_fd, read_stream, 4);
+
+    if (network_message = read(sock_fd, read_stream, msg_size) < 0){
+        printf("Error reading in message\n");
+        return cmd;
+    }
+   
+    // convert from network to host byte order
+    host_message = ntohl(network_message);
+
+    // Validate message (make sure its not null, additional error handling)
+
+    // deserialize the command received from the server and populate a Command struct
+    cmd = deserialize_command(msg_size, host_message);
 
     return cmd;
 }

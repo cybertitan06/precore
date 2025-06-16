@@ -50,6 +50,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/file_commands/cmake_install.cmake")
   include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/system_commands/cmake_install.cmake")
   include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command/cmake_install.cmake")
+  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/test/cmake_install.cmake")
+  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration/cmake_install.cmake")
 
 endif()
 

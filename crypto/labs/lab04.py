@@ -6,7 +6,10 @@ import binascii
 #ONLY EDIT THIS FUNCTION
 #Hint: Brute force is always an option
 def crack_password(hash, wordlist):
-    pass
+    for word in wordlist:
+        word_hash = SHA3_512.new(word)
+        if word_hash.hexdigest().encode() == hash:
+            return word
 
 ###############################################################################################
 # DO NOT EDIT BELOW

@@ -6,9 +6,9 @@ Here is a reference for the correct code: https://www.pycryptodome.org/src/examp
 from Cryptodome.Cipher import AES
 from resources.image import Picture
 
-key = b'' # please fill in this value
-iv = b'' # please fill
-nonce = b'' # please fill
+key = b'this_is_my_encryption_key_paddin' # please fill in this value
+iv = b'this_is_my_initialization_vector' # please fill
+nonce = b'this_is_my_nonce_with_padding___' # please fill
 
 def encrypt(data):
     aes = AES.new(key, AES.MODE_ECB) # edit this object to use counter mode with your custom nonce/IV

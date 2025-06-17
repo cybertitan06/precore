@@ -23,7 +23,11 @@ def xor_bytestrings(xs, ys):
 #ONLY EDIT THIS FUNCTION
 #Hint: the only function you need to call is xor_bytestrings
 def decrypt_bad_counter(your_message, your_ciphertext, secret_ciphertext):
-    pass
+    padd = xor_bytestrings(your_message, your_ciphertext)
+    key_guess = xor_bytestrings(padd, secret_ciphertext)
+    
+    return key_guess
+    
 
 #####################################################################################
 

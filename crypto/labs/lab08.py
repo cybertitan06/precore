@@ -6,13 +6,13 @@ from Cryptodome.Hash import SHA3_256
 import binascii
 
 def call_derives(alice_keypair, bob_keypair):
-    a_priv =    # set this variable correctly
-    a_pub =     # set this variable correctly
-    b_priv =    # set this variable correctly
-    b_pub =     # set this variable correctly
+    a_priv = alice_keypair[1]   # set this variable correctly
+    a_pub  = alice_keypair[0]   # set this variable correctly
+    b_priv = bob_keypair[1]     # set this variable correctly
+    b_pub  = bob_keypair[0]     # set this variable correctly
 
-    a_shared_secret = alice_derive(_, _)    # set the arguments to this function correctly
-    b_shared_secret = bob_derive(_, _)      # set the arguments to this function correctly
+    a_shared_secret = alice_derive(a_priv, b_pub)    # set the arguments to this function correctly
+    b_shared_secret = bob_derive(b_priv, a_pub)      # set the arguments to this function correctly
 
     display_shared_secret(a_shared_secret, "Alice")
     display_shared_secret(b_shared_secret, "Bob")
@@ -20,11 +20,11 @@ def call_derives(alice_keypair, bob_keypair):
     return (a_shared_secret, b_shared_secret)
 
 def alice_derive(alice_priv, bob_pub):
-    shared_secret = DH.key_agreement(eph_priv=, eph_pub=, kdf=__kdf) # set the arguments appropriately here
+    shared_secret = DH.key_agreement(eph_priv=alice_priv, eph_pub=bob_pub, kdf=__kdf) # set the arguments appropriately here
     return shared_secret
 
 def bob_derive(bob_priv, alice_pub):
-    shared_secret = DH.key_agreement(eph_priv=, eph_pub=, kdf=__kdf) # set the arguments appropriately here
+    shared_secret = DH.key_agreement(eph_priv=bob_priv, eph_pub=alice_pub, kdf=__kdf) # set the arguments appropriately here
     return shared_secret
 
 ###############################################################################################

@@ -6,12 +6,13 @@ Here is a reference for the correct code: https://www.pycryptodome.org/src/examp
 from Cryptodome.Cipher import AES
 from resources.image import Picture
 
-key = b'this_is_my_encryption_key' # please fill in this value
+key = b'this_is_my_encryption_key_paddin' # please fill in this value
 aes = AES.new(key, AES.MODE_ECB) # use this object within the encrypt and decrypt functions
 
 def encrypt(data):
 
     # Fill in this function with encryption of data using the aes object
+
 
     return encrypted_data
 
@@ -21,7 +22,7 @@ def decrypt(data):
 
     return decrypted_data
 
-###############################################################################################
+######################################################### ######################################
 # DO NOT EDIT BELOW
 ###############################################################################################
 

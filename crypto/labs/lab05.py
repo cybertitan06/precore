@@ -8,13 +8,22 @@ from Cryptodome.Hash import HMAC, SHA256
 from resources.image import Picture
 
 key = b'AAAAAAAAAAAAAAAA'
+cipher = AES.new(key, AES.MODE_CTR)
+
 
 def create_hmac(data):
-    pass
+    hmac = HMAC.new(data, digestmod=SHA256)
+    ciphertext = cipher.encrypt(data)
+
+    tag = hmac.update(cipher.nonce + ciphertext).digest()
+    return tag
 
 def verify_hmac(data, tag):
-    hmac = None
-    hmac.hexverify(tag)
+    hmac = HMAC.new(data, digestmod=SHA256)
+    ciphertext = cipher.encrypt(data)
+
+    tag = hmac.update(cipher.nonce + ciphertext).verify(tag)
+    return tag
 
 ###############################################################################################
 # DO NOT EDIT BELOW

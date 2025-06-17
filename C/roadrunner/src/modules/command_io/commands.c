@@ -31,29 +31,31 @@ Command *deserialize_command(uint32_t  msg_size, char *msg_stream)
         return new_cmd;
     }
 
-    msg_stream = calloc(1, msg_size * sizeof(char));
-
     //Copy bytes into relevant variables, translate from network to host, and increase the offset for the next read
     memcpy(&cmd_length, msg_stream + offset, sizeof(uint32_t));
     offset += sizeof(uint32_t);
 
     cmd_length = ntohl(cmd_length);
-    // cmd = calloc(cmd_length, sizeof(char));
+    cmd = calloc(cmd_length, sizeof(char));
     
-    // memcpy(cmd, msg_stream + offset, cmd_length);
-    // offset += sizeof(uint32_t);
+    memcpy(cmd, msg_stream + offset, cmd_length);
+    offset += sizeof(uint32_t);
 
-    // memcpy(&args_length, msg_stream + offset, sizeof(uint32_t));
-    // offset += sizeof(uint32_t);
+    memcpy(&args_length, msg_stream + offset, sizeof(uint32_t));
+    offset += sizeof(uint32_t);
 
-    // args_length = ntohl(args_length);
-    // args = calloc(1, args_length * sizeof(char));
+    args_length = ntohl(args_length);
+    args = calloc(1, args_length * sizeof(char));
     
-    // memcpy(args, msg_stream + offset, args_length);
+    memcpy(args, msg_stream + offset, args_length);
 
-    // //Convert from network to host byte order
-    // cmd = ntohl(cmd);
-    // args = ntohl(args);
+    //Verify message size is good; does msg_size == uint32 * 3 + cmd_size + arg_size. If not, somethings up
+
+    //TODO, look above
+    if (!new_cmd || !(new_cmd->cmd) || (new_cmd->cmd_len) <= 0 || !(new_cmd->args) || (new_cmd->args_len) <= 0){    
+        printf("Some response property is null or missing\n");
+        return NULL;
+    }
 
     //Create new command
     new_cmd = alloc_command(cmd, cmd_length, args, args_length);
@@ -61,11 +63,7 @@ Command *deserialize_command(uint32_t  msg_size, char *msg_stream)
     printf("Command: %s\n", new_cmd->cmd);
     fflush(stdout);
 
-    //Ensure new command is not NULL
-    if (!new_cmd || !(new_cmd->cmd) || (new_cmd->cmd_len) <= 0 || !(new_cmd->args) || (new_cmd->args_len) <= 0){    
-        printf("Some response property is null or missing\n");
-        return new_cmd;
-    }
+    //Free up memory of args I've calloc'd (cmd & args)
 
     return new_cmd;
 }

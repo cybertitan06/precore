@@ -6,7 +6,7 @@ Here is a reference for the correct code: https://www.pycryptodome.org/src/examp
 from Crypto.Cipher import AES
 from image import Picture
 
-key = b'' # please fill in this value
+key = b'this_is_my_encryption_key' # please fill in this value
 aes = AES.new(key, AES.MODE_ECB) # use this object within the encrypt and decrypt functions
 
 def encrypt(data):

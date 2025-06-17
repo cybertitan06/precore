@@ -3,17 +3,20 @@ In this exercise, we are going to load an image from a file, encrypt it, and the
 Here is a reference for the correct code: https://www.pycryptodome.org/src/examples#encrypt-data-with-aes
 '''
 
-from Crypto.Cipher import AES
-from Crypto.Hash import HMAC, SHA256
-from image import Picture
+from Cryptodome.Cipher import AES
+from Cryptodome.Hash import HMAC, SHA256
+from resources.image import Picture
 
 key = b'AAAAAAAAAAAAAAAA'
 
 def create_hmac(data):
-    pass
+    hmac = HMAC.new(key=key, digestmod=SHA256)
+    hmac.update(data)
+    return hmac.hexdigest()
 
 def verify_hmac(data, tag):
-    hmac = None
+    hmac = HMAC.new(key=key, digestmod=SHA256)
+    hmac.update(data)
     hmac.hexverify(tag)
 
 ###############################################################################################
@@ -22,7 +25,7 @@ def verify_hmac(data, tag):
 
 def main():
     pic = Picture()
-    image_bytes = pic.open_image("./tuxwhitebg.jpg")
+    image_bytes = pic.open_image("./resources/tuxwhitebg.jpg")
     tag = create_hmac(image_bytes)
     try:
         verify_hmac(image_bytes, tag)

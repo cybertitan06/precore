@@ -1,4 +1,4 @@
-from Crypto.Hash import SHA3_512
+from Cryptodome.Hash import SHA3_512
 import binascii
 
 
@@ -14,13 +14,13 @@ def crack_password(hash, wordlist):
 
 def read_passes():
     passes = []
-    with open("rockyou_ACE.txt", "rb") as r:
+    with open("./resources/rockyou_ACE.txt", "rb") as r:
         for line in r.readlines():
             passes.append(line.strip())
     return passes
 
 def get_username_and_hash():
-    with open("lab04_hash.txt", "rb") as h:
+    with open("./resources/lab04_hash.txt", "rb") as h:
         line = h.readline()
     username = line.split(b":")[0]
     hash = line.split(b":")[1]

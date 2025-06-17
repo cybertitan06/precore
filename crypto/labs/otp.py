@@ -1,4 +1,4 @@
-from Crypto import Random
+from Cryptodome import Random
 import binascii
 
 real_message  = b"Competence, Courage, Commitment, Compassion"

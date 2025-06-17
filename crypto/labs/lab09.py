@@ -1,7 +1,7 @@
-from Crypto.PublicKey import ECC
-from Crypto.Signature import DSS
-from Crypto.Random import get_random_bytes
-from Crypto.Hash import SHA3_384
+from Cryptodome.PublicKey import ECC
+from Cryptodome.Signature import DSS
+from Cryptodome.Random import get_random_bytes
+from Cryptodome.Hash import SHA3_384
 
 def create_keypair():
     curve = '' # fill in appropriate ECC curve here

@@ -2,7 +2,7 @@
 In this exercise, we are going to show one reason the nonce must be changed every time
 '''
 
-from Crypto.Cipher import AES
+from Cryptodome.Cipher import AES
 import binascii
 
 key = b'Super Secret Key'

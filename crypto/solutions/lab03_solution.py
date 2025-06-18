@@ -2,7 +2,7 @@
 In this exercise, we are going to show one reason the nonce must be changed every time
 '''
 
-from Crypto.Cipher import AES
+from Cryptodome.Cipher import AES
 import binascii
 
 key = b'Super Secret Key'
@@ -23,7 +23,8 @@ def xor_bytestrings(xs, ys):
 #ONLY EDIT THIS FUNCTION
 #Hint: the only function you need to call is xor_bytestrings
 def decrypt_bad_counter(your_message, your_ciphertext, secret_ciphertext):
-    pass
+    temp = xor_bytestrings(your_ciphertext, secret_ciphertext)
+    return xor_bytestrings(your_message, temp)
 
 #####################################################################################
 

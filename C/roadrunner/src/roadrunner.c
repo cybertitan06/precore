@@ -152,24 +152,39 @@ static Command *receive_command(int sock_fd)
     uint32_t network_message = 0;
     uint32_t host_message = 0;
     char *read_stream = NULL;
+    ssize_t read_ret_val = 0;
+
+    //allocate memory dor read stream once i know the size
 
 
     // Read message size from socket
-    msg_size = read(sock_fd, read_stream, 4);
+    read_ret_val = read(sock_fd, &msg_size, 4);
 
-    if (network_message = read(sock_fd, read_stream, msg_size) < 0){
+    //DO error handling for <=0 conditions ((0)bytes read in, connection closed; error reading (-1))
+    msg_size = ntohl(msg_size);
+
+    //Allocate space and read into that space
+
+    if (read_ret_val = read(sock_fd, read_stream, msg_size) <= 0){
         printf("Error reading in message\n");
         return cmd;
     }
-   
-    // convert from network to host byte order
-    host_message = ntohl(network_message);
 
-    // Validate message (make sure its not null, additional error handling)
+    // Validate message (make sure its not null, nothing to read, connection was closed, message values dont match up)
+
+    //Do recieve until, skip message timeout
+    //While size read dows not equal msg size:
+    //  do ret_val read combo
+    //      if > 0
+            //     amnt_recv'd += ret_val(buffer + amount recv'd)
+            // else
+            //     PANIC!!!!
 
     // deserialize the command received from the server and populate a Command struct
-    cmd = deserialize_command(msg_size, network_message);
+    cmd = deserialize_command(msg_size, read_stream);
 
+    // free memory of read_stream
+    
     return cmd;
 }
 

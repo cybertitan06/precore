@@ -1,24 +1,29 @@
-from Crypto.PublicKey import ECC
-from Crypto.Signature import DSS
-from Crypto.Random import get_random_bytes
-from Crypto.Hash import SHA3_384
+from Cryptodome.PublicKey import ECC
+from Cryptodome.Signature import DSS
+from Cryptodome.Random import get_random_bytes
+from Cryptodome.Hash import SHA3_384
 
 def create_keypair():
-    curve = '' # fill in appropriate ECC curve here
+    curve = 'P-256' # fill in appropriate ECC curve here
     return __create_keypair(curve) # do not edit this line
 
 def sign(key, message):
     sig_alg = DSS.new(key, 'fips-186-3')
+    h = SHA3_384.new(message)
+    signature = sig_alg.sign(h)
+    return signature
     # finish the algorithm
 
 def verify(key, message, sig):
     sig_alg = DSS.new(key, 'fips-186-3')
+    h = SHA3_384.new(message)
+    verifier = sig_alg.verify(h, sig)
+    return verifier
     # finish the algorithm
 
 def signature_challenge(public_key, private_key, data):
-    signature = sign(key, data) # edit this with the appropriate key
-    verify(key, data, signature) # edit this with the appropriate key
-    
+    signature = sign(private_key, data) # edit this with the appropriate key
+    verify(public_key, data, signature) # edit this with the appropriate key
 
 ###############################################################################################
 # DO NOT EDIT BELOW

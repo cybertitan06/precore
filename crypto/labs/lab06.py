@@ -1,13 +1,15 @@
-from Crypto.PublicKey import RSA
-from Crypto.Cipher import PKCS1_OAEP
-from Crypto.Random import get_random_bytes
+from Cryptodome.PublicKey import RSA
+from Cryptodome.Cipher import PKCS1_OAEP
+from Cryptodome.Random import get_random_bytes
 
 def create_keypair():
-    keysize = 0 # fill in appropriate RSA keysize here
+    keysize = 2048 # fill in appropriate RSA keysize here
     return __create_keypair(keysize) # do not edit this line
 
 def encrypt(key, data):
-    pass
+    cipher_rsa = PKCS1_OAEP.new(key)
+    enc_session_key = cipher_rsa.encrypt(data)
+    return enc_session_key
 
 def decrypt(key, data):
     pass

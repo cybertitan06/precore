@@ -149,27 +149,20 @@ static Command *receive_command(int sock_fd)
 {
     Command *cmd = NULL;
     uint32_t msg_size = 0;
-    uint32_t network_message = 0;
-    uint32_t host_message = 0;
+    uint32_t size_read = 0;
     char *read_stream = NULL;
     ssize_t read_ret_val = 0;
 
-    //allocate memory dor read stream once i know the size
-
-
     // Read message size from socket
+    //TODO error handling for <=0 conditions ((0)bytes read in, connection closed; error reading (-1))
     read_ret_val = read(sock_fd, &msg_size, 4);
 
-    //DO error handling for <=0 conditions ((0)bytes read in, connection closed; error reading (-1))
     msg_size = ntohl(msg_size);
 
-    //Allocate space and read into that space
-
-    if (read_ret_val = read(sock_fd, read_stream, msg_size) <= 0){
-        printf("Error reading in message\n");
-        return cmd;
-    }
-
+    //Allocate memory for read stream
+    read_stream = calloc(msg_size, sizeof(char)); //Ask Brandon, what is the difference btw this instantiation of calloc and
+                                                  // calloc(1, msg_size * sizeof(char))?
+                                                  
     // Validate message (make sure its not null, nothing to read, connection was closed, message values dont match up)
 
     //Do recieve until, skip message timeout
@@ -180,11 +173,22 @@ static Command *receive_command(int sock_fd)
             // else
             //     PANIC!!!!
 
+    while (size_read != msg_size){
+        read_ret_val = read(sock_fd, read_stream, msg_size);
+        if (read_ret_val >= 0)
+            size_read += read_ret_val;
+        else{
+            printf("Time to panic\n");
+            return NULL;
+       }
+    }
+
     // deserialize the command received from the server and populate a Command struct
     cmd = deserialize_command(msg_size, read_stream);
 
     // free memory of read_stream
-    
+    free(read_stream);
+
     return cmd;
 }
 

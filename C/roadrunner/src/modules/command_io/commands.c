@@ -25,14 +25,8 @@ Command *deserialize_command(uint32_t  msg_size, char *msg_stream)
     char *args = NULL;
     uint32_t offset = 0;
 
-    // Validate command received
-    if(msg_size == 0){
-        printf("No command recieved\n");
-        return new_cmd;
-    }
-
     //Copy bytes into relevant variables, translate from network to host, and increase the offset for the next read
-    memcpy(&cmd_length, msg_stream + offset, sizeof(uint32_t));
+    memcpy(&cmd_length, msg_stream, sizeof(uint32_t));
     offset += sizeof(uint32_t);
 
     cmd_length = ntohl(cmd_length);
@@ -45,25 +39,34 @@ Command *deserialize_command(uint32_t  msg_size, char *msg_stream)
     offset += sizeof(uint32_t);
 
     args_length = ntohl(args_length);
-    args = calloc(1, args_length * sizeof(char));
-    
-    memcpy(args, msg_stream + offset, args_length);
+
+    args = calloc(args_length, sizeof(char));
+
+    memcpy(args, msg_stream + offset, args_length); //This line is causing a seg fault
 
     //Verify message size is good; does msg_size == uint32 * 3 + cmd_size + arg_size. If not, somethings up
-
+    if(msg_size != (3 * sizeof(uint32_t) + sizeof(cmd) + sizeof(args))){
+        printf("Msg size does not match\n");
+        return NULL;
+    }
+    // Validate command received
     //TODO, look above
     if (!new_cmd || !(new_cmd->cmd) || (new_cmd->cmd_len) <= 0 || !(new_cmd->args) || (new_cmd->args_len) <= 0){    
         printf("Some response property is null or missing\n");
         return NULL;
     }
 
+    printf("Creating space for new command\n");
+    fflush(stdout);
     //Create new command
     new_cmd = alloc_command(cmd, cmd_length, args, args_length);
 
-    printf("Command: %s\n", new_cmd->cmd);
+    printf("New command created\n");
     fflush(stdout);
 
     //Free up memory of args I've calloc'd (cmd & args)
+    free(cmd);
+    free(args);
 
     return new_cmd;
 }

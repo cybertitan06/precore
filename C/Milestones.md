@@ -29,10 +29,10 @@
 1. roadrunner.c
     [X] connect_to_server
     [X] send_response
-    - receive_command
+    [X] receive_command
 1. commands.c
     [X] serialize_response
-    - deserialize_command
+    [X] deserialize_command
 1. files.c
     - deserialize_file_command
     - deserialize_upload_file_contents

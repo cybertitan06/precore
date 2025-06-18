@@ -10,6 +10,17 @@
 #include <utils.h>
 #include <stdio.h>
 
+void dump_mem(void *location, size_t bytes){    //Brandon's function to print out memory at a given location
+    size_t i = 0;
+    for (i = 0; i<bytes; i++){
+        if (0 == (i%16)){
+            printf("\n");
+        }
+        uint8_t curr = ((uint8_t *)location)[i];
+        printf(" %2X ", curr);
+    }
+}
+
 /**
  * @brief Deserialize a message stream of bytes into a Command structure.
  * @param msg_size (in) the total message stream size
@@ -18,55 +29,86 @@
  */
 Command *deserialize_command(uint32_t  msg_size, char *msg_stream)
 {
+    if(msg_size == 0 || !msg_stream){   //Check if a msg_stream was passed in or if msg_size is not zero
+        return NULL;
+    }
+
     Command *new_cmd = NULL;
     uint32_t cmd_length = 0;
     char *cmd = NULL;
     uint32_t args_length = 0;
     char *args = NULL;
-    uint32_t offset = 0;
 
-    //Copy bytes into relevant variables, translate from network to host, and increase the offset for the next read
-    memcpy(&cmd_length, msg_stream, sizeof(uint32_t));
+    uint32_t offset = sizeof(uint32_t);
+    uint32_t stream_size = 0;
+
+    //Copy the expected cmd_length value from the msg_stream into its variable. Increment the offset by the cmd_length datatype (uint32_t)
+    memcpy(&cmd_length, msg_stream+offset, sizeof(uint32_t));
     offset += sizeof(uint32_t);
 
+    //Translate from network to host order & reload into the cmd_length variable
     cmd_length = ntohl(cmd_length);
-    cmd = calloc(cmd_length, sizeof(char));
-    
-    memcpy(cmd, msg_stream + offset, cmd_length);
-    offset += sizeof(uint32_t);
 
+    if(cmd_length > msg_size){      //Will index beyond msg_stream buffer
+        printf("Cmd length is too big\n");
+        return NULL;
+    }
+
+    //Allocate memory for the cmd property based on the cmd_length value. Assign the cmd pointer to this memory block
+    cmd = calloc(cmd_length, sizeof(char));
+
+    //Copy the expected cmd value from the msg_stream into its variable. Increment the offset by the cmd_length value
+    memcpy(cmd, msg_stream + offset, cmd_length);
+    offset += cmd_length;
+
+    if(cmd == NULL || cmd_length != strlen(cmd)){
+        printf("Cmd is NULL or cmd_len does not match cmd length\n");
+        goto CLEANUP;
+    }
+
+    //Copy the expected args_length value from the msg_stream into its variable. Increment the offset by the args_length datatype (uint32_t)
     memcpy(&args_length, msg_stream + offset, sizeof(uint32_t));
     offset += sizeof(uint32_t);
 
+    //Translate from network to host order & reload into the args_length variable
     args_length = ntohl(args_length);
 
+    if(args_length > msg_size){         //Will index beyond the msg_stream buffer
+        printf("Args length is too big\n"); 
+        goto CLEANUP;
+    }
+
+    //Allocate memory for the args property based on the args_length value. Assign the args pointer to this memory block
     args = calloc(args_length, sizeof(char));
 
-    memcpy(args, msg_stream + offset, args_length); //This line is causing a seg fault
+    //Copy the expected args_length value from the msg_stream into its variable. Increment the offset by the args_length value
+    memcpy(args, msg_stream + offset, args_length);
 
-    //Verify message size is good; does msg_size == uint32 * 3 + cmd_size + arg_size. If not, somethings up
-    if(msg_size != (3 * sizeof(uint32_t) + sizeof(cmd) + sizeof(args))){
+    stream_size = sizeof(uint32_t) * 3 + cmd_length + args_length;
+
+    //Verify message size is good
+    if(msg_size != stream_size){
         printf("Msg size does not match\n");
-        return NULL;
-    }
-    // Validate command received
-    //TODO, look above
-    if (!new_cmd || !(new_cmd->cmd) || (new_cmd->cmd_len) <= 0 || !(new_cmd->args) || (new_cmd->args_len) <= 0){    
-        printf("Some response property is null or missing\n");
-        return NULL;
+        goto CLEANUP;
     }
 
-    printf("Creating space for new command\n");
-    fflush(stdout);
     //Create new command
     new_cmd = alloc_command(cmd, cmd_length, args, args_length);
 
-    printf("New command created\n");
-    fflush(stdout);
-
     //Free up memory of args I've calloc'd (cmd & args)
     free(cmd);
+    cmd = NULL;
     free(args);
+    args = NULL;
+
+CLEANUP:
+    if(cmd != NULL || args != NULL){
+        free(cmd);
+        cmd = NULL;
+        free(args);
+        args = NULL;
+        return NULL;
+    }
 
     return new_cmd;
 }

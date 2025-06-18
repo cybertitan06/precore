@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
 
 # Include any dependencies generated for this target.
 include src/modules/proxy_command/CMakeFiles/proxy.dir/depend.make
@@ -70,18 +70,18 @@ include src/modules/proxy_command/CMakeFiles/proxy.dir/progress.make
 include src/modules/proxy_command/CMakeFiles/proxy.dir/flags.make
 
 src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.o: src/modules/proxy_command/CMakeFiles/proxy.dir/flags.make
-src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.o: /home/student/precore/precore/C/roadrunner/src/modules/proxy_command/proxy.c
+src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.o: /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/proxy_command/proxy.c
 src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.o: src/modules/proxy_command/CMakeFiles/proxy.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.o"
-	cd /home/student/precore/precore/C/roadrunner/build/src/modules/proxy_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.o -MF CMakeFiles/proxy.dir/proxy.c.o.d -o CMakeFiles/proxy.dir/proxy.c.o -c /home/student/precore/precore/C/roadrunner/src/modules/proxy_command/proxy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.o"
+	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.o -MF CMakeFiles/proxy.dir/proxy.c.o.d -o CMakeFiles/proxy.dir/proxy.c.o -c /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/proxy_command/proxy.c
 
 src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/proxy.dir/proxy.c.i"
-	cd /home/student/precore/precore/C/roadrunner/build/src/modules/proxy_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/precore/precore/C/roadrunner/src/modules/proxy_command/proxy.c > CMakeFiles/proxy.dir/proxy.c.i
+	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/proxy_command/proxy.c > CMakeFiles/proxy.dir/proxy.c.i
 
 src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/proxy.dir/proxy.c.s"
-	cd /home/student/precore/precore/C/roadrunner/build/src/modules/proxy_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/precore/precore/C/roadrunner/src/modules/proxy_command/proxy.c -o CMakeFiles/proxy.dir/proxy.c.s
+	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/proxy_command/proxy.c -o CMakeFiles/proxy.dir/proxy.c.s
 
 # Object files for target proxy
 proxy_OBJECTS = \
@@ -93,19 +93,19 @@ proxy_EXTERNAL_OBJECTS =
 src/modules/proxy_command/libproxy.a: src/modules/proxy_command/CMakeFiles/proxy.dir/proxy.c.o
 src/modules/proxy_command/libproxy.a: src/modules/proxy_command/CMakeFiles/proxy.dir/build.make
 src/modules/proxy_command/libproxy.a: src/modules/proxy_command/CMakeFiles/proxy.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libproxy.a"
-	cd /home/student/precore/precore/C/roadrunner/build/src/modules/proxy_command && $(CMAKE_COMMAND) -P CMakeFiles/proxy.dir/cmake_clean_target.cmake
-	cd /home/student/precore/precore/C/roadrunner/build/src/modules/proxy_command && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/proxy.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libproxy.a"
+	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command && $(CMAKE_COMMAND) -P CMakeFiles/proxy.dir/cmake_clean_target.cmake
+	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/proxy.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/modules/proxy_command/CMakeFiles/proxy.dir/build: src/modules/proxy_command/libproxy.a
 .PHONY : src/modules/proxy_command/CMakeFiles/proxy.dir/build
 
 src/modules/proxy_command/CMakeFiles/proxy.dir/clean:
-	cd /home/student/precore/precore/C/roadrunner/build/src/modules/proxy_command && $(CMAKE_COMMAND) -P CMakeFiles/proxy.dir/cmake_clean.cmake
+	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command && $(CMAKE_COMMAND) -P CMakeFiles/proxy.dir/cmake_clean.cmake
 .PHONY : src/modules/proxy_command/CMakeFiles/proxy.dir/clean
 
 src/modules/proxy_command/CMakeFiles/proxy.dir/depend:
-	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/precore/precore/C/roadrunner /home/student/precore/precore/C/roadrunner/src/modules/proxy_command /home/student/precore/precore/C/roadrunner/build /home/student/precore/precore/C/roadrunner/build/src/modules/proxy_command /home/student/precore/precore/C/roadrunner/build/src/modules/proxy_command/CMakeFiles/proxy.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/CNODP_share/precore-students-2025/C/roadrunner /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/proxy_command /home/student/CNODP_share/precore-students-2025/C/roadrunner/build /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command/CMakeFiles/proxy.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/modules/proxy_command/CMakeFiles/proxy.dir/depend
 

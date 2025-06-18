@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles /home/student/precore/precore/C/roadrunner/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles /home/student/CNODP_share/precore-students-2025/C/roadrunner/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -115,6 +115,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named RoadRunner
+
+# Build rule for target.
+RoadRunner: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RoadRunner
+.PHONY : RoadRunner
+
+# fast build rule for target.
+RoadRunner/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/build
+.PHONY : RoadRunner/fast
 
 #=============================================================================
 # Target rules for targets named helloworld
@@ -194,31 +207,29 @@ proxy/fast:
 	$(MAKE) $(MAKESILENT) -f src/modules/proxy_command/CMakeFiles/proxy.dir/build.make src/modules/proxy_command/CMakeFiles/proxy.dir/build
 .PHONY : proxy/fast
 
-#=============================================================================
-# Target rules for targets named Test
+src/roadrunner.o: src/roadrunner.c.o
+.PHONY : src/roadrunner.o
 
-# Build rule for target.
-Test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Test
-.PHONY : Test
+# target to build an object file
+src/roadrunner.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/src/roadrunner.c.o
+.PHONY : src/roadrunner.c.o
 
-# fast build rule for target.
-Test/fast:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/build
-.PHONY : Test/fast
+src/roadrunner.i: src/roadrunner.c.i
+.PHONY : src/roadrunner.i
 
-#=============================================================================
-# Target rules for targets named Integration
+# target to preprocess a source file
+src/roadrunner.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/src/roadrunner.c.i
+.PHONY : src/roadrunner.c.i
 
-# Build rule for target.
-Integration: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Integration
-.PHONY : Integration
+src/roadrunner.s: src/roadrunner.c.s
+.PHONY : src/roadrunner.s
 
-# fast build rule for target.
-Integration/fast:
-	$(MAKE) $(MAKESILENT) -f integration/CMakeFiles/Integration.dir/build.make integration/CMakeFiles/Integration.dir/build
-.PHONY : Integration/fast
+# target to generate assembly for a file
+src/roadrunner.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/src/roadrunner.c.s
+.PHONY : src/roadrunner.c.s
 
 # Help Target
 help:
@@ -228,14 +239,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Integration"
-	@echo "... Test"
+	@echo "... RoadRunner"
 	@echo "... commands"
 	@echo "... core"
 	@echo "... files"
 	@echo "... helloworld"
 	@echo "... proxy"
 	@echo "... sys"
+	@echo "... src/roadrunner.o"
+	@echo "... src/roadrunner.i"
+	@echo "... src/roadrunner.s"
 .PHONY : help
 
 

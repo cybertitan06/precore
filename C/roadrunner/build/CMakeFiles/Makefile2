@@ -54,23 +54,22 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/RoadRunner.dir/all
 all: src/modules/helloworld_command/all
 all: src/modules/command_io/all
 all: src/modules/checkin_and_sleep_commands/all
 all: src/modules/file_commands/all
 all: src/modules/system_commands/all
 all: src/modules/proxy_command/all
-all: test/all
-all: integration/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -80,35 +79,17 @@ preinstall: src/modules/checkin_and_sleep_commands/preinstall
 preinstall: src/modules/file_commands/preinstall
 preinstall: src/modules/system_commands/preinstall
 preinstall: src/modules/proxy_command/preinstall
-preinstall: test/preinstall
-preinstall: integration/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/RoadRunner.dir/clean
 clean: src/modules/helloworld_command/clean
 clean: src/modules/command_io/clean
 clean: src/modules/checkin_and_sleep_commands/clean
 clean: src/modules/file_commands/clean
 clean: src/modules/system_commands/clean
 clean: src/modules/proxy_command/clean
-clean: test/clean
-clean: integration/clean
 .PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory integration
-
-# Recursive "all" directory target.
-integration/all: integration/CMakeFiles/Integration.dir/all
-.PHONY : integration/all
-
-# Recursive "preinstall" directory target.
-integration/preinstall:
-.PHONY : integration/preinstall
-
-# Recursive "clean" directory target.
-integration/clean: integration/CMakeFiles/Integration.dir/clean
-.PHONY : integration/clean
 
 #=============================================================================
 # Directory level rules for directory src/modules/checkin_and_sleep_commands
@@ -201,19 +182,35 @@ src/modules/system_commands/clean: src/modules/system_commands/CMakeFiles/sys.di
 .PHONY : src/modules/system_commands/clean
 
 #=============================================================================
-# Directory level rules for directory test
+# Target rules for target CMakeFiles/RoadRunner.dir
 
-# Recursive "all" directory target.
-test/all: test/CMakeFiles/Test.dir/all
-.PHONY : test/all
+# All Build rule for target.
+CMakeFiles/RoadRunner.dir/all: src/modules/helloworld_command/CMakeFiles/helloworld.dir/all
+CMakeFiles/RoadRunner.dir/all: src/modules/command_io/CMakeFiles/commands.dir/all
+CMakeFiles/RoadRunner.dir/all: src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/all
+CMakeFiles/RoadRunner.dir/all: src/modules/file_commands/CMakeFiles/files.dir/all
+CMakeFiles/RoadRunner.dir/all: src/modules/system_commands/CMakeFiles/sys.dir/all
+CMakeFiles/RoadRunner.dir/all: src/modules/proxy_command/CMakeFiles/proxy.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=1,2 "Built target RoadRunner"
+.PHONY : CMakeFiles/RoadRunner.dir/all
 
-# Recursive "preinstall" directory target.
-test/preinstall:
-.PHONY : test/preinstall
+# Build rule for subdir invocation for target.
+CMakeFiles/RoadRunner.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/RoadRunner.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
+.PHONY : CMakeFiles/RoadRunner.dir/rule
 
-# Recursive "clean" directory target.
-test/clean: test/CMakeFiles/Test.dir/clean
-.PHONY : test/clean
+# Convenience name for target.
+RoadRunner: CMakeFiles/RoadRunner.dir/rule
+.PHONY : RoadRunner
+
+# clean rule for target.
+CMakeFiles/RoadRunner.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadRunner.dir/build.make CMakeFiles/RoadRunner.dir/clean
+.PHONY : CMakeFiles/RoadRunner.dir/clean
 
 #=============================================================================
 # Target rules for target src/modules/helloworld_command/CMakeFiles/helloworld.dir
@@ -222,14 +219,14 @@ test/clean: test/CMakeFiles/Test.dir/clean
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/modules/helloworld_command/CMakeFiles/helloworld.dir/build.make src/modules/helloworld_command/CMakeFiles/helloworld.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=15,16 "Built target helloworld"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=9,10 "Built target helloworld"
 .PHONY : src/modules/helloworld_command/CMakeFiles/helloworld.dir/all
 
 # Build rule for subdir invocation for target.
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/helloworld_command/CMakeFiles/helloworld.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
 .PHONY : src/modules/helloworld_command/CMakeFiles/helloworld.dir/rule
 
 # Convenience name for target.
@@ -248,14 +245,14 @@ src/modules/helloworld_command/CMakeFiles/helloworld.dir/clean:
 src/modules/command_io/CMakeFiles/commands.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/modules/command_io/CMakeFiles/commands.dir/build.make src/modules/command_io/CMakeFiles/commands.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/modules/command_io/CMakeFiles/commands.dir/build.make src/modules/command_io/CMakeFiles/commands.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=9,10 "Built target commands"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=3,4 "Built target commands"
 .PHONY : src/modules/command_io/CMakeFiles/commands.dir/all
 
 # Build rule for subdir invocation for target.
 src/modules/command_io/CMakeFiles/commands.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/command_io/CMakeFiles/commands.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
 .PHONY : src/modules/command_io/CMakeFiles/commands.dir/rule
 
 # Convenience name for target.
@@ -274,14 +271,14 @@ src/modules/command_io/CMakeFiles/commands.dir/clean:
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/all: src/modules/command_io/CMakeFiles/commands.dir/all
 	$(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=11,12 "Built target core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=5,6 "Built target core"
 .PHONY : src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/all
 
 # Build rule for subdir invocation for target.
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
 .PHONY : src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/rule
 
 # Convenience name for target.
@@ -300,14 +297,14 @@ src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/clean:
 src/modules/file_commands/CMakeFiles/files.dir/all: src/modules/command_io/CMakeFiles/commands.dir/all
 	$(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/modules/file_commands/CMakeFiles/files.dir/build.make src/modules/file_commands/CMakeFiles/files.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=13,14 "Built target files"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=7,8 "Built target files"
 .PHONY : src/modules/file_commands/CMakeFiles/files.dir/all
 
 # Build rule for subdir invocation for target.
 src/modules/file_commands/CMakeFiles/files.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/file_commands/CMakeFiles/files.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
 .PHONY : src/modules/file_commands/CMakeFiles/files.dir/rule
 
 # Convenience name for target.
@@ -327,14 +324,14 @@ src/modules/system_commands/CMakeFiles/sys.dir/all: src/modules/command_io/CMake
 src/modules/system_commands/CMakeFiles/sys.dir/all: src/modules/file_commands/CMakeFiles/files.dir/all
 	$(MAKE) $(MAKESILENT) -f src/modules/system_commands/CMakeFiles/sys.dir/build.make src/modules/system_commands/CMakeFiles/sys.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/modules/system_commands/CMakeFiles/sys.dir/build.make src/modules/system_commands/CMakeFiles/sys.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=19,20 "Built target sys"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=13,14 "Built target sys"
 .PHONY : src/modules/system_commands/CMakeFiles/sys.dir/all
 
 # Build rule for subdir invocation for target.
 src/modules/system_commands/CMakeFiles/sys.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/system_commands/CMakeFiles/sys.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
 .PHONY : src/modules/system_commands/CMakeFiles/sys.dir/rule
 
 # Convenience name for target.
@@ -353,14 +350,14 @@ src/modules/system_commands/CMakeFiles/sys.dir/clean:
 src/modules/proxy_command/CMakeFiles/proxy.dir/all: src/modules/command_io/CMakeFiles/commands.dir/all
 	$(MAKE) $(MAKESILENT) -f src/modules/proxy_command/CMakeFiles/proxy.dir/build.make src/modules/proxy_command/CMakeFiles/proxy.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/modules/proxy_command/CMakeFiles/proxy.dir/build.make src/modules/proxy_command/CMakeFiles/proxy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=17,18 "Built target proxy"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles --progress-num=11,12 "Built target proxy"
 .PHONY : src/modules/proxy_command/CMakeFiles/proxy.dir/all
 
 # Build rule for subdir invocation for target.
 src/modules/proxy_command/CMakeFiles/proxy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/proxy_command/CMakeFiles/proxy.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
 .PHONY : src/modules/proxy_command/CMakeFiles/proxy.dir/rule
 
 # Convenience name for target.
@@ -371,68 +368,6 @@ proxy: src/modules/proxy_command/CMakeFiles/proxy.dir/rule
 src/modules/proxy_command/CMakeFiles/proxy.dir/clean:
 	$(MAKE) $(MAKESILENT) -f src/modules/proxy_command/CMakeFiles/proxy.dir/build.make src/modules/proxy_command/CMakeFiles/proxy.dir/clean
 .PHONY : src/modules/proxy_command/CMakeFiles/proxy.dir/clean
-
-#=============================================================================
-# Target rules for target test/CMakeFiles/Test.dir
-
-# All Build rule for target.
-test/CMakeFiles/Test.dir/all: src/modules/helloworld_command/CMakeFiles/helloworld.dir/all
-test/CMakeFiles/Test.dir/all: src/modules/command_io/CMakeFiles/commands.dir/all
-test/CMakeFiles/Test.dir/all: src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/all
-test/CMakeFiles/Test.dir/all: src/modules/file_commands/CMakeFiles/files.dir/all
-test/CMakeFiles/Test.dir/all: src/modules/system_commands/CMakeFiles/sys.dir/all
-test/CMakeFiles/Test.dir/all: src/modules/proxy_command/CMakeFiles/proxy.dir/all
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/depend
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target Test"
-.PHONY : test/CMakeFiles/Test.dir/all
-
-# Build rule for subdir invocation for target.
-test/CMakeFiles/Test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 18
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/Test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
-.PHONY : test/CMakeFiles/Test.dir/rule
-
-# Convenience name for target.
-Test: test/CMakeFiles/Test.dir/rule
-.PHONY : Test
-
-# clean rule for target.
-test/CMakeFiles/Test.dir/clean:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/clean
-.PHONY : test/CMakeFiles/Test.dir/clean
-
-#=============================================================================
-# Target rules for target integration/CMakeFiles/Integration.dir
-
-# All Build rule for target.
-integration/CMakeFiles/Integration.dir/all: src/modules/helloworld_command/CMakeFiles/helloworld.dir/all
-integration/CMakeFiles/Integration.dir/all: src/modules/command_io/CMakeFiles/commands.dir/all
-integration/CMakeFiles/Integration.dir/all: src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/all
-integration/CMakeFiles/Integration.dir/all: src/modules/file_commands/CMakeFiles/files.dir/all
-integration/CMakeFiles/Integration.dir/all: src/modules/system_commands/CMakeFiles/sys.dir/all
-integration/CMakeFiles/Integration.dir/all: src/modules/proxy_command/CMakeFiles/proxy.dir/all
-	$(MAKE) $(MAKESILENT) -f integration/CMakeFiles/Integration.dir/build.make integration/CMakeFiles/Integration.dir/depend
-	$(MAKE) $(MAKESILENT) -f integration/CMakeFiles/Integration.dir/build.make integration/CMakeFiles/Integration.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/precore/precore/C/roadrunner/build/CMakeFiles --progress-num=1,2 "Built target Integration"
-.PHONY : integration/CMakeFiles/Integration.dir/all
-
-# Build rule for subdir invocation for target.
-integration/CMakeFiles/Integration.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 14
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 integration/CMakeFiles/Integration.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
-.PHONY : integration/CMakeFiles/Integration.dir/rule
-
-# Convenience name for target.
-Integration: integration/CMakeFiles/Integration.dir/rule
-.PHONY : Integration
-
-# clean rule for target.
-integration/CMakeFiles/Integration.dir/clean:
-	$(MAKE) $(MAKESILENT) -f integration/CMakeFiles/Integration.dir/build.make integration/CMakeFiles/Integration.dir/clean
-.PHONY : integration/CMakeFiles/Integration.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

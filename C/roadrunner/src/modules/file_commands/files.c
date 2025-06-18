@@ -188,6 +188,20 @@ done:
  */
 static uint32_t deserialize_upload_file_path(char *upload_args, char **file_path_out)
 {
+/*
+    ### Upload Command
+
+**Description**: This command tells a RoadRunner agent to write the contents of a file to disk at the specified location.
+
+    {uint32:total_message_size}{uint32:7}{char[7]:"upload"}{uint32 args_length}{{uint32:file_path_size}{char[file_path_size]:file_path}{uint32:contents_size}{char[contents_size]:contents}}
+
+### Upload Response
+
+**Description**: After executing an upload command the RoadRunner agent will send back a response message indicating success or failure of the upload.
+
+    {uint32:total_message_size}{uint32:ret_code}{uint32:msg_length}{char[msg_length]:success_or_error_message}
+*/
+
     uint32_t file_path_len;
     // refer to the README.md to inform how to deserialize just the upload path
     return file_path_len;

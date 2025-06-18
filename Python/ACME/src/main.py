@@ -171,34 +171,26 @@ async def parse_response(reader: asyncio.StreamReader) -> tuple[int, bytes]:
 
         #Read in the total message size
         total_message_size = await reader.read(4)
-        print(f"Total message size has been read in")
 
         d_total_message_size = struct.unpack('>I', total_message_size)
-        print(f"Total msg size: {d_total_message_size}")
 
         #Read in the ret_code
         ret_code = await reader.read(4)
-        print("Ret code has been read in")
 
         #Deserialize ret code
         d_ret_code = struct.unpack('>I', ret_code)
-        print(f"Ret code: {d_ret_code}")
 
         #Read in the msg_length
         msg_length = await reader.read(4)
-        print("Msg length has been read in")
 
         #Deserialize msg_length
         d_msg_length = struct.unpack('>I', msg_length)
-        print(f"Msg length: {d_msg_length}")
 
         #Read in the msg
         msg = await reader.read(d_msg_length[0])
-        print("Msg has been read in")
 
         #Deserialize msg
         d_msg = struct.unpack(f'>{d_msg_length[0]}s', msg)
-        print(f"Msg: {d_msg[0]}")
 
         #Load the ret_code and message into the respective tuple fields
         tuple = (d_ret_code[0], d_msg[0])
@@ -206,7 +198,6 @@ async def parse_response(reader: asyncio.StreamReader) -> tuple[int, bytes]:
         #Force end of file response to exit while loop
         reader.feed_eof()
 
-    print("Response has been parsed, returning tuple")
     print(f"Ret code: {tuple[0]}, msg: {tuple[1]}")
     return tuple
 
@@ -232,21 +223,29 @@ def create_command(command: bytes, args: bytes) -> bytes:
     Returns:
         bytes: a serialized bytestream that can be sent to the agent
     """
-    command_bytearray = bytearray(b'')
+    
 
     command_length = len(command)
-
+    offset = 0
     #TODO You may get multiple arguments separated by a ' '. Need to join them together for serialization
     args_length = len(args)
-    total_message_size = command_length + (len(command) + 1) + args_length + len(args)
-    
+    total_message_size = 3 * 4 + command_length + args_length
+
+    command_bytearray = bytearray(total_message_size)
     # import struct, how to pack a byte stream for serialization/deserial. Load into bytearray as element is serialized
 
-    struct.pack_into('I', command_bytearray, 0, total_message_size)
-    struct.pack_into('I', command_bytearray, 1, command_length)
-    struct.pack_into('{command_length}s', command_bytearray, 2, command.encode())
-    struct.pack_into('I', command_bytearray, 3, args_length)
-    struct.pack_into('{args_length}s', command_bytearray, 4, args.encode())
+    struct.pack_into('!I', command_bytearray, offset, total_message_size)
+    offset+=4
+    struct.pack_into('!I', command_bytearray, offset, command_length)
+    offset+=4
+    struct.pack_into(f'{command_length}s', command_bytearray, offset, command.encode())
+    offset+=command_length
+    struct.pack_into('!I', command_bytearray, offset, args_length)
+    offset+=4
+    struct.pack_into(f'{args_length}s', command_bytearray, offset, args.encode())
+
+    for b in command_bytearray:
+        print(b)
 
     return command_bytearray
 
@@ -434,10 +433,12 @@ async def shell(agents_connected: list[Agent]):
                 for agents in agents_connected:
                     print(agents)
                 pass
-            case ["use", agent_name]:
-                selected_agent = agent_name
+            case ["use", agent_name]:        
+                for agent in agents_connected:
+                    if agent_name == agent.name:
+                        selected_agent = agent
             case ["unuse"]:
-                #selected_agent = None
+                selected_agent = None
                 pass
             case _:
                 no_std = True

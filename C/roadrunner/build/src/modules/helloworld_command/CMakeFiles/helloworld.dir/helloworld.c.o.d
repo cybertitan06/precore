@@ -1,7 +1,7 @@
 src/modules/helloworld_command/CMakeFiles/helloworld.dir/helloworld.c.o: \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command/helloworld.c \
+ /home/student/precore/precore/C/roadrunner/src/modules/helloworld_command/helloworld.c \
  /usr/include/stdc-predef.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/helloworld_command/helloworld.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/helloworld_command/helloworld.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

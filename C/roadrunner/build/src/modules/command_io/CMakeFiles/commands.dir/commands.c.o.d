@@ -1,7 +1,7 @@
 src/modules/command_io/CMakeFiles/commands.dir/commands.c.o: \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.c \
+ /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.c \
  /usr/include/stdc-predef.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/modules/command_io/commands.h \
+ /home/student/precore/precore/C/roadrunner/src/modules/command_io/commands.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -75,4 +75,4 @@ src/modules/command_io/CMakeFiles/commands.dir/commands.c.o: \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h \
- /home/student/CNODP_share/precore-students-2025/C/roadrunner/src/utils.h
+ /home/student/precore/precore/C/roadrunner/src/utils.h

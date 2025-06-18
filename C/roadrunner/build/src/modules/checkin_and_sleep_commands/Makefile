@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner
+CMAKE_SOURCE_DIR = /home/student/precore/precore/C/roadrunner
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/CNODP_share/precore-students-2025/C/roadrunner/build
+CMAKE_BINARY_DIR = /home/student/precore/precore/C/roadrunner/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands//CMakeFiles/progress.marks
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles 0
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles /home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands//CMakeFiles/progress.marks
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/precore/precore/C/roadrunner/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/clean
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/preinstall
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/preinstall
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/rule:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/rule
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/rule
 .PHONY : src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ core: src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/rule
 
 # fast build rule for target.
 core/fast:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build
 .PHONY : core/fast
 
 core.o: core.c.o
@@ -135,7 +135,7 @@ core.o: core.c.o
 
 # target to build an object file
 core.c.o:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.o
 .PHONY : core.c.o
 
 core.i: core.c.i
@@ -143,7 +143,7 @@ core.i: core.c.i
 
 # target to preprocess a source file
 core.c.i:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.i
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.i
 .PHONY : core.c.i
 
 core.s: core.c.s
@@ -151,7 +151,7 @@ core.s: core.c.s
 
 # target to generate assembly for a file
 core.c.s:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.s
+	cd /home/student/precore/precore/C/roadrunner/build && $(MAKE) $(MAKESILENT) -f src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/build.make src/modules/checkin_and_sleep_commands/CMakeFiles/core.dir/core.c.s
 .PHONY : core.c.s
 
 # Help Target
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/student/CNODP_share/precore-students-2025/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/student/precore/precore/C/roadrunner/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

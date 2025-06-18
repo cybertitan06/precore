@@ -18,8 +18,7 @@
  */
 Command *deserialize_command(uint32_t  msg_size, char *msg_stream)
 {
-    Command *new_cmd = calloc(1, sizeof(Command));
-    uint32_t total_message_size = 0;
+    Command *new_cmd = NULL;
     uint32_t cmd_length = 0;
     char *cmd = NULL;
     uint32_t args_length = 0;
@@ -32,30 +31,40 @@ Command *deserialize_command(uint32_t  msg_size, char *msg_stream)
         return new_cmd;
     }
 
+    printf("Given msg size: %d\n", msg_size);
+    fflush(stdout);
+
+    //Allocate memory for msg_stream buffer
     msg_stream = calloc(1, msg_size * sizeof(char));
 
+    printf("Size of msg stream buffer: %d\n", sizeof(msg_stream));
+    fflush(stdout);
+
     //Copy bytes into relevant variables, translate from network to host, and increase the offset for the next read
-    memcpy(&total_message_size, msg_stream, sizeof(uint32_t));
+
+    memcpy(&cmd_length, msg_stream, sizeof(uint32_t));
     offset += sizeof(uint32_t);
 
-    memcpy(&cmd_length, msg_stream + offset, sizeof(uint32_t));
-    cmd_length = ntohl(cmd_length);
-    offset += sizeof(uint32_t);
+    printf("Given cmd length: %d\n", cmd_length);
+    fflush(stdout);
 
-    cmd = calloc(cmd_length, sizeof(char));
-    memcpy(cmd, msg_stream + offset, cmd_length);
-    offset += sizeof(uint32_t);
+    // cmd_length = ntohl(cmd_length);
+    // cmd = calloc(cmd_length, sizeof(char));
+    
+    // memcpy(cmd, msg_stream + offset, cmd_length);
+    // offset += sizeof(uint32_t);
 
-    memcpy(&args_length, msg_stream + offset, sizeof(uint32_t));
-    args_length = ntohl(args_length);
-    offset += sizeof(uint32_t);
 
-    args = calloc(1, args_length * sizeof(char));
-    memcpy(args, msg_stream + offset, args_length);
+    // memcpy(&args_length, msg_stream + offset, sizeof(uint32_t));
+    // args_length = ntohl(args_length);
+    // offset += sizeof(uint32_t);
 
-    //Convert from network to host byte order
-    cmd = ntohl(cmd);
-    args = ntohl(args);
+    // args = calloc(1, args_length * sizeof(char));
+    // memcpy(args, msg_stream + offset, args_length);
+
+    // //Convert from network to host byte order
+    // cmd = ntohl(cmd);
+    // args = ntohl(args);
 
     //Create new command
     new_cmd = alloc_command(cmd, cmd_length, args, args_length);

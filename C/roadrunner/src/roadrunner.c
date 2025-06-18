@@ -168,7 +168,7 @@ static Command *receive_command(int sock_fd)
     // Validate message (make sure its not null, additional error handling)
 
     // deserialize the command received from the server and populate a Command struct
-    cmd = deserialize_command(msg_size, host_message);
+    cmd = deserialize_command(msg_size, network_message);
 
     return cmd;
 }

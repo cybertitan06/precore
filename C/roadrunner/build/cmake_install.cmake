@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/CNODP_share/precore-students-2025/C/roadrunner
+# Install script for directory: /home/student/precore/precore/C/roadrunner
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,14 +44,14 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command/cmake_install.cmake")
-  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/command_io/cmake_install.cmake")
-  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/checkin_and_sleep_commands/cmake_install.cmake")
-  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/file_commands/cmake_install.cmake")
-  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/system_commands/cmake_install.cmake")
-  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command/cmake_install.cmake")
-  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/test/cmake_install.cmake")
-  include("/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration/cmake_install.cmake")
+  include("/home/student/precore/precore/C/roadrunner/build/src/modules/helloworld_command/cmake_install.cmake")
+  include("/home/student/precore/precore/C/roadrunner/build/src/modules/command_io/cmake_install.cmake")
+  include("/home/student/precore/precore/C/roadrunner/build/src/modules/checkin_and_sleep_commands/cmake_install.cmake")
+  include("/home/student/precore/precore/C/roadrunner/build/src/modules/file_commands/cmake_install.cmake")
+  include("/home/student/precore/precore/C/roadrunner/build/src/modules/system_commands/cmake_install.cmake")
+  include("/home/student/precore/precore/C/roadrunner/build/src/modules/proxy_command/cmake_install.cmake")
+  include("/home/student/precore/precore/C/roadrunner/build/test/cmake_install.cmake")
+  include("/home/student/precore/precore/C/roadrunner/build/integration/cmake_install.cmake")
 
 endif()
 
@@ -63,5 +63,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/student/precore/precore/C/roadrunner/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

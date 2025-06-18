@@ -204,7 +204,7 @@ void free_response(Response *rsp)
     if(rsp != NULL)
     {
         // free the message stream
-        checkfree(rsp->msg)
+        checkfree(rsp->msg);
         // free the whole structure  
         free(rsp);
     }

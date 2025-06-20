@@ -36,7 +36,7 @@ The equation to solve for the resistor value is:
 **R<sub>1</sub> = (V<sub>CC</sub> - V<sub>D1</sub>) / I**
 
 Fill in the known values of **V<sub>CC</sub>** (5V), **V<sub>D1</sub>** (2V), and **I** (20mA) and calculate the value of **R<sub>1</sub>**
-
+ 
 (*hint: check the datasheets*)
 
 **R<sub>1</sub>** = _____________

@@ -317,11 +317,16 @@ async def manage_agent(
 
     manage_Agent calls create_command, get_agent_name
 
+    Where to call shell()?
+
     Args:
         agent (Agent): the agent object tied to this connection
         reader (asyncio.StreamReader): stream to get data from the agent
         writer (asyncio.StreamWriter): stream to send data to the agent
     """
+
+    #Select agent
+
 
     #Read from command queue, write to agent
     data = await reader.read(100)
@@ -430,8 +435,8 @@ async def shell(agents_connected: list[Agent]):
             case ["help"]:
                 print_std_help()
             case ["agents"]:
-                for agents in agents_connected:
-                    print(agents)
+                for agent in agents_connected:
+                    print(agent)
                 pass
             case ["use", agent_name]:        
                 for agent in agents_connected:
@@ -450,7 +455,7 @@ async def shell(agents_connected: list[Agent]):
                 case ["rename", new_name]:
                     pass
                 case ["shutdown"]:
-                    selected_agent.commands = create_command("shutdown")
+                    agent.commands = selected_agent.commands
                     pass
                 case ["sleep", sleeptime]:
                     selected_agent.commands = create_command("sleep", sleeptime)

@@ -6,7 +6,7 @@ Solution is shown by completing the lab steps.
 
 ## Resources:
 
-- 555 Timer IC Dip-8 [datasheet](resources/na555.pdf)
+- 555 Timer IC Dip-8 [datasheet](resources/na555.pdf) 
 - Capacitor (correct value should be in your kit)
 
 ## Objective

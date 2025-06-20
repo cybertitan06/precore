@@ -30,7 +30,7 @@ main:
     add     eax, [arr+16]
     mov     ebx, [loop_sum]
     div     ebx
-    cmp     eax, len
+    cmp     eax, [len]
     jne     bad_cmp
     push    good
     jmp     exit

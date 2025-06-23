@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/src/roadrunner.c" "CMakeFiles/RoadRunner.dir/src/roadrunner.c.o" "gcc" "CMakeFiles/RoadRunner.dir/src/roadrunner.c.o.d"
+  "/home/student/CNODP_share/precore-students-2025/C/roadrunner/integration/integration.c" "integration/CMakeFiles/Integration.dir/integration.c.o" "gcc" "integration/CMakeFiles/Integration.dir/integration.c.o.d"
   )
 
 # Targets to which this target links.

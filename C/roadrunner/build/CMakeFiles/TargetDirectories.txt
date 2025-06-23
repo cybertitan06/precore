@@ -1,4 +1,3 @@
-/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles/RoadRunner.dir
 /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles/edit_cache.dir
 /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/CMakeFiles/rebuild_cache.dir
 /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/helloworld_command/CMakeFiles/helloworld.dir
@@ -19,3 +18,9 @@
 /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command/CMakeFiles/proxy.dir
 /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command/CMakeFiles/edit_cache.dir
 /home/student/CNODP_share/precore-students-2025/C/roadrunner/build/src/modules/proxy_command/CMakeFiles/rebuild_cache.dir
+/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/test/CMakeFiles/Test.dir
+/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/test/CMakeFiles/edit_cache.dir
+/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/test/CMakeFiles/rebuild_cache.dir
+/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration/CMakeFiles/Integration.dir
+/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration/CMakeFiles/edit_cache.dir
+/home/student/CNODP_share/precore-students-2025/C/roadrunner/build/integration/CMakeFiles/rebuild_cache.dir
